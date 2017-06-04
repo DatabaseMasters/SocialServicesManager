@@ -49,12 +49,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201706041024570_First Attempt.cs" />
+    <Compile Include="Migrations\201706041024570_First Attempt.Designer.cs">
+      <DependentUpon>201706041024570_First Attempt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocialServicesDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
+      <Project>{e528b0a5-0a50-422c-bbc2-c383340a1d88}</Project>
+      <Name>SocialServicesManager.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706041024570_First Attempt.resx">
+      <DependentUpon>201706041024570_First Attempt.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

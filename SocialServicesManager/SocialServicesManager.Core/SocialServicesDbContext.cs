@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using SocialServicesManager.Models;
+using System.Data.Entity;
 
 namespace SocialServicesManager.Core
 {
@@ -6,7 +7,9 @@ namespace SocialServicesManager.Core
     {
         public SocialServicesDbContext() : base("SocialServicesConnection")
         {
+           
+        }
 
-        }        
+        public DbSet<User> Users { get; set; }
     }
 }
