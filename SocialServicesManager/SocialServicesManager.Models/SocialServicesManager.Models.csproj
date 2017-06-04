@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="Child.cs" />
     <Compile Include="Family.cs" />
     <Compile Include="GenderType.cs" />
     <Compile Include="Municipality.cs" />
