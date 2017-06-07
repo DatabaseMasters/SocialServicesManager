@@ -9,18 +9,15 @@ namespace SocialServicesManager.ConsoleUI
     {
         static void Main(string[] args)
         {
-            var db = new SocialServicesDbContext();
+            var db = new PostgreDBContext();
 
-            var newUser = new User();
-            newUser.Name = "Maria";
-            db.Users.Add(newUser);
+            var visit = new Visit();
+
+            visit.Date = new System.DateTime(1992, 1, 1);
+            visit.UserId = 1;
+            visit.FamilyId = 1;
+            db.Visits.Add(visit);
             db.SaveChanges();
-        }
-
-        public void Add<T>(DbContext context, T entity)
-        {
-            //context.Add(entity);
-            //context.SaveChanges();
         }
     }
 }

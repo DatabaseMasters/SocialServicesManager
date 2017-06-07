@@ -5,14 +5,14 @@ namespace SocialServicesManager.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SocialServicesManager.Data.SocialServicesDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SocialServicesManager.Data.PostgreDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SocialServicesManager.Data.SocialServicesDbContext context)
+        protected override void Seed(SocialServicesManager.Data.PostgreDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

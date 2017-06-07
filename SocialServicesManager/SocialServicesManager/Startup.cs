@@ -8,7 +8,7 @@ namespace SocialServicesManager.ConsoleUI
     {
         static void Main(string[] args)
         {
-            var db = new SocialServicesDbContext();
+            var db = new SQLServerDbContext();
 
             var newUser = new User();
             newUser.Name = "Maria";
