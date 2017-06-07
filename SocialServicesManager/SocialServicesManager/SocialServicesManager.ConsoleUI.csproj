@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialServicesManager.Core\SocialServicesManager.Data.csproj">
+      <Project>{0951c0de-eebf-4ffd-abf4-738e3372031d}</Project>
+      <Name>SocialServicesManager.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
+      <Project>{e528b0a5-0a50-422c-bbc2-c383340a1d88}</Project>
+      <Name>SocialServicesManager.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

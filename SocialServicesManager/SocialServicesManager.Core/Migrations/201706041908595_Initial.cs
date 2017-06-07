@@ -1,9 +1,9 @@
-namespace SocialServicesManager.Data.Migrations
+namespace SocialServicesManager.Core.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AdditionalDbSets : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {

@@ -1,18 +1,18 @@
-namespace SocialServicesManager.Core.Migrations
+namespace SocialServicesManager.Data.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SocialServicesManager.Core.SocialServicesDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SocialServicesManager.Data.SocialServicesDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SocialServicesManager.Core.SocialServicesDbContext context)
+        protected override void Seed(SocialServicesManager.Data.SocialServicesDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Models", "SocialServicesManager.Models\SocialServicesManager.Models.csproj", "{E528B0A5-0A50-422C-BBC2-C383340A1D88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Core", "SocialServicesManager.Core\SocialServicesManager.Core.csproj", "{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Data", "SocialServicesManager.Core\SocialServicesManager.Data.csproj", "{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.DataParser", "SocialServicesManager.DataParser\SocialServicesManager.DataParser.csproj", "{1C914411-60A6-4D48-9F6B-A5BA45BBD8D9}"
 EndProject

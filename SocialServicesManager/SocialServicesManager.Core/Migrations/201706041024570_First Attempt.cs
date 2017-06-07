@@ -1,4 +1,4 @@
-namespace SocialServicesManager.Core.Migrations
+namespace SocialServicesManager.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

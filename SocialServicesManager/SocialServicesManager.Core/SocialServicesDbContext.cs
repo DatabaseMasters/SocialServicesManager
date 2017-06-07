@@ -1,7 +1,7 @@
 ﻿using SocialServicesManager.Models;
 using System.Data.Entity;
 
-namespace SocialServicesManager.Core
+namespace SocialServicesManager.Data
 {
     public class SocialServicesDbContext : DbContext
     {

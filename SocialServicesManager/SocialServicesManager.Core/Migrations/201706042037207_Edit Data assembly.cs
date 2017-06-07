@@ -3,7 +3,7 @@ namespace SocialServicesManager.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AdditionalDbSets : DbMigration
+    public partial class EditDataassembly : DbMigration
     {
         public override void Up()
         {
@@ -68,6 +68,15 @@ namespace SocialServicesManager.Data.Migrations
                 .Index(t => t.AuthorizedStaffMember_Id);
             
             CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.FamilyMembers",
                 c => new
                     {
@@ -106,6 +115,7 @@ namespace SocialServicesManager.Data.Migrations
             DropIndex("dbo.Towns", new[] { "Municipality_Id" });
             DropIndex("dbo.Addresses", new[] { "Town_Id" });
             DropTable("dbo.FamilyMembers");
+            DropTable("dbo.Users");
             DropTable("dbo.Families");
             DropTable("dbo.Children");
             DropTable("dbo.Municipalities");
