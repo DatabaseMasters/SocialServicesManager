@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F0A870A4-0BD0-4272-A473-610192630953}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{BBF8CA10-5570-4B59-A622-CE2E27854BBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SocialServicesManager.ConsoleUI</RootNamespace>
-    <AssemblyName>SocialServicesManager.ConsoleUI</AssemblyName>
+    <RootNamespace>SocialServicesManager.App</RootNamespace>
+    <AssemblyName>SocialServicesManager.App</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,25 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Providers\CommandProcessor.cs" />
-    <Compile Include="Providers\ConsoleReader.cs" />
-    <Compile Include="Providers\ConsoleWriter.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Commands\Abstarcts\Command.cs" />
+    <Compile Include="Commands\Abstarcts\CreationalCommand.cs" />
+    <Compile Include="Commands\CommandsFactory.cs" />
+    <Compile Include="Commands\Contracts\ICommand.cs" />
+    <Compile Include="Commands\Contracts\ICommandsFactory.cs" />
+    <Compile Include="Commands\Creational\CreateFamilyCommand.cs" />
+    <Compile Include="Commands\Creational\CreateUserCommand.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Contracts\IProcessor.cs" />
+    <Compile Include="Providers\Contracts\IReader.cs" />
+    <Compile Include="Providers\Contracts\IWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SocialServicesManager.App\SocialServicesManager.App.csproj">
-      <Project>{BBF8CA10-5570-4B59-A622-CE2E27854BBB}</Project>
-      <Name>SocialServicesManager.App</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SocialServicesManager.Core\SocialServicesManager.Data.csproj">
-      <Project>{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}</Project>
-      <Name>SocialServicesManager.Data</Name>
-    </ProjectReference>
+    <Folder Include="Commands\Listing\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -64,6 +57,16 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialServicesManager.Core\SocialServicesManager.Data.csproj">
+      <Project>{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}</Project>
+      <Name>SocialServicesManager.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

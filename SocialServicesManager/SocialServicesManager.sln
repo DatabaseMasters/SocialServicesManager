@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Model
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Data", "SocialServicesManager.Core\SocialServicesManager.Data.csproj", "{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.DataParser", "SocialServicesManager.DataParser\SocialServicesManager.DataParser.csproj", "{1C914411-60A6-4D48-9F6B-A5BA45BBD8D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.App", "SocialServicesManager.App\SocialServicesManager.App.csproj", "{BBF8CA10-5570-4B59-A622-CE2E27854BBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C914411-60A6-4D48-9F6B-A5BA45BBD8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C914411-60A6-4D48-9F6B-A5BA45BBD8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C914411-60A6-4D48-9F6B-A5BA45BBD8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C914411-60A6-4D48-9F6B-A5BA45BBD8D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SocialServicesManager.Models
+﻿namespace SocialServicesManager.Models
 {
     public class FamilyMember
     {
@@ -14,9 +12,6 @@ namespace SocialServicesManager.Models
 
         public virtual Address Address { get; set;  }
 
-        public virtual Family Family {get; set; }
-
-        public virtual User AuthorisedStaffMember { get; set; }
-                
+        public virtual Family Family {get; set; }                
     }
 }

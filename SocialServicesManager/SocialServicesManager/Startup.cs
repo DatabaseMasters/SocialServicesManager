@@ -1,18 +1,31 @@
-﻿using SocialServicesManager.Core;
+﻿using SocialServicesManager.App;
+using SocialServicesManager.App.Commands;
+using SocialServicesManager.ConsoleUI.Providers;
 using SocialServicesManager.Data;
-using SocialServicesManager.Models;
+using SocialServicesManager.Data.Factories;
 
 namespace SocialServicesManager.ConsoleUI
 {
-    class Startup
+    public class Startup
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            var db = new SocialServicesDbContext();
+            var reader = new ConsoleReader();
+            var writer = new ConsoleWriter();
 
-            var newUser = new User();
-            newUser.Name = "Maria";
-           // db.Users.Add();
+            // TODO Remove reference to Data layer?
+            var dbContext = new SocialServicesDbContext();
+            var modelsFacotry = new ModelsFactory(dbContext);
+            var cmdFactory = new CommandsFactory(dbContext, modelsFacotry);
+            var processor = new CommandProcessor(cmdFactory);
+
+            var engine = new Engine(reader, writer, processor);
+
+            //Sample commands:
+            //"createfamily Petrovi";
+            //"createuser Nedialka";
+
+            engine.Start();
         }
     }
 }
