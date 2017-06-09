@@ -4,9 +4,9 @@ namespace SocialServicesManager.Data.Factories
 {
     public interface IModelsFactory
     {
-        string CreateFamily(string name);
+        Family CreateFamily(string name);
 
-        string CreateUser(string name);
+        User CreateUser(string name);
 
         string CreateVisit(string date, string descirption, int userId, int familyId, string type);
 

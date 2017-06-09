@@ -21,7 +21,7 @@ namespace SocialServicesManager.Data.Factories
 
         public SqliteDbContext SqliteDbContext { get; private set; }
 
-        public string CreateFamily(string name)
+        public Family CreateFamily(string name)
         {
             var family = new Family
             {
@@ -31,10 +31,10 @@ namespace SocialServicesManager.Data.Factories
             this.SqlDbContext.Families.Add(family);
             this.SqlDbContext.SaveChanges();
 
-            return $"Family {family.Name} with id {family.Id} created.";
+            return family;
         }
 
-        public string CreateUser(string name)
+        public User CreateUser(string name)
         {
             var user = new User
             {
@@ -44,7 +44,7 @@ namespace SocialServicesManager.Data.Factories
             this.SqlDbContext.Users.Add(user);
             this.SqlDbContext.SaveChanges();
 
-            return $"User {user.Name} with {user.Id} created";
+            return user;
         }
 
         public string CreateVisit(string date, string descirption, int userId, int familyId, string type)

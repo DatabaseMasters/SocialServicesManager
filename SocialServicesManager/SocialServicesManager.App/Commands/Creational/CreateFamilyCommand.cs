@@ -15,9 +15,9 @@ namespace SocialServicesManager.App.Commands.Creational
         public override string Execute(IList<string> parameters)
         {
             // TODO Fix passed parameters to factory
-            var result = this.Factory.CreateFamily(parameters[0]);
+            var createdFamily = this.Factory.CreateFamily(parameters[0]);
 
-            return result;
+            return $"Family {createdFamily.Name} with id {createdFamily.Id} created.";
         }
     }
 }

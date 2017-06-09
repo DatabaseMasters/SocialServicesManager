@@ -15,9 +15,9 @@ namespace SocialServicesManager.App.Commands.Creational
         public override string Execute(IList<string> parameters)
         {
             // TODO Fix passed parameters to factory
-            var result = this.Factory.CreateUser(parameters[0]);
+            var createdUser = this.Factory.CreateUser(parameters[0]);
 
-            return result;
+            return $"User {createdUser.Name} with {createdUser.Id} created";
         }
     }
 }

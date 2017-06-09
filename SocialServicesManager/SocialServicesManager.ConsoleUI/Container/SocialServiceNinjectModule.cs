@@ -24,7 +24,8 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<IWriter>().To<ConsoleWriter>().InSingletonScope();
             
             this.Kernel.Bind<DbContext>().To<SQLServerDbContext>().WithConstructorArgument("sqlDbContext");
-            this.Kernel.Bind<DbContext>().To<SQLServerDbContext>().WithConstructorArgument("postgreDbContext");
+            this.Kernel.Bind<DbContext>().To<PostgreDbContext>().WithConstructorArgument("postgreDbContext");
+            this.Kernel.Bind<DbContext>().To<SqliteDbContext>().WithConstructorArgument("sqliteDbContext");
             this.Bind<IModelsFactory>().To<ModelsFactory>().InSingletonScope();
 
             this.Bind<ICommandsFactory>().To<CommandsFactory>().InSingletonScope();
@@ -32,7 +33,7 @@ namespace SocialServicesManager.ConsoleUI.Container
 
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
 
-            this.Bind<CreationalCommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
+            //this.Bind<CreationalCommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
             //this.Bind<ICommand>().To<CreateUserCommand>().Named(CreateUserName);
             //this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
 
