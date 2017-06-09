@@ -10,6 +10,10 @@ namespace SocialServicesManager.Data.Factories
 
         string CreateVisit(string date, string descirption, int userId, int familyId, string type);
 
+        string CreateMedicalRecord(string description, int childId, int medicalDoctorId);
+
+        string CreateMedicalDoctor(string name);
+
         VisitType CreateVisitType(string name);
     }
 }

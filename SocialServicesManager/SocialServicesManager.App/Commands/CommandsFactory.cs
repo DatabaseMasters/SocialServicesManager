@@ -24,6 +24,10 @@ namespace SocialServicesManager.App.Commands
                     return this.CreateUserCommand();
                 case "createvisit":
                     return this.CreateVisitCommand();
+                case "createmedicalrecord":
+                    return this.CreateMedicalRecordCommand();
+                case "createmedicaldoctor":
+                    return this.CreateMedicalDoctorRecordCommand();
                 default:
                     throw new ArgumentException("Command not found");
             }
@@ -42,6 +46,16 @@ namespace SocialServicesManager.App.Commands
         private ICommand CreateVisitCommand()
         {
             return new CreateVisitCommand(this.Factory);
+        }
+
+        private ICommand CreateMedicalRecordCommand()
+        {
+            return new CreateMedicalRecord(this.Factory);
+        }
+
+        private ICommand CreateMedicalDoctorRecordCommand()
+        {
+            return new CreateMedicalDoctor(this.Factory);
         }
     }
 }

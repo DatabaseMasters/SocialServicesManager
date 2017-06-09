@@ -35,6 +35,8 @@
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\Contracts\ICommandsFactory.cs" />
     <Compile Include="Commands\Creational\CreateFamilyCommand.cs" />
+    <Compile Include="Commands\Creational\CreateMedicalDoctorCommand.cs" />
+    <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
     <Compile Include="Commands\Creational\CreateUserCommand.cs" />
     <Compile Include="Commands\Creational\CreateVisitCommand.cs" />
     <Compile Include="Providers\Contracts\IEngine.cs" />

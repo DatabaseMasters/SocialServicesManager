@@ -8,15 +8,18 @@ namespace SocialServicesManager.Data.Factories
 {
     public class ModelsFactory : IModelsFactory
     {
-        public ModelsFactory(SQLServerDbContext sqlDbContext, PostgreDbContext postgreDbContext)
+        public ModelsFactory(SQLServerDbContext sqlDbContext, PostgreDbContext postgreDbContext, SqliteDbContext sqliteDbContext)
         {
             this.SqlDbContext = sqlDbContext;
             this.PostgreDbContext = postgreDbContext;
+            this.SqliteDbContext = sqliteDbContext;
         }
 
         public SQLServerDbContext SqlDbContext { get; private set; }
 
         public PostgreDbContext PostgreDbContext { get; private set; }
+
+        public SqliteDbContext SqliteDbContext { get; private set; }
 
         public string CreateFamily(string name)
         {
@@ -76,5 +79,33 @@ namespace SocialServicesManager.Data.Factories
             return visitType;
         }
 
+        public string CreateMedicalDoctor(string name)
+        {
+            var doctor = new MedicalDoctor
+            {
+                Id = 1,
+                Name = name
+            };
+
+            this.SqliteDbContext.MedicalDoctors.Add(doctor);
+            this.SqliteDbContext.SaveChanges();
+
+            return $"Medical doctor {doctor.Name} with id {doctor.Id} created.";
+        }
+
+        public string CreateMedicalRecord(string description, int childId, int medicalDoctorId)
+        {
+            var medicalRecord = new MedicalRecord
+            {
+                Description = description,
+                ChildId = childId,
+                MedicalDoctor = this.SqliteDbContext.MedicalDoctors.Find(medicalDoctorId)
+            };
+
+            this.SqliteDbContext.MedicalRecords.Add(medicalRecord);
+            this.SqliteDbContext.SaveChanges();
+
+            return $"Medical record with id {medicalRecord.Id} created.";
+        }
     }
 }

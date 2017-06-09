@@ -34,13 +34,15 @@
     <Compile Include="Child.cs" />
     <Compile Include="Family.cs" />
     <Compile Include="GenderType.cs" />
+    <Compile Include="MedicalDoctor.cs" />
+    <Compile Include="MedicalRecord.cs" />
     <Compile Include="Municipality.cs" />
     <Compile Include="FamilyMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Town.cs" />
     <Compile Include="User.cs" />
-	<Compile Include="Visit.cs" />
-	<Compile Include="VisitType.cs" />
+    <Compile Include="Visit.cs" />
+    <Compile Include="VisitType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
