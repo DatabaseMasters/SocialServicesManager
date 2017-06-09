@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.App", "SocialServicesManager.App\SocialServicesManager.App.csproj", "{BBF8CA10-5570-4B59-A622-CE2E27854BBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Interfaces", "SocialServicesManager.Interfaces\SocialServicesManager.Interfaces.csproj", "{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBF8CA10-5570-4B59-A622-CE2E27854BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

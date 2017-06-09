@@ -1,5 +1,4 @@
-﻿using SocialServicesManager.App.Commands.Contracts;
-using SocialServicesManager.App.Providers.Contracts;
+﻿using SocialServicesManager.Interfaces;
 using System.Linq;
 
 namespace SocialServicesManager.ConsoleUI.Providers

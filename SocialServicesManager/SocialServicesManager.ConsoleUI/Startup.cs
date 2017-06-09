@@ -1,6 +1,6 @@
 ﻿using Ninject;
-using SocialServicesManager.App.Providers.Contracts;
 using SocialServicesManager.ConsoleUI.Container;
+using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.ConsoleUI
 {

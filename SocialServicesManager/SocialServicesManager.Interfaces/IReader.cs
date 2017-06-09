@@ -1,4 +1,4 @@
-﻿namespace SocialServicesManager.App.Providers.Contracts
+﻿namespace SocialServicesManager.Interfaces
 {
     public interface IWriter
     {

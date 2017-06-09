@@ -1,11 +1,6 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
-using SocialServicesManager.App.Commands.Contracts;
-using SocialServicesManager.Data.Factories;
-using System;
+using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialServicesManager.App.Commands.Creational
 {

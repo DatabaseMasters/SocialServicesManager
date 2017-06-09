@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SocialServicesManager.App.Commands.Contracts
+namespace SocialServicesManager.Interfaces
 {
     public interface ICommand
     {

@@ -1,6 +1,6 @@
-﻿using System;
-using SocialServicesManager.Models;
+﻿using SocialServicesManager.Models;
 using System.Linq;
+using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.Data.Factories
 {

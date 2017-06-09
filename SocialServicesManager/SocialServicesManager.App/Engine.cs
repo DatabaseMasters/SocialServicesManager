@@ -1,4 +1,4 @@
-﻿using SocialServicesManager.App.Providers.Contracts;
+﻿using SocialServicesManager.Interfaces;
 using System.Text;
 
 namespace SocialServicesManager.App

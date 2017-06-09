@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.App.Commands.Contracts;
-using SocialServicesManager.Data.Factories;
+﻿using System.Collections.Generic;
+using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.App.Commands.Abstarcts
 {

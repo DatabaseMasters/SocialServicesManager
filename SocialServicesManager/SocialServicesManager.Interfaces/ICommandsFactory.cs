@@ -1,4 +1,4 @@
-﻿namespace SocialServicesManager.App.Commands.Contracts
+﻿namespace SocialServicesManager.Interfaces
 {
     public interface ICommandsFactory
     {

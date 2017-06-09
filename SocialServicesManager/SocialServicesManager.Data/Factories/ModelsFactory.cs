@@ -1,8 +1,7 @@
 ﻿using SocialServicesManager.Models;
 using System;
-using System.Linq;
-using System.Data.Entity;
 using System.Globalization;
+using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.Data.Factories
 {

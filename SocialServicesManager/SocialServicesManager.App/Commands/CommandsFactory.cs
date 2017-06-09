@@ -1,6 +1,5 @@
-﻿using SocialServicesManager.App.Commands.Contracts;
-using SocialServicesManager.App.Commands.Creational;
-using SocialServicesManager.Data.Factories;
+﻿using SocialServicesManager.App.Commands.Creational;
+using SocialServicesManager.Interfaces;
 using System;
 
 namespace SocialServicesManager.App.Commands

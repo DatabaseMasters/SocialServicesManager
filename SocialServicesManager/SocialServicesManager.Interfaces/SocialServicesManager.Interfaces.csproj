@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BBF8CA10-5570-4B59-A622-CE2E27854BBB}</ProjectGuid>
+    <ProjectGuid>{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SocialServicesManager.App</RootNamespace>
-    <AssemblyName>SocialServicesManager.App</AssemblyName>
+    <RootNamespace>SocialServicesManager.Interfaces</RootNamespace>
+    <AssemblyName>SocialServicesManager.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,30 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\Abstarcts\CreationalCommand.cs" />
-    <Compile Include="Commands\CommandsFactory.cs" />
-    <Compile Include="Commands\Creational\CreateFamilyCommand.cs" />
-    <Compile Include="Commands\Creational\CreateMedicalDoctorCommand.cs" />
-    <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
-    <Compile Include="Commands\Creational\CreateUserCommand.cs" />
-    <Compile Include="Commands\Creational\CreateVisitCommand.cs" />
-    <Compile Include="Engine.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandsFactory.cs" />
+    <Compile Include="IDataFactory.cs" />
+    <Compile Include="IEngine.cs" />
+    <Compile Include="IModelsFactory.cs" />
+    <Compile Include="IProcessor.cs" />
+    <Compile Include="IReader.cs" />
+    <Compile Include="IWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\Listing\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SocialServicesManager.Interfaces\SocialServicesManager.Interfaces.csproj">
-      <Project>{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}</Project>
-      <Name>SocialServicesManager.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
       <Project>{E528B0A5-0A50-422C-BBC2-C383340A1D88}</Project>
       <Name>SocialServicesManager.Models</Name>
