@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace SocialServicesManager.Data
 {
-    public class SQLServerDbContext : DbContext
+    public class SQLServerDbContext :DbContext
     {
         public SQLServerDbContext() : base("SQLConnection")
         {

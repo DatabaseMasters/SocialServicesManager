@@ -1,18 +1,19 @@
-namespace SocialServicesManager.Data.Migrations
+namespace SocialServicesManager.Data.PostgreMigrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SocialServicesManager.Data.PostgreDBContext>
+    internal sealed class PostgreConfiguration : DbMigrationsConfiguration<SocialServicesManager.Data.PostgreDbContext>
     {
-        public Configuration()
+        public PostgreConfiguration()
         {
             AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"PostgreMigrations";
         }
 
-        protected override void Seed(SocialServicesManager.Data.PostgreDBContext context)
+        protected override void Seed(SocialServicesManager.Data.PostgreDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

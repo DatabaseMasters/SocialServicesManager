@@ -3,12 +3,14 @@ using System.Data.Entity;
 
 namespace SocialServicesManager.Data
 {
-    public class PostgreDBContext : DbContext
+    public class PostgreDbContext : DbContext
     {
-        public PostgreDBContext() : base("PostgreConnection")
+        public PostgreDbContext() : base("PostgreConnection")
         {
         }
 
         public DbSet<Visit> Visits { get; set; }
+
+        public DbSet<VisitType> Visittypes { get; set; }
     }
 }

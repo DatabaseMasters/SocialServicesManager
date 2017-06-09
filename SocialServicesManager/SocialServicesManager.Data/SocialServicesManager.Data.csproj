@@ -41,8 +41,8 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework6.Npgsql, Version=3.1.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework6.Npgsql.3.1.1\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
+    <Reference Include="EntityFramework6.Npgsql, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework6.Npgsql.3.1.0\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Npgsql, Version=3.2.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
@@ -58,18 +58,23 @@
   <ItemGroup>
     <Compile Include="Factories\IModelsFactory.cs" />
     <Compile Include="Factories\ModelsFactory.cs" />
-    <Compile Include="Migrations\201706071739569_Initilize SQL Server DB.cs" />
-    <Compile Include="Migrations\201706071739569_Initilize SQL Server DB.Designer.cs">
-      <DependentUpon>201706071739569_Initilize SQL Server DB.cs</DependentUpon>
+    <Compile Include="PostgreMigrations\201706091032427_Initial.cs" />
+    <Compile Include="PostgreMigrations\201706091032427_Initial.Designer.cs">
+      <DependentUpon>201706091032427_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706071749566_Initilize Postgre DB.cs" />
-    <Compile Include="Migrations\201706071749566_Initilize Postgre DB.Designer.cs">
-      <DependentUpon>201706071749566_Initilize Postgre DB.cs</DependentUpon>
+    <Compile Include="PostgreMigrations\201706091052047_Initilize.cs" />
+    <Compile Include="PostgreMigrations\201706091052047_Initilize.Designer.cs">
+      <DependentUpon>201706091052047_Initilize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PostgreMigrations\PostgreConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServerDbContext.cs" />
-    <Compile Include="PostgreDBContext.cs" />
+    <Compile Include="PostgreDbContext.cs" />
+    <Compile Include="SQLServerMigrations\201706091010433_Initial.cs" />
+    <Compile Include="SQLServerMigrations\201706091010433_Initial.Designer.cs">
+      <DependentUpon>201706091010433_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLServerMigrations\SQLServerConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -86,11 +91,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706071739569_Initilize SQL Server DB.resx">
-      <DependentUpon>201706071739569_Initilize SQL Server DB.cs</DependentUpon>
+    <EmbeddedResource Include="PostgreMigrations\201706091032427_Initial.resx">
+      <DependentUpon>201706091032427_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071749566_Initilize Postgre DB.resx">
-      <DependentUpon>201706071749566_Initilize Postgre DB.cs</DependentUpon>
+    <EmbeddedResource Include="PostgreMigrations\201706091052047_Initilize.resx">
+      <DependentUpon>201706091052047_Initilize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLServerMigrations\201706091010433_Initial.resx">
+      <DependentUpon>201706091010433_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

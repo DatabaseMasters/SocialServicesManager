@@ -14,8 +14,9 @@ namespace SocialServicesManager.ConsoleUI
             var writer = new ConsoleWriter();
 
             // TODO Remove reference to Data layer?
-            var dbContext = new SQLServerDbContext();
-            var modelsFacotry = new ModelsFactory(dbContext);
+            var sqlDbContext = new SQLServerDbContext();
+            var postgreDbContext = new PostgreDbContext();
+            var modelsFacotry = new ModelsFactory(sqlDbContext, postgreDbContext);
             var cmdFactory = new CommandsFactory(modelsFacotry);
             var processor = new CommandProcessor(cmdFactory);
 
@@ -24,6 +25,7 @@ namespace SocialServicesManager.ConsoleUI
             //Sample commands:
             //"createfamily Petrovi";
             //"createuser Nedialka";
+            //createvisit 01.01.1999 description 1 1 HomeVisit
 
             engine.Start();
         }

@@ -22,19 +22,26 @@ namespace SocialServicesManager.App.Commands
                     return this.CreateFamilyCommand();
                 case "createuser":
                     return this.CreateUserCommand();
+                case "createvisit":
+                    return this.CreateVisitCommand();
                 default:
                     throw new ArgumentException("Command not found");
             }
         }
 
-        public ICommand CreateFamilyCommand()
+        private ICommand CreateFamilyCommand()
         {
             return new CreateFamilyCommand(this.Factory);
         }
 
-        public ICommand CreateUserCommand()
+        private ICommand CreateUserCommand()
         {
             return new CreateUserCommand(this.Factory);
+        }
+
+        private ICommand CreateVisitCommand()
+        {
+            return new CreateVisitCommand(this.Factory);
         }
     }
 }

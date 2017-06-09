@@ -1,9 +1,9 @@
-namespace SocialServicesManager.Data.Migrations
+namespace SocialServicesManager.Data.SQLServerMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitilizeSQLServerDB : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
