@@ -3,7 +3,7 @@ using System.Text;
 
 namespace SocialServicesManager.App
 {
-    public class Engine
+    public class Engine : IEngine
     {
 
         public Engine(IReader reader, IWriter writer, IProcessor processor)
