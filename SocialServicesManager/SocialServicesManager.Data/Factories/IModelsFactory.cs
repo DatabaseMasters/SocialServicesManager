@@ -8,12 +8,12 @@ namespace SocialServicesManager.Data.Factories
 
         User CreateUser(string name);
 
-        string CreateVisit(string date, string descirption, int userId, int familyId, string type);
-
-        string CreateMedicalRecord(string description, int childId, int medicalDoctorId);
-
-        string CreateMedicalDoctor(string name);
+        Visit CreateVisit(string date, string descirption, int userId, int familyId, VisitType type);
 
         VisitType CreateVisitType(string name);
+
+        MedicalRecord CreateMedicalRecord(string description, int childId, MedicalDoctor medicalDoctorId);
+
+        MedicalDoctor CreateMedicalDoctor(string name);
     }
 }

@@ -7,11 +7,13 @@ namespace SocialServicesManager.App.Commands
 {
     public class CommandsFactory : ICommandsFactory
     {
-        private readonly IModelsFactory Factory;
+        private readonly IModelsFactory ModelFactory;
+        private readonly IDataFactory DataFactory;
 
-        public CommandsFactory(IModelsFactory factory)
+        public CommandsFactory(IModelsFactory modelFactory, IDataFactory dataFactory)
         {
-            this.Factory = factory;
+            this.ModelFactory = modelFactory;
+            this.DataFactory = dataFactory;
         }
 
         public ICommand CreateCommandFromString(string commandName)
@@ -35,27 +37,27 @@ namespace SocialServicesManager.App.Commands
 
         private ICommand CreateFamilyCommand()
         {
-            return new CreateFamilyCommand(this.Factory);
+            return new CreateFamilyCommand(this.ModelFactory, this.DataFactory);
         }
 
         private ICommand CreateUserCommand()
         {
-            return new CreateUserCommand(this.Factory);
+            return new CreateUserCommand(this.ModelFactory, this.DataFactory);
         }
 
         private ICommand CreateVisitCommand()
         {
-            return new CreateVisitCommand(this.Factory);
+            return new CreateVisitCommand(this.ModelFactory, this.DataFactory);
         }
 
         private ICommand CreateMedicalRecordCommand()
         {
-            return new CreateMedicalRecord(this.Factory);
+            return new CreateMedicalRecord(this.ModelFactory, this.DataFactory);
         }
 
         private ICommand CreateMedicalDoctorRecordCommand()
         {
-            return new CreateMedicalDoctor(this.Factory);
+            return new CreateMedicalDoctor(this.ModelFactory, this.DataFactory);
         }
     }
 }

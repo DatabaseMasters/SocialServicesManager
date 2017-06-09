@@ -27,6 +27,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Kernel.Bind<DbContext>().To<PostgreDbContext>().WithConstructorArgument("postgreDbContext");
             this.Kernel.Bind<DbContext>().To<SqliteDbContext>().WithConstructorArgument("sqliteDbContext");
             this.Bind<IModelsFactory>().To<ModelsFactory>().InSingletonScope();
+            this.Bind<IDataFactory>().To<DataFactory>().InSingletonScope();
 
             this.Bind<ICommandsFactory>().To<CommandsFactory>().InSingletonScope();
             this.Bind<IProcessor>().To<CommandProcessor>().InSingletonScope();

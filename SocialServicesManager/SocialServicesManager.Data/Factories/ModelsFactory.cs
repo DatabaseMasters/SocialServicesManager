@@ -8,28 +8,12 @@ namespace SocialServicesManager.Data.Factories
 {
     public class ModelsFactory : IModelsFactory
     {
-        public ModelsFactory(SQLServerDbContext sqlDbContext, PostgreDbContext postgreDbContext, SqliteDbContext sqliteDbContext)
-        {
-            this.SqlDbContext = sqlDbContext;
-            this.PostgreDbContext = postgreDbContext;
-            this.SqliteDbContext = sqliteDbContext;
-        }
-
-        public SQLServerDbContext SqlDbContext { get; private set; }
-
-        public PostgreDbContext PostgreDbContext { get; private set; }
-
-        public SqliteDbContext SqliteDbContext { get; private set; }
-
         public Family CreateFamily(string name)
         {
             var family = new Family
             {
                 Name = name
             };
-
-            this.SqlDbContext.Families.Add(family);
-            this.SqlDbContext.SaveChanges();
 
             return family;
         }
@@ -41,13 +25,10 @@ namespace SocialServicesManager.Data.Factories
                 Name = name
             };
 
-            this.SqlDbContext.Users.Add(user);
-            this.SqlDbContext.SaveChanges();
-
             return user;
         }
 
-        public string CreateVisit(string date, string descirption, int userId, int familyId, string type)
+        public Visit CreateVisit(string date, string descirption, int userId, int familyId, VisitType visitType)
         {
             var visit = new Visit
             {
@@ -55,15 +36,10 @@ namespace SocialServicesManager.Data.Factories
                 Description = descirption,
                 UserId = userId,
                 FamilyId = familyId,
-                VisitType = this.PostgreDbContext.Visittypes.Where(x => x.Name == type).Count() > 0 ? 
-                            this.PostgreDbContext.Visittypes.Where(x => x.Name == type).First() : 
-                            this.CreateVisitType(type),
+                VisitType = visitType
             };
 
-            this.PostgreDbContext.Visits.Add(visit);
-            this.PostgreDbContext.SaveChanges();
-
-            return $"Visit on {visit.Date} with id: {visit.Id} was created";
+            return visit;
         }
 
         public VisitType CreateVisitType(string name)
@@ -73,13 +49,10 @@ namespace SocialServicesManager.Data.Factories
                 Name = name
             };
 
-            this.PostgreDbContext.Visittypes.Add(visitType);
-            this.PostgreDbContext.SaveChanges();
-
             return visitType;
         }
 
-        public string CreateMedicalDoctor(string name)
+        public MedicalDoctor CreateMedicalDoctor(string name)
         {
             var doctor = new MedicalDoctor
             {
@@ -87,25 +60,19 @@ namespace SocialServicesManager.Data.Factories
                 Name = name
             };
 
-            this.SqliteDbContext.MedicalDoctors.Add(doctor);
-            this.SqliteDbContext.SaveChanges();
-
-            return $"Medical doctor {doctor.Name} with id {doctor.Id} created.";
+            return doctor;
         }
 
-        public string CreateMedicalRecord(string description, int childId, int medicalDoctorId)
+        public MedicalRecord CreateMedicalRecord(string description, int childId, MedicalDoctor doctor)
         {
             var medicalRecord = new MedicalRecord
             {
                 Description = description,
                 ChildId = childId,
-                MedicalDoctor = this.SqliteDbContext.MedicalDoctors.Find(medicalDoctorId)
+                MedicalDoctor = doctor
             };
 
-            this.SqliteDbContext.MedicalRecords.Add(medicalRecord);
-            this.SqliteDbContext.SaveChanges();
-
-            return $"Medical record with id {medicalRecord.Id} created.";
+            return medicalRecord;
         }
     }
 }

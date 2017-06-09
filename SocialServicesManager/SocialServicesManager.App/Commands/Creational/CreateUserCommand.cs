@@ -7,17 +7,19 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateUserCommand : CreationalCommand, ICommand
     {
-        public CreateUserCommand(IModelsFactory factory)
-            : base(factory)
+        public CreateUserCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
             // TODO Fix passed parameters to factory
-            var createdUser = this.Factory.CreateUser(parameters[0]);
+            var user = this.ModelFactory.CreateUser(parameters[0]);
 
-            return $"User {createdUser.Name} with {createdUser.Id} created";
+            this.DataFactory.AddUser(user);
+            this.DataFactory.SaveAllChanges();
+
+            return $"User {user.Name} with {user.Id} created";
         }
     }
 }

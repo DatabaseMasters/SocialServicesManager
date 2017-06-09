@@ -7,13 +7,19 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateMedicalDoctor : CreationalCommand, ICommand
     {
-        public CreateMedicalDoctor(IModelsFactory factory) : base(factory)
+        public CreateMedicalDoctor(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
-            return this.Factory.CreateMedicalDoctor(parameters[0]);
+            var doctor = this.ModelFactory.CreateMedicalDoctor(parameters[0]);
+
+            this.DataFactory.AddMedicalDoctor(doctor);
+            this.DataFactory.SaveAllChanges();
+
+            return $"Medical doctor {doctor.Name} with id {doctor.Id} created.";
+
         }
     }
 }

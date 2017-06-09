@@ -75,6 +75,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\DataFactory.cs" />
+    <Compile Include="Factories\IDataFactory.cs" />
     <Compile Include="Factories\IModelsFactory.cs" />
     <Compile Include="Factories\ModelsFactory.cs" />
     <Compile Include="PostgreMigrations\201706091032427_Initial.cs" />

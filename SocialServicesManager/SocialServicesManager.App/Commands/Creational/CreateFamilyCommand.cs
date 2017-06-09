@@ -8,16 +8,19 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateFamilyCommand : CreationalCommand, ICommand
     {
-        public CreateFamilyCommand(IModelsFactory factory) : base(factory)
+        public CreateFamilyCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
             // TODO Fix passed parameters to factory
-            var createdFamily = this.Factory.CreateFamily(parameters[0]);
+            var family = this.ModelFactory.CreateFamily(parameters[0]);
 
-            return $"Family {createdFamily.Name} with id {createdFamily.Id} created.";
+            this.DataFactory.AddFamily(family);
+            this.DataFactory.SaveAllChanges();
+
+            return $"Family {family.Name} with id {family.Id} created.";
         }
     }
 }
