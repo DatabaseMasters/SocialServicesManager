@@ -116,5 +116,6 @@ namespace SocialServicesManager.Data.Factories
         {
             return this.SqlDbContext.Users.Find(id);
         }
+
     }
 }

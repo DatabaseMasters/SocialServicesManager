@@ -18,9 +18,9 @@ namespace SocialServicesManager.App.Commands.Export
             var userId = int.Parse(parameters[0]);
             // TODO remove comment to work normally
             var user = this.dataFactory.GetUser(userId);
-            //var userVisits = this.dataFactory.GetUserVisits(user);
+            var userVisits = this.dataFactory.GetUserVisits(user);
 
-            ReportCreator.CreateUserReport(user, null);
+            ReportCreator.CreateUserReport(user, userVisits, this.dataFactory);
 
             return "Done";
         }
