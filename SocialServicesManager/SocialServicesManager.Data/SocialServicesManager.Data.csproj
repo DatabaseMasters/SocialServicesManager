@@ -93,7 +93,7 @@
     <Compile Include="Factories\ModelsFactory.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Child.cs" />
-    <Compile Include="Models\Constants\ModelsConstraints.cs" />
+    <Compile Include="DataValidation\ModelsConstraints.cs" />
     <Compile Include="Models\Family.cs" />
     <Compile Include="Models\FamilyMember.cs" />
     <Compile Include="Models\Gender.cs" />

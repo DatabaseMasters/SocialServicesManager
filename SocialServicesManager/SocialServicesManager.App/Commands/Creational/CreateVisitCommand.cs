@@ -8,7 +8,7 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateVisitCommand : CreationalCommand, ICommand
     {
-        public CreateVisitCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
+        public CreateVisitCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 5)
         {
 
         }

@@ -66,13 +66,16 @@ namespace SocialServicesManager.Data.Factories
             return visitType;
         }
 
-        public MedicalDoctor CreateMedicalDoctor(string name)
+        public MedicalDoctor CreateMedicalDoctor(string firstName, string lastName, string phoneNumber, string specialty)
         {
             var doctor = new MedicalDoctor
             {
                 // TODO: Add all new properties of Medical Doctor
                 Id = 1,
-                FirstName = name
+                FirstName = firstName,
+                LastName = lastName,
+                PhoneNumber = phoneNumber,
+                Specialty = specialty
             };
 
             return doctor;

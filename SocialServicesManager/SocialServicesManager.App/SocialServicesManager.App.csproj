@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\Abstarcts\Command.cs" />
     <Compile Include="Commands\Abstarcts\CreationalCommand.cs" />
     <Compile Include="Commands\Abstarcts\ExporterCommand.cs" />
     <Compile Include="Commands\Abstarcts\ListingCommand.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="Commands\Updating\UpdateFamilyCommand.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Exceptions\EntryNotFoundException.cs" />
+    <Compile Include="Exceptions\ParameterValidationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

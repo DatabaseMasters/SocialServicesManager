@@ -1,4 +1,4 @@
-﻿namespace SocialServicesManager.Data.Models.Constants
+﻿namespace SocialServicesManager.Data.DataValidation
 {
     public static class ModelsConstraints
     {

@@ -16,6 +16,6 @@ namespace SocialServicesManager.Data.Factories.Contracts
           
         MedicalRecord CreateMedicalRecord(int childId, MedicalDoctor medicalDoctorId, string description);
 
-        MedicalDoctor CreateMedicalDoctor(string name);
+        MedicalDoctor CreateMedicalDoctor(string firstName, string lastName, string phoneNumber, string specialty);
     }
 }
