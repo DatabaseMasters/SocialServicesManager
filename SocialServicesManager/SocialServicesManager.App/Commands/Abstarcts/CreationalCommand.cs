@@ -7,13 +7,11 @@ namespace SocialServicesManager.App.Commands.Abstarcts
     public abstract class CreationalCommand : Command, ICommand
     {
         protected readonly IModelsFactory ModelFactory;
-        protected readonly IDataFactory DataFactory;
 
-        public CreationalCommand(IModelsFactory modelFactory, IDataFactory dataFactory, int parameterCount) 
-            : base(parameterCount)
+        public CreationalCommand(IModelsFactory modelFactory, IDataFactory dataFactory) 
+            : base(dataFactory)
         {
             this.ModelFactory = modelFactory;
-            this.DataFactory = dataFactory;
         }
     }
 }

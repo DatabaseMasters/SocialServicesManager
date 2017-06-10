@@ -6,7 +6,7 @@ namespace SocialServicesManager.Data.Factories.Contracts
     {
         Address CreateAddress(Town town, string name);
 
-        Family CreateFamily(string name);
+        Family CreateFamily(string name, User assignedStaff);
 
         User CreateUser(string username, string password, string firstName, string lastName);
 

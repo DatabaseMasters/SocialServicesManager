@@ -8,7 +8,9 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateVisitCommand : CreationalCommand, ICommand
     {
-        public CreateVisitCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 5)
+        private const int ParameterCount = 5;
+
+        public CreateVisitCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
 
         }
@@ -21,7 +23,7 @@ namespace SocialServicesManager.App.Commands.Creational
             var visitType = parameters[3];
             var description = parameters[4];
 
-            var typeFound = this.DataFactory.GetVisitType(visitType);
+            var typeFound = this.dataFactory.GetVisitType(visitType);
             
             if (typeFound == null)
             {
@@ -30,8 +32,8 @@ namespace SocialServicesManager.App.Commands.Creational
 
             var visit = this.ModelFactory.CreateVisit(date, userId, familyId, typeFound, description);
 
-            this.DataFactory.AddVisit(visit);
-            this.DataFactory.SaveAllChanges();
+            this.dataFactory.AddVisit(visit);
+            this.dataFactory.SaveAllChanges();
 
             return $"Visit on {visit.Date} with id: {visit.Id} created.";
         }

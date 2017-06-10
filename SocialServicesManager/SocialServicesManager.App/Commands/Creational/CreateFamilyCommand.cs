@@ -1,4 +1,6 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.App.Exceptions;
+using SocialServicesManager.Data.DataValidation;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
@@ -7,19 +9,44 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateFamilyCommand : CreationalCommand, ICommand
     {
-        public CreateFamilyCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 1)
+        private const int ParameterCount = 2;
+        public CreateFamilyCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
-            // TODO Fix passed parameters to factory
-            var family = this.ModelFactory.CreateFamily(parameters[0]);
+            this.ValidateParameters(parameters, ParameterCount);
 
-            this.DataFactory.AddFamily(family);
-            this.DataFactory.SaveAllChanges();
+            // TODO Fix passed parameters to factory
+            var name = parameters[0];
+            var userId = int.Parse(parameters[1]);
+
+            var foundStaff = this.dataFactory.GetUser(userId);
+
+            if (foundStaff == null)
+            {
+                throw new EntryNotFoundException($"User id {userId} not found.");
+            }
+
+            var family = this.ModelFactory.CreateFamily(name, foundStaff);
+
+            this.dataFactory.AddFamily(family);
+            this.dataFactory.SaveAllChanges();
 
             return $"Family {family.Name} with id {family.Id} created.";
+        }
+
+        protected override void ValidateParameters(IList<string> parameters, int parameterCount)
+        {
+            base.ValidateParameters(parameters, ParameterCount);
+
+            var name = parameters[0];
+
+            if (name.Length < ModelsConstraints.NameMinLenght || name.Length > ModelsConstraints.NameMaxLenght)
+            {
+                throw new ParameterValidationException(string.Format(ValidationText, "Family name", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
+            }
         }
     }
 }
