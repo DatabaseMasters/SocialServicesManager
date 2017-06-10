@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;

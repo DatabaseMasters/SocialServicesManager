@@ -10,10 +10,11 @@ namespace SocialServicesManager.Models
 
         public string LastName { get; set; }
 
-        public virtual GenderType Gender { get; set;  }
+        public virtual Gender Gender { get; set;  }
 
         public DateTime BirthDate { get; set; }
 
         public virtual Family Family { get; set; }
+
     }
 }

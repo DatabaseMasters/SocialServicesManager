@@ -56,13 +56,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SocialServicesManager.Data\SocialServicesManager.Data.csproj">
+      <Project>{0951c0de-eebf-4ffd-abf4-738e3372031d}</Project>
+      <Name>SocialServicesManager.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialServicesManager.Interfaces\SocialServicesManager.Interfaces.csproj">
       <Project>{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}</Project>
       <Name>SocialServicesManager.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
-      <Project>{E528B0A5-0A50-422C-BBC2-C383340A1D88}</Project>
-      <Name>SocialServicesManager.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

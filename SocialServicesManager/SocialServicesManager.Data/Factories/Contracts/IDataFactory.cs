@@ -1,7 +1,9 @@
 ﻿using SocialServicesManager.Models;
+using SocialServicesManager.Data.Models;
 using System.Collections.Generic;
 
 namespace SocialServicesManager.Interfaces
+namespace SocialServicesManager.Data.Factories.Contracts
 {
     public interface IDataFactory
     {

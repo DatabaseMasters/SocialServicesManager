@@ -1,12 +1,13 @@
 ﻿using Ninject.Modules;
-using System.Data.Entity;
 using SocialServicesManager.App;
 using SocialServicesManager.App.Commands;
 using SocialServicesManager.App.Commands.Creational;
 using SocialServicesManager.ConsoleUI.Providers;
 using SocialServicesManager.Data;
 using SocialServicesManager.Data.Factories;
+using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
+using System.Data.Entity;
 using SocialServicesManager.App.Commands.Listing;
 using SocialServicesManager.App.Commands.Updating;
 

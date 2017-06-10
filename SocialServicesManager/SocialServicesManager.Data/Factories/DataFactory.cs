@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using SocialServicesManager.Data.Models;
+using SocialServicesManager.Data.Factories.Contracts;
 using System.Collections.Generic;
 using SocialServicesManager.Interfaces;
 using SocialServicesManager.Models;

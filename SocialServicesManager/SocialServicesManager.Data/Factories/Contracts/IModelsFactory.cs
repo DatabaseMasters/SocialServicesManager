@@ -1,6 +1,6 @@
-﻿using SocialServicesManager.Models;
+﻿using SocialServicesManager.Data.Models;
 
-namespace SocialServicesManager.Interfaces
+namespace SocialServicesManager.Data.Factories.Contracts
 {
     public interface IModelsFactory
     {

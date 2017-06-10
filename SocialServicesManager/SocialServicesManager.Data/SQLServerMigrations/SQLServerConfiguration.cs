@@ -1,5 +1,6 @@
 namespace SocialServicesManager.Data.SQLServerMigrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,18 +16,10 @@ namespace SocialServicesManager.Data.SQLServerMigrations
 
         protected override void Seed(SocialServicesManager.Data.SQLServerDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Genders.AddOrUpdate(g => g.Name,
+                new Gender { Name = "Male" },
+                new Gender { Name = "Female" },
+                new Gender { Name = "Undefined" });
         }
     }
 }

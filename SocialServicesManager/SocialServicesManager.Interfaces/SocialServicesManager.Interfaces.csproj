@@ -32,20 +32,12 @@
   <ItemGroup>
     <Compile Include="ICommand.cs" />
     <Compile Include="ICommandsFactory.cs" />
-    <Compile Include="IDataFactory.cs" />
     <Compile Include="IEngine.cs" />
-    <Compile Include="IModelsFactory.cs" />
     <Compile Include="IProcessor.cs" />
     <Compile Include="IReader.cs" />
     <Compile Include="IServiceLocator.cs" />
     <Compile Include="IWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
-      <Project>{E528B0A5-0A50-422C-BBC2-C383340A1D88}</Project>
-      <Name>SocialServicesManager.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
