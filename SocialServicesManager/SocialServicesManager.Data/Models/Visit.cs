@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SocialServicesManager.Data.DataValidation;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SocialServicesManager.Data.Models
 {
@@ -11,8 +13,10 @@ namespace SocialServicesManager.Data.Models
 
         public int Id { get; set; }
 
+        [DateInThePast]
         public DateTime Date { get; set; }
 
+        [MaxLength(4000), MinLength(10)]
         public string Description { get; set; }
 
         public int UserId { get; set; }
