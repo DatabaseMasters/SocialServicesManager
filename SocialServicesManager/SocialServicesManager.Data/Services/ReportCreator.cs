@@ -1,5 +1,6 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using SocialServicesManager.Data.Services.PdfPageElements;
 using SocialServicesManager.Models;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,26 @@ namespace SocialServicesManager.Data.Services
 {
     public static class ReportCreator
     {
+
         public static void CreateUserReport(User user, ICollection<Visit> visit)
         {
-            FileStream fs = new FileStream("UserReport.pdf", FileMode.Create);
 
-            Document doc = new Document(PageSize.A4.Rotate());
-            
-            PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+            //FileStream fs = new FileStream("UserReport.pdf", FileMode.Create);
 
-            doc.Open();
+            //Document doc = new Document(PageSize.A4.Rotate());
 
-            doc.Add(new Paragraph("Hello"));
+            //PdfWriter writer = PdfWriter.GetInstance(doc, fs);
 
-            doc.Close();
+            //doc.Open();
 
-            fs.Close();
+            //doc.Add(new Paragraph("start"));
+            //writer.PageEvent = new PdfHeader();
+
+            //doc.Add(new Paragraph("hi"));
+
+            //doc.Close();
+
+            //fs.Close();
         }
     }
 }
