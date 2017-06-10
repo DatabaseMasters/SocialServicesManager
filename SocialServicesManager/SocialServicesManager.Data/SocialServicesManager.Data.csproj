@@ -103,13 +103,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Visit.cs" />
     <Compile Include="Models\VisitType.cs" />
-    <Compile Include="PostgreMigrations\201706091032427_Initial.cs" />
-    <Compile Include="PostgreMigrations\201706091032427_Initial.Designer.cs">
-      <DependentUpon>201706091032427_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PostgreMigrations\201706091052047_Initilize.cs" />
-    <Compile Include="PostgreMigrations\201706091052047_Initilize.Designer.cs">
-      <DependentUpon>201706091052047_Initilize.cs</DependentUpon>
+    <Compile Include="PostgreMigrations\201706101400514_Initialize Postgre DB.cs" />
+    <Compile Include="PostgreMigrations\201706101400514_Initialize Postgre DB.Designer.cs">
+      <DependentUpon>201706101400514_Initialize Postgre DB.cs</DependentUpon>
     </Compile>
     <Compile Include="PostgreMigrations\PostgreConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,11 +140,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PostgreMigrations\201706091032427_Initial.resx">
-      <DependentUpon>201706091032427_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PostgreMigrations\201706091052047_Initilize.resx">
-      <DependentUpon>201706091052047_Initilize.cs</DependentUpon>
+    <EmbeddedResource Include="PostgreMigrations\201706101400514_Initialize Postgre DB.resx">
+      <DependentUpon>201706101400514_Initialize Postgre DB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SqliteMigrations\201706091422122_Initialize SQLite DB.resx">
       <DependentUpon>201706091422122_Initialize SQLite DB.cs</DependentUpon>

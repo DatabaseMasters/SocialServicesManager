@@ -36,7 +36,7 @@ namespace SocialServicesManager.Data.Factories
         // TODO Add CreateVisitTypeCommand
         public void AddVisitType(VisitType visitType)
         {
-            this.PostgreDbContext.Visittypes.Add(visitType);
+            this.PostgreDbContext.VisitTypes.Add(visitType);
         }
 
         public void AddMedicalDoctor(MedicalDoctor doctor)
@@ -68,7 +68,7 @@ namespace SocialServicesManager.Data.Factories
 
         public VisitType GetVisitType(string type)
         {
-            var typeFound = this.PostgreDbContext.Visittypes
+            var typeFound = this.PostgreDbContext.VisitTypes
                 .Where(v => v.Name == type)
                 .FirstOrDefault();
 
