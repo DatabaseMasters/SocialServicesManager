@@ -6,7 +6,7 @@ namespace SocialServicesManager.Data.Factories.Contracts
     {
         Family CreateFamily(string name);
 
-        User CreateUser(string name);
+        User CreateUser(string username, string password, string firstName, string lastName);
 
         Visit CreateVisit(string date, string descirption, int userId, int familyId, VisitType type);
 
