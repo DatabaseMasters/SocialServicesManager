@@ -1,6 +1,10 @@
 ﻿using SocialServicesManager.Models;
 using System.Linq;
 using SocialServicesManager.Interfaces;
+using System.Collections.Generic;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace SocialServicesManager.Data.Factories
 {
@@ -73,5 +77,36 @@ namespace SocialServicesManager.Data.Factories
 
             return typeFound;
         }
+
+        public ICollection<Family> ExportAllFamilies()
+        {
+            var familiesCollection = this.SqlDbContext.Families.ToList();
+
+            Document familyDoc = new Document();
+            
+            PdfWriter.GetInstance(familyDoc, new FileStream("./FamiliesReport.pdf", FileMode.Create));
+
+            PdfPTable table = new PdfPTable(2);
+            PdfPCell cell = new PdfPCell(new Phrase("All families in DB"));
+            cell.Colspan = 2;
+            cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+            table.AddCell(cell);
+
+            foreach (Family family in familiesCollection)
+            {
+                PdfPCell id = new PdfPCell(new Phrase(family.Id.ToString()));
+                PdfPCell name = new PdfPCell(new Phrase(family.Name));
+                id.HorizontalAlignment = 1;
+                name.HorizontalAlignment = 1;
+                table.AddCell(id);
+                table.AddCell(name);
+            }
+
+            familyDoc.Open();
+            familyDoc.Add(table);
+            familyDoc.Close();
+
+            return familiesCollection;
+        } 
     }
 }
