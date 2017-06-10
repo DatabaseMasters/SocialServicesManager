@@ -21,6 +21,8 @@ namespace SocialServicesManager.Interfaces
 
         VisitType GetVisitType(string type);
 
-        ICollection<Family> ExportAllFamilies();
+        User GetUser(int id);
+
+        ICollection<Visit> GetUserVisits(User user);
     }
 }

@@ -38,7 +38,7 @@
     <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
     <Compile Include="Commands\Creational\CreateUserCommand.cs" />
     <Compile Include="Commands\Creational\CreateVisitCommand.cs" />
-    <Compile Include="Commands\Export\FamilyReport.cs" />
+    <Compile Include="Commands\Export\ExportUserReport.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,6 +52,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SocialServicesManager.Data\SocialServicesManager.Data.csproj">
+      <Project>{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}</Project>
+      <Name>SocialServicesManager.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialServicesManager.Interfaces\SocialServicesManager.Interfaces.csproj">
       <Project>{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}</Project>
       <Name>SocialServicesManager.Interfaces</Name>
