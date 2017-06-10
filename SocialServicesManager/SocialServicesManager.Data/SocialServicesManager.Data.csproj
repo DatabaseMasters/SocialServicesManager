@@ -83,8 +83,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataParser\DataParser.cs" />
+    <Compile Include="DataValidation\DateInThePastAttribute.cs" />
     <Compile Include="Factories\DataFactory.cs" />
+    <Compile Include="Factories\IDataFactory.cs" />
+    <Compile Include="Factories\IModelsFactory.cs" />
     <Compile Include="Factories\ModelsFactory.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Child.cs" />
+    <Compile Include="Models\Family.cs" />
+    <Compile Include="Models\FamilyMember.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\MedicalDoctor.cs" />
+    <Compile Include="Models\MedicalRecord.cs" />
+    <Compile Include="Models\Municipality.cs" />
+    <Compile Include="Models\Town.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Visit.cs" />
+    <Compile Include="Models\VisitType.cs" />
     <Compile Include="PostgreMigrations\201706091032427_Initial.cs" />
     <Compile Include="PostgreMigrations\201706091032427_Initial.Designer.cs">
       <DependentUpon>201706091032427_Initial.cs</DependentUpon>
@@ -103,9 +118,9 @@
     <Compile Include="SqliteMigrations\SqliteConfiguration.cs" />
     <Compile Include="SQLServerDbContext.cs" />
     <Compile Include="PostgreDbContext.cs" />
-    <Compile Include="SQLServerMigrations\201706091010433_Initial.cs" />
-    <Compile Include="SQLServerMigrations\201706091010433_Initial.Designer.cs">
-      <DependentUpon>201706091010433_Initial.cs</DependentUpon>
+    <Compile Include="SQLServerMigrations\201706101308029_Initialize SQL Server DB.cs" />
+    <Compile Include="SQLServerMigrations\201706101308029_Initialize SQL Server DB.Designer.cs">
+      <DependentUpon>201706101308029_Initialize SQL Server DB.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLServerMigrations\SQLServerConfiguration.cs" />
   </ItemGroup>
@@ -122,10 +137,6 @@
       <Project>{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}</Project>
       <Name>SocialServicesManager.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
-      <Project>{E528B0A5-0A50-422C-BBC2-C383340A1D88}</Project>
-      <Name>SocialServicesManager.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PostgreMigrations\201706091032427_Initial.resx">
@@ -137,8 +148,8 @@
     <EmbeddedResource Include="SqliteMigrations\201706091422122_Initialize SQLite DB.resx">
       <DependentUpon>201706091422122_Initialize SQLite DB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SQLServerMigrations\201706091010433_Initial.resx">
-      <DependentUpon>201706091010433_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="SQLServerMigrations\201706101308029_Initialize SQL Server DB.resx">
+      <DependentUpon>201706101308029_Initialize SQL Server DB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

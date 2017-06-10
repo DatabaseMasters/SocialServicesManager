@@ -1,4 +1,4 @@
-﻿using SocialServicesManager.Models;
+﻿using SocialServicesManager.Data.Models;
 using System.Data.Entity;
 
 namespace SocialServicesManager.Data

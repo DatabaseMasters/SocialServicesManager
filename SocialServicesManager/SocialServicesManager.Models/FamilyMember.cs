@@ -8,7 +8,7 @@
 
         public string LastName { get; set; }
 
-        public GenderType Gender { get; set; }
+        public Gender Gender { get; set; }
 
         public virtual Address Address { get; set;  }
 

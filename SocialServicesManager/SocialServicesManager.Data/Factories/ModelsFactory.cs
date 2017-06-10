@@ -1,6 +1,6 @@
-﻿using SocialServicesManager.Models;
-using System;
+﻿using System;
 using System.Globalization;
+using SocialServicesManager.Data.Models;
 using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.Data.Factories
@@ -21,7 +21,8 @@ namespace SocialServicesManager.Data.Factories
         {
             var user = new User
             {
-                Name = name
+                // TODO: Add the other properites
+                FirstName = name
             };
 
             return user;

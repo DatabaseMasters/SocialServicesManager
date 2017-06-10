@@ -33,7 +33,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Child.cs" />
     <Compile Include="Family.cs" />
-    <Compile Include="GenderType.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="MedicalDoctor.cs" />
     <Compile Include="MedicalRecord.cs" />
     <Compile Include="Municipality.cs" />
