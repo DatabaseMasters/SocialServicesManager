@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using SocialServicesManager.Interfaces;
 using SocialServicesManager.Data.Models;
+using SocialServicesManager.Data.Factories.Contracts;
 
 namespace SocialServicesManager.Data.Factories
 {

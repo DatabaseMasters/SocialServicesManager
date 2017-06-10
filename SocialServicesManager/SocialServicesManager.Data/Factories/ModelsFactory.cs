@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using SocialServicesManager.Data.Models;
-using SocialServicesManager.Interfaces;
+using SocialServicesManager.Data.Factories.Contracts;
 
 namespace SocialServicesManager.Data.Factories
 {

@@ -85,8 +85,8 @@
     <Compile Include="DataParser\DataParser.cs" />
     <Compile Include="DataValidation\DateInThePastAttribute.cs" />
     <Compile Include="Factories\DataFactory.cs" />
-    <Compile Include="Factories\IDataFactory.cs" />
-    <Compile Include="Factories\IModelsFactory.cs" />
+    <Compile Include="Factories\Contracts\IDataFactory.cs" />
+    <Compile Include="Factories\Contracts\IModelsFactory.cs" />
     <Compile Include="Factories\ModelsFactory.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Child.cs" />
