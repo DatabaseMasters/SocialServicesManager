@@ -1,5 +1,4 @@
-﻿using System;
-using SocialServicesManager.App.Commands.Abstarcts;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Data.Services;
 using SocialServicesManager.Interfaces;
@@ -18,10 +17,10 @@ namespace SocialServicesManager.App.Commands.Export
         {
             var userId = int.Parse(parameters[0]);
             // TODO remove comment to work normally
-            //var user = this.dataFactory.GetUser(userId);
+            var user = this.dataFactory.GetUser(userId);
             //var userVisits = this.dataFactory.GetUserVisits(user);
 
-            ReportCreator.CreateUserReport(null, null);
+            ReportCreator.CreateUserReport(user, null);
 
             return "Done";
         }
