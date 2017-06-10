@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
 
@@ -21,10 +22,10 @@ namespace SocialServicesManager.App.Commands.Creational
             var visitType = parameters[4];
 
             var typeFound = this.DataFactory.GetVisitType(visitType);
-
+            
             if (typeFound == null)
             {
-                // Custom exception;
+                throw new EntryNotFoundException($"Visit type {visitType} not found.");
             }
 
             var visit = this.ModelFactory.CreateVisit(date, description, userId, familyId, typeFound);

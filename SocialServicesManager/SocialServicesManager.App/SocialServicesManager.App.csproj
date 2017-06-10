@@ -31,17 +31,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\Abstarcts\CreationalCommand.cs" />
+    <Compile Include="Commands\Abstarcts\ListingCommand.cs" />
+    <Compile Include="Commands\Abstarcts\UpdatingCommand.cs" />
     <Compile Include="Commands\CommandsFactory.cs" />
     <Compile Include="Commands\Creational\CreateFamilyCommand.cs" />
     <Compile Include="Commands\Creational\CreateMedicalDoctorCommand.cs" />
     <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
     <Compile Include="Commands\Creational\CreateUserCommand.cs" />
     <Compile Include="Commands\Creational\CreateVisitCommand.cs" />
+    <Compile Include="Commands\Listing\ListFamiliesCommand.cs" />
+    <Compile Include="Commands\Updating\UpdateFamilyCommand.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Exceptions\EntryNotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\Listing\" />
+    <Folder Include="Commands\Deleting\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

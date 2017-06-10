@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
 
@@ -17,15 +18,14 @@ namespace SocialServicesManager.App.Commands.Creational
             int childId = int.Parse(parameters[1]);
             int doctorId = int.Parse(parameters[2]);
 
-            var doctor = this.DataFactory.GetMedicalDoctor(doctorId);
+            var doctorFound = this.DataFactory.GetMedicalDoctor(doctorId);
 
-            if (doctor == null)
+            if (doctorFound == null)
             {
-                // Custom exception;
+                throw new EntryNotFoundException($"Medical doctor id {doctorId} not found.");
             }
 
-            var record = this.ModelFactory.CreateMedicalRecord(description, childId, doctor);
-
+            var record = this.ModelFactory.CreateMedicalRecord(description, childId, doctorFound);
 
             this.DataFactory.AddMedicalRecord(record);
             this.DataFactory.SaveAllChanges();

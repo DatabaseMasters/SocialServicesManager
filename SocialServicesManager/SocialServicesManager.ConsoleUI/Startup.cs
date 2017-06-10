@@ -12,10 +12,11 @@ namespace SocialServicesManager.ConsoleUI
             var engine = kernel.Get<IEngine>();
 
             //Sample commands:
-            //createfamily Petrovi;
-            //createuser Nedialka;
+            //createfamily Petrovi
+            //createuser Nedialka
             //createvisit 01.01.1999 description 1 1 HomeVisit
-
+            //listfamilies
+            //updatefamily 1 Petrovi | updatefamily [id] [newName]
             engine.Start();
         }
     }

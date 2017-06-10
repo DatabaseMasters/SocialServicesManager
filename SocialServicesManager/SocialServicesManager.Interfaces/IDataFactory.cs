@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.Models;
+using System.Collections.Generic;
 
 namespace SocialServicesManager.Interfaces
 {
@@ -19,5 +20,11 @@ namespace SocialServicesManager.Interfaces
         MedicalDoctor GetMedicalDoctor(int id);
 
         VisitType GetVisitType(string type);
+
+        Family GetFamily(int id);
+
+        IEnumerable<Family> GetAllFamilies();
+
+        void UpdateFamily(Family family, IList<string> parameters);
     }
 }

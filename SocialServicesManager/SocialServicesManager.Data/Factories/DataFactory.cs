@@ -1,6 +1,7 @@
-﻿using SocialServicesManager.Models;
-using System.Linq;
+﻿using System.Linq;
+using System.Collections.Generic;
 using SocialServicesManager.Interfaces;
+using SocialServicesManager.Models;
 
 namespace SocialServicesManager.Data.Factories
 {
@@ -17,6 +18,7 @@ namespace SocialServicesManager.Data.Factories
             this.SqliteDbContext = sqliteDbContext;
         }
 
+        // CREATING
         public void AddFamily(Family family)
         {
             this.SqlDbContext.Families.Add(family);
@@ -32,7 +34,6 @@ namespace SocialServicesManager.Data.Factories
             this.PostgreDbContext.Visits.Add(visit);
         }
 
-        // TODO Add CreateVisitTypeCommand
         public void AddVisitType(VisitType visitType)
         {
             this.PostgreDbContext.Visittypes.Add(visitType);
@@ -58,6 +59,7 @@ namespace SocialServicesManager.Data.Factories
             this.SqliteDbContext.SaveChanges();
         }
 
+        // READING
         public MedicalDoctor GetMedicalDoctor(int id)
         {
             var doctorFound = this.SqliteDbContext.MedicalDoctors.Find(id);
@@ -73,5 +75,25 @@ namespace SocialServicesManager.Data.Factories
 
             return typeFound;
         }
+
+        public Family GetFamily(int id)
+        {
+            var familyFound = this.SqlDbContext.Families.Find(id);
+
+            return familyFound;
+        }
+
+        public IEnumerable<Family> GetAllFamilies()
+        {
+            return this.SqlDbContext.Families.ToList();
+        }
+
+        // UPDATING
+        public void UpdateFamily(Family family, IList<string> parameters)
+        {
+            family.Name = parameters[1];
+        }
+
+        // DELETING
     }
 }
