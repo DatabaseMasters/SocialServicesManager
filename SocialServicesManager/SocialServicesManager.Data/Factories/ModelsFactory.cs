@@ -84,7 +84,8 @@ namespace SocialServicesManager.Data.Factories
             {
                 Description = description,
                 ChildId = childId,
-                MedicalDoctor = doctor
+                // TODO: Medicalrecord now has many doctors 
+                //MedicalDoctor = doctor
             };
 
             return medicalRecord;

@@ -113,9 +113,9 @@
     <Compile Include="Services\PdfPageElements\PdfHeader.cs" />
     <Compile Include="Services\ReportCreator.cs" />
     <Compile Include="SqliteDbContext.cs" />
-    <Compile Include="SqliteMigrations\201706091422122_Initialize SQLite DB.cs" />
-    <Compile Include="SqliteMigrations\201706091422122_Initialize SQLite DB.Designer.cs">
-      <DependentUpon>201706091422122_Initialize SQLite DB.cs</DependentUpon>
+    <Compile Include="SqliteMigrations\201706101631536_Add constraints.cs" />
+    <Compile Include="SqliteMigrations\201706101631536_Add constraints.Designer.cs">
+      <DependentUpon>201706101631536_Add constraints.cs</DependentUpon>
     </Compile>
     <Compile Include="SqliteMigrations\SqliteConfiguration.cs" />
     <Compile Include="SQLServerDbContext.cs" />
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="PostgreMigrations\201706101400514_Initialize Postgre DB.resx">
       <DependentUpon>201706101400514_Initialize Postgre DB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SqliteMigrations\201706091422122_Initialize SQLite DB.resx">
-      <DependentUpon>201706091422122_Initialize SQLite DB.cs</DependentUpon>
+    <EmbeddedResource Include="SqliteMigrations\201706101631536_Add constraints.resx">
+      <DependentUpon>201706101631536_Add constraints.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQLServerMigrations\201706101539075_Initialize SQLServer DB.resx">
       <DependentUpon>201706101539075_Initialize SQLServer DB.cs</DependentUpon>
