@@ -19,6 +19,11 @@ namespace SocialServicesManager.Data.Factories
         }
 
         // CREATING
+        public void AddAddress(Address address)
+        {
+            this.SqlDbContext.Addresses.Add(address);
+        }
+
         public void AddFamily(Family family)
         {
             this.SqlDbContext.Families.Add(family);
@@ -66,7 +71,7 @@ namespace SocialServicesManager.Data.Factories
 
             return doctorFound;
         }
-
+        
         public VisitType GetVisitType(string type)
         {
             var typeFound = this.PostgreDbContext.Visittypes
@@ -75,8 +80,8 @@ namespace SocialServicesManager.Data.Factories
 
             return typeFound;
         }
-
-        public Family GetFamily(int id)
+        
+        public Family FindFamily(int id)
         {
             var familyFound = this.SqlDbContext.Families.Find(id);
 
@@ -86,6 +91,13 @@ namespace SocialServicesManager.Data.Factories
         public IEnumerable<Family> GetAllFamilies()
         {
             return this.SqlDbContext.Families.ToList();
+        }
+
+        public Town FindTown(int id)
+        {
+            var townFound = this.SqlDbContext.Towns.Find(id);
+
+            return townFound;
         }
 
         // UPDATING

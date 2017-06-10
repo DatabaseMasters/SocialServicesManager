@@ -20,5 +20,6 @@ namespace SocialServicesManager.Data
 
         public DbSet<Address> Addresses { get; set; }
 
+        public DbSet<Town> Towns { get; set;  }
     }
 }

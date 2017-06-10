@@ -18,7 +18,7 @@ namespace SocialServicesManager.App.Commands.Creational
             this.DataFactory.AddUser(user);
             this.DataFactory.SaveAllChanges();
 
-            return $"User {user.Name} with {user.Id} created";
+            return $"User {user.Name} with {user.Id} created.";
         }
     }
 }

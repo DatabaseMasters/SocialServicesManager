@@ -5,6 +5,8 @@ namespace SocialServicesManager.Interfaces
 {
     public interface IDataFactory
     {
+        void AddAddress(Address address);
+
         void AddFamily(Family family);
 
         void AddUser(User user);
@@ -21,9 +23,11 @@ namespace SocialServicesManager.Interfaces
 
         VisitType GetVisitType(string type);
 
-        Family GetFamily(int id);
+        Family FindFamily(int id);
 
         IEnumerable<Family> GetAllFamilies();
+
+        Town FindTown(int id);
 
         void UpdateFamily(Family family, IList<string> parameters);
     }

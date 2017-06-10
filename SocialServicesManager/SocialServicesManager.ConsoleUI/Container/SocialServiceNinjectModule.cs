@@ -14,6 +14,7 @@ namespace SocialServicesManager.ConsoleUI.Container
 {
     public class SocialServiceNinjectModule : NinjectModule
     {
+        private const string CreateAddressName = "createaddress";
         private const string CreateFamilyName = "createfamily";
         private const string CreateMedicalDoctorName = "createmedicaldoctor";
         private const string CreateMedicalRecordName = "createmedicalrecord";
@@ -40,6 +41,7 @@ namespace SocialServicesManager.ConsoleUI.Container
 
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
 
+            this.Bind<ICommand>().To<CreateAddressCommand>().Named(CreateAddressName);
             this.Bind<ICommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
             this.Bind<ICommand>().To<CreateMedicalDoctor>().Named(CreateMedicalDoctorName);
             this.Bind<ICommand>().To<CreateMedicalRecord>().Named(CreateMedicalRecordName);

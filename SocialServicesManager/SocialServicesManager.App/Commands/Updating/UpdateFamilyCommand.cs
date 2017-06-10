@@ -16,7 +16,7 @@ namespace SocialServicesManager.App.Commands.Updating
         {
             var familyId = int.Parse(parameters[0]);
 
-            var familyFound = this.dataFactory.GetFamily(familyId);
+            var familyFound = this.dataFactory.FindFamily(familyId);
 
             if (familyFound == null)
             {
