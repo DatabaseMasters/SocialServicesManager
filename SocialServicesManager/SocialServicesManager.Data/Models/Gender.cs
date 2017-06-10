@@ -1,4 +1,4 @@
-﻿using SocialServicesManager.Data.Models.Constants;
+﻿using SocialServicesManager.Data.DataValidation;
 using System.ComponentModel.DataAnnotations;
 
 namespace SocialServicesManager.Data.Models

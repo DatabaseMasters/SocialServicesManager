@@ -8,7 +8,7 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateAddressCommand : CreationalCommand, ICommand
     {
-        public CreateAddressCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
+        public CreateAddressCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 2)
         {
         }
 

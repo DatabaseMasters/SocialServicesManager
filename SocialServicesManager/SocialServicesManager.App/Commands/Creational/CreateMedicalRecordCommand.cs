@@ -8,7 +8,7 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateMedicalRecord : CreationalCommand, ICommand
     {
-        public CreateMedicalRecord(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
+        public CreateMedicalRecord(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 3)
         {
 
         }

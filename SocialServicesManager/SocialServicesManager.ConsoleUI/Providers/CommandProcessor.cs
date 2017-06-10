@@ -14,13 +14,17 @@ namespace SocialServicesManager.ConsoleUI.Providers
         public string ProcessCommand(string commandLine)
         {
             var descriptionSeparators = new char[] { '(', ')' };
-            
-            var parameters = commandLine.Split(descriptionSeparators)[0].TrimEnd();
-            var description = commandLine.Split(descriptionSeparators)[1];
+
+            var splitBrackets = commandLine.Split(descriptionSeparators);
+            var parameters = splitBrackets[0].TrimEnd();
 
             var commandName = parameters.Split(' ')[0].ToLower();
             var commandParams = parameters.Split(' ').Skip(1).ToList();
-            commandParams.Add(description);
+            if (splitBrackets.Length > 1)
+            {
+                var description = splitBrackets[1];
+                commandParams.Add(description);
+            }
 
             var command = this.commandFactory.GetCommand(commandName);
             var commandResult = command.Execute(commandParams);

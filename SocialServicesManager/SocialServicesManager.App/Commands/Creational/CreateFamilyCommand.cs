@@ -7,7 +7,7 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateFamilyCommand : CreationalCommand, ICommand
     {
-        public CreateFamilyCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
+        public CreateFamilyCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 1)
         {
         }
 
