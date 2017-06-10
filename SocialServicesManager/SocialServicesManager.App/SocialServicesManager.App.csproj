@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocialServicesManager.Data\SocialServicesManager.Data.csproj">
-      <Project>{0951c0de-eebf-4ffd-abf4-738e3372031d}</Project>
+      <Project>{0951C0DE-EEBF-4FFD-ABF4-738E3372031D}</Project>
       <Name>SocialServicesManager.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\SocialServicesManager.Interfaces\SocialServicesManager.Interfaces.csproj">

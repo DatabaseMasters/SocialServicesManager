@@ -21,7 +21,7 @@ namespace SocialServicesManager.App.Commands.Creational
 
             // TODO Add the new properties of User
 
-            return $"User {user.Name} with {user.Id} created.";
+            return $"User {user.FirstName} with {user.Id} created.";
         }
     }
 }

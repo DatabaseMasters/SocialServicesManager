@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Interfaces;
 using SocialServicesManager.App.Exceptions;
+using SocialServicesManager.Data.Factories.Contracts;
 
 namespace SocialServicesManager.App.Commands.Updating
 {
