@@ -1,5 +1,5 @@
-﻿using SocialServicesManager.Data.SqliteMigrations;
-using SocialServicesManager.Models;
+﻿using SocialServicesManager.Data.Models;
+using SocialServicesManager.Data.SqliteMigrations;
 using System.Data.Entity;
 
 namespace SocialServicesManager.Data

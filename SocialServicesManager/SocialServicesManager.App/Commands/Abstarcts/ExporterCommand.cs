@@ -1,9 +1,6 @@
-﻿using SocialServicesManager.Interfaces;
-using System;
+﻿using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialServicesManager.App.Commands.Abstarcts
 {

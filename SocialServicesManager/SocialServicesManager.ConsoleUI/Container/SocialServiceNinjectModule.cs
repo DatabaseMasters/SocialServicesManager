@@ -1,13 +1,14 @@
 ﻿using Ninject.Modules;
-using System.Data.Entity;
 using SocialServicesManager.App;
 using SocialServicesManager.App.Commands;
 using SocialServicesManager.App.Commands.Creational;
+using SocialServicesManager.App.Commands.Export;
 using SocialServicesManager.ConsoleUI.Providers;
 using SocialServicesManager.Data;
 using SocialServicesManager.Data.Factories;
+using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
-using SocialServicesManager.App.Commands.Export;
+using System.Data.Entity;
 
 namespace SocialServicesManager.ConsoleUI.Container
 {

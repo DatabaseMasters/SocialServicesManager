@@ -1,13 +1,5 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using SocialServicesManager.Data.Services.PdfPageElements;
-using SocialServicesManager.Models;
-using System;
+﻿using SocialServicesManager.Data.Models;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialServicesManager.Data.Services
 {

@@ -60,10 +60,6 @@
       <Project>{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}</Project>
       <Name>SocialServicesManager.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SocialServicesManager.Models\SocialServicesManager.Models.csproj">
-      <Project>{E528B0A5-0A50-422C-BBC2-C383340A1D88}</Project>
-      <Name>SocialServicesManager.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

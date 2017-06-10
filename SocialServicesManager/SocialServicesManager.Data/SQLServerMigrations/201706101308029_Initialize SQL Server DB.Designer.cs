@@ -7,13 +7,13 @@ namespace SocialServicesManager.Data.SQLServerMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class InitializeSQLServerDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitializeSQLServerDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706091010433_Initial"; }
+            get { return "201706101308029_Initialize SQL Server DB"; }
         }
         
         string IMigrationMetadata.Source

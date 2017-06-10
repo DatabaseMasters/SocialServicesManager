@@ -1,5 +1,5 @@
-﻿using SocialServicesManager.Interfaces;
-using SocialServicesManager.Models;
+using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 

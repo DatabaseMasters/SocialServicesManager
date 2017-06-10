@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
 
@@ -18,7 +19,8 @@ namespace SocialServicesManager.App.Commands.Creational
             this.DataFactory.AddUser(user);
             this.DataFactory.SaveAllChanges();
 
-            return $"User {user.Name} with {user.Id} created";
+            // TODO Add the new properties of User
+            return $"User {user.FirstName} with {user.Id} created";
         }
     }
 }
