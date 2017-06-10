@@ -8,7 +8,9 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateMedicalRecord : CreationalCommand, ICommand
     {
-        public CreateMedicalRecord(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 3)
+        private const int ParameterCount = 3;
+
+        public CreateMedicalRecord(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
 
         }
@@ -19,7 +21,7 @@ namespace SocialServicesManager.App.Commands.Creational
             int childId = int.Parse(parameters[1]);
             int doctorId = int.Parse(parameters[2]);
 
-            var doctorFound = this.DataFactory.GetMedicalDoctor(doctorId);
+            var doctorFound = this.dataFactory.GetMedicalDoctor(doctorId);
 
             if (doctorFound == null)
             {
@@ -28,8 +30,8 @@ namespace SocialServicesManager.App.Commands.Creational
 
             var record = this.ModelFactory.CreateMedicalRecord(childId, doctorFound, description);
 
-            this.DataFactory.AddMedicalRecord(record);
-            this.DataFactory.SaveAllChanges();
+            this.dataFactory.AddMedicalRecord(record);
+            this.dataFactory.SaveAllChanges();
 
             return $"Medical record with id {record.Id} created.";
         }

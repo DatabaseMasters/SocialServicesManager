@@ -9,57 +9,57 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateUserCommand : CreationalCommand, ICommand
     {
-        public CreateUserCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 4)
+        private const int ParameterCount = 4;
+
+        public CreateUserCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
-            // TODO Fix passed parameters to factory
+            this.ValidateParameters(parameters, ParameterCount);
+            
             var username = parameters[0];
             var password = parameters[1];
             var firstName = parameters[2];
             var lastName = parameters[3];
-
-
 
             var user = this.ModelFactory.CreateUser(username,password,firstName,lastName);
 
-            this.DataFactory.AddUser(user);
-            this.DataFactory.SaveAllChanges();
-
-            // TODO Add the new properties of User
-
+            this.dataFactory.AddUser(user);
+            this.dataFactory.SaveAllChanges();
+            
             return $"User {user.FirstName} with {user.Id} created.";
         }
 
-        protected override void ValidateParameters(IList<string> parameters)
+        protected override void ValidateParameters(IList<string> parameters, int paramterCount)
         {
-            base.ValidateParameters(parameters);
+            base.ValidateParameters(parameters, ParameterCount);
 
             var username = parameters[0];
             var password = parameters[1];
             var firstName = parameters[2];
             var lastName = parameters[3];
 
-            if (username.Length < ModelsConstraints.UsernameMinLength)
+            if (username.Length < ModelsConstraints.UsernameMinLength || username.Length > ModelsConstraints.UsernameMaxLength)
             {
-                throw new ParameterValidationException($"Username should be longer than {ModelsConstraints.UsernameMinLength}");
-            }
-            else if (username.Length > ModelsConstraints.UsernameMaxLength)
+                throw new ParameterValidationException(string.Format(ValidationText, "Username", ModelsConstraints.UsernameMinLength, ModelsConstraints.UsernameMaxLength));
+            }           
+
+            if (password.Length < ModelsConstraints.PasswordMinLength || password.Length > ModelsConstraints.PasswordMaxLength)
             {
-                throw new ParameterValidationException($"Username should be shorter than {ModelsConstraints.UsernameMaxLength}");
+                throw new ParameterValidationException(string.Format(ValidationText, "Password", ModelsConstraints.PasswordMinLength, ModelsConstraints.PasswordMaxLength));
             }
 
-            if (password.Length < ModelsConstraints.PasswordMinLength)
+            if (firstName.Length < ModelsConstraints.NameMinLenght || firstName.Length > ModelsConstraints.NameMaxLenght)
             {
-                throw new ParameterValidationException($"Password should be longer than {ModelsConstraints.PasswordMinLength}");
-            }
-            else if (password.Length > ModelsConstraints.PasswordMaxLength)
-            {
-                throw new ParameterValidationException($"Password should be shorter than {ModelsConstraints.PasswordMaxLength}");
+                throw new ParameterValidationException(string.Format(ValidationText, "First name", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
             }
 
+            if (lastName.Length < ModelsConstraints.NameMinLenght || lastName.Length > ModelsConstraints.NameMaxLenght)
+            {
+                throw new ParameterValidationException(string.Format(ValidationText, "Last name", ModelsConstraints.NameMinLenght,ModelsConstraints.NameMaxLenght));
+            }
         }
     }
 }

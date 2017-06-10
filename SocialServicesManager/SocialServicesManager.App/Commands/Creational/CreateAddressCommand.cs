@@ -8,7 +8,9 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateAddressCommand : CreationalCommand, ICommand
     {
-        public CreateAddressCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 2)
+        private const int ParameterCount = 2;
+
+        public CreateAddressCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
@@ -17,17 +19,17 @@ namespace SocialServicesManager.App.Commands.Creational
             var townId = int.Parse(parameters[0]);
             var name = parameters[1];
 
-            var townFound = this.DataFactory.FindTown(townId);
+            var townFound = this.dataFactory.FindTown(townId);
 
             if (townFound == null)
             {
-                throw new EntryNotFoundException($"Town {townId} not found.");
+                throw new EntryNotFoundException($"Town id {townId} not found.");
             }
 
             var address = this.ModelFactory.CreateAddress(townFound, name);
 
-            this.DataFactory.AddAddress(address);
-            this.DataFactory.SaveAllChanges();
+            this.dataFactory.AddAddress(address);
+            this.dataFactory.SaveAllChanges();
 
             return $"Address {address.Name}, {address.Town.Name} with id {address.Id} created.";
         }

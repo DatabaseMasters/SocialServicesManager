@@ -18,11 +18,12 @@ namespace SocialServicesManager.Data.Factories
             return address;
         }
 
-        public Family CreateFamily(string name)
+        public Family CreateFamily(string name, User assignedStaff)
         {
             var family = new Family
             {
-                Name = name
+                Name = name,
+                AssignedStaffMember = assignedStaff
             };
 
             return family;

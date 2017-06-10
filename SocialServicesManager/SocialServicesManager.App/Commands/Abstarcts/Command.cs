@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using SocialServicesManager.Interfaces;
 using SocialServicesManager.App.Exceptions;
 using System.Linq;
+using SocialServicesManager.Data.Factories.Contracts;
 
 namespace SocialServicesManager.App.Commands.Abstarcts
 {
     public abstract class Command : ICommand
     {
-        protected readonly int ParameterCount;
-
-        public Command(int parameterCount)
+        protected const string ValidationText = "{0} should be between {1} and {2} characters long.";
+        protected readonly IDataFactory dataFactory;
+        public Command(IDataFactory dataFactory)
         {
-            this.ParameterCount = parameterCount;
+            this.dataFactory = dataFactory;
         }
 
         public abstract string Execute(IList<string> parameters);
 
-        protected virtual void ValidateParameters(IList<string> parameters)
+        protected virtual void ValidateParameters(IList<string> parameters, int paramterCount)
         {
-            if (parameters.Count != ParameterCount)
+            if (parameters.Count != paramterCount)
             {
-                throw new ParameterValidationException($"Command expects {this.ParameterCount} parameters but got {parameters.Count}.");
+                throw new ParameterValidationException($"Command expects {paramterCount} parameters but got {parameters.Count}.");
             }
 
             if (parameters.Any(p => p == string.Empty))

@@ -48,6 +48,10 @@ namespace SocialServicesManager.App
                 {
                     this.writer.WriteLine(ex.Message);
                 }
+                catch (ParameterValidationException ex)
+                {
+                    this.writer.WriteLine(ex.Message);
+                }
                 //catch (System.Exception ex)
                 //{
                 //    //builder.AppendLine("An error appeared. " + ex.Message);

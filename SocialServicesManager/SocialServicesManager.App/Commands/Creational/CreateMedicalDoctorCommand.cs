@@ -7,7 +7,9 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateMedicalDoctor : CreationalCommand, ICommand
     {
-        public CreateMedicalDoctor(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory, 4)
+        private const int ParameterCount = 4;
+
+        public CreateMedicalDoctor(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
@@ -20,8 +22,8 @@ namespace SocialServicesManager.App.Commands.Creational
 
             var doctor = this.ModelFactory.CreateMedicalDoctor(firstName, lastName, phoneNumber, specialty);
 
-            this.DataFactory.AddMedicalDoctor(doctor);
-            this.DataFactory.SaveAllChanges();
+            this.dataFactory.AddMedicalDoctor(doctor);
+            this.dataFactory.SaveAllChanges();
 
             // TODO add all new Medical doctor properties
             return $"Medical doctor {doctor.FirstName} with id {doctor.Id} created.";
