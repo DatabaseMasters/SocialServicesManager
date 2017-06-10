@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using SocialServicesManager.Data.Models;
+using SocialServicesManager.Data.Services.PdfPageElements;
 using System.Collections.Generic;
 using System.IO;
 
@@ -13,15 +14,11 @@ namespace SocialServicesManager.Data.Services
 
             FileStream fs = new FileStream("UserReport.pdf", FileMode.Create);
 
-            Document doc = new Document(PageSize.A4.Rotate());
-
-            PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+            var doc = PdfProvider.GetPage(fs);
 
             doc.Open();
 
-            doc.Add(new Paragraph("start"));
-
-            doc.Add(new Paragraph("hi"));
+            doc.Add(new Paragraph("a"));
 
             doc.Close();
 
