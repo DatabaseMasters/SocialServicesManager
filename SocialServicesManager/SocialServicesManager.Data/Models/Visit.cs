@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.Data.DataValidation;
+using SocialServicesManager.Data.Models.Constants;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,7 +17,7 @@ namespace SocialServicesManager.Data.Models
         [DateInThePast]
         public DateTime Date { get; set; }
 
-        [MaxLength(4000), MinLength(10)]
+        [MaxLength(ModelsConstraints.DescriptionMaxLength), MinLength(ModelsConstraints.DescriptionMinLength)]
         public string Description { get; set; }
 
         public int UserId { get; set; }

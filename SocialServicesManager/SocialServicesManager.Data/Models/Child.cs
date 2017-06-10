@@ -1,4 +1,5 @@
 ﻿using SocialServicesManager.Data.DataValidation;
+using SocialServicesManager.Data.Models.Constants;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,10 +14,10 @@ namespace SocialServicesManager.Data.Models
 
         public int Id { get; set; }
 
-        [MaxLength(50), MinLength(2)]
+        [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
         public string FirstName { get; set; }
 
-        [MaxLength(50), MinLength(2)]
+        [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
         public string LastName { get; set; }
 
         public bool Deleted { get; set; }

@@ -13,7 +13,7 @@ namespace SocialServicesManager.Data.SQLServerMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201706101308029_Initialize SQL Server DB"; }
+            get { return "201706101539075_Initialize SQLServer DB"; }
         }
         
         string IMigrationMetadata.Source

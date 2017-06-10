@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using SocialServicesManager.Data.Models.Constants;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SocialServicesManager.Data.Models
 {
@@ -6,7 +8,17 @@ namespace SocialServicesManager.Data.Models
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
+        public string FirstName { get; set; }
+
+        [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
+        public string LastName { get; set; }
+
+        [MaxLength(ModelsConstraints.PhoneNumberLength), MinLength(ModelsConstraints.PhoneNumberLength)]
+        public string PhoneNumber { get; set; }
+
+        [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
+        public string Specialty { get; set; }
 
         public bool Deleted { get; set; }
 

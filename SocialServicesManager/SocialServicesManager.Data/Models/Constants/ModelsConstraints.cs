@@ -1,6 +1,6 @@
 ﻿namespace SocialServicesManager.Data.Models.Constants
 {
-    public class ModelConstraints
+    public static class ModelsConstraints
     {
         // TODO name regex A-Za-z
         public const int AddressNameMinLenght = 5;
@@ -15,5 +15,8 @@
         public const int PasswordMaxLength = 50;
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 4000;
+
+        //TODO add regex for phone -> starts with zero
+        public const int PhoneNumberLength = 10;
     }
 }

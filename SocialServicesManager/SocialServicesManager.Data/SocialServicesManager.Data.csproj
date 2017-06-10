@@ -93,7 +93,7 @@
     <Compile Include="Factories\ModelsFactory.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Child.cs" />
-    <Compile Include="Models\Constants\ModelConstraints.cs" />
+    <Compile Include="Models\Constants\ModelsConstraints.cs" />
     <Compile Include="Models\Family.cs" />
     <Compile Include="Models\FamilyMember.cs" />
     <Compile Include="Models\Gender.cs" />
@@ -120,9 +120,9 @@
     <Compile Include="SqliteMigrations\SqliteConfiguration.cs" />
     <Compile Include="SQLServerDbContext.cs" />
     <Compile Include="PostgreDbContext.cs" />
-    <Compile Include="SQLServerMigrations\201706101308029_Initialize SQL Server DB.cs" />
-    <Compile Include="SQLServerMigrations\201706101308029_Initialize SQL Server DB.Designer.cs">
-      <DependentUpon>201706101308029_Initialize SQL Server DB.cs</DependentUpon>
+    <Compile Include="SQLServerMigrations\201706101539075_Initialize SQLServer DB.cs" />
+    <Compile Include="SQLServerMigrations\201706101539075_Initialize SQLServer DB.Designer.cs">
+      <DependentUpon>201706101539075_Initialize SQLServer DB.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLServerMigrations\SQLServerConfiguration.cs" />
   </ItemGroup>
@@ -147,8 +147,8 @@
     <EmbeddedResource Include="SqliteMigrations\201706091422122_Initialize SQLite DB.resx">
       <DependentUpon>201706091422122_Initialize SQLite DB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SQLServerMigrations\201706101308029_Initialize SQL Server DB.resx">
-      <DependentUpon>201706101308029_Initialize SQL Server DB.cs</DependentUpon>
+    <EmbeddedResource Include="SQLServerMigrations\201706101539075_Initialize SQLServer DB.resx">
+      <DependentUpon>201706101539075_Initialize SQLServer DB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

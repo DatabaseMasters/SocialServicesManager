@@ -14,7 +14,7 @@ namespace SocialServicesManager.Data.SQLServerMigrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 300),
+                        Name = c.String(nullable: false, maxLength: 4000),
                         Town_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

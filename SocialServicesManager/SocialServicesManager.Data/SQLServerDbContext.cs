@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System;
 using SocialServicesManager.Data.Models;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.ComponentModel.DataAnnotations.Schema;

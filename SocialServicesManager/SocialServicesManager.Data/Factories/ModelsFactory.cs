@@ -70,8 +70,9 @@ namespace SocialServicesManager.Data.Factories
         {
             var doctor = new MedicalDoctor
             {
+                // TODO: Add all new properties of Medical Doctor
                 Id = 1,
-                Name = name
+                FirstName = name
             };
 
             return doctor;
