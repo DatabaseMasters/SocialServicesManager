@@ -37,6 +37,7 @@
     <Compile Include="IModelsFactory.cs" />
     <Compile Include="IProcessor.cs" />
     <Compile Include="IReader.cs" />
+    <Compile Include="IServiceLocator.cs" />
     <Compile Include="IWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -45,6 +46,9 @@
       <Project>{E528B0A5-0A50-422C-BBC2-C383340A1D88}</Project>
       <Name>SocialServicesManager.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

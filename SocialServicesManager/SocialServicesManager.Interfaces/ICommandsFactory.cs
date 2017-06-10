@@ -2,6 +2,6 @@
 {
     public interface ICommandsFactory
     {
-        ICommand CreateCommandFromString(string commandName);
+        ICommand GetCommand(string commandName);
     }
 }

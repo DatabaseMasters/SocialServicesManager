@@ -1,19 +1,22 @@
 ﻿using Ninject.Modules;
-using SocialServicesManager.ConsoleUI.Providers;
-using SocialServicesManager.App;
-using SocialServicesManager.Data.Factories;
 using System.Data.Entity;
-using SocialServicesManager.Data;
+using SocialServicesManager.App;
 using SocialServicesManager.App.Commands;
+using SocialServicesManager.App.Commands.Creational;
+using SocialServicesManager.ConsoleUI.Providers;
+using SocialServicesManager.Data;
+using SocialServicesManager.Data.Factories;
 using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.ConsoleUI.Container
 {
     public class SocialServiceNinjectModule : NinjectModule
     {
-        private const string CreateFamilyName = "CreateFamily";
-        private const string CreateUserName = "CreateUser";
-        private const string CreateVisitName = "CreateVisit";
+        private const string CreateFamilyName = "createfamily";
+        private const string CreateMedicalDoctorName = "createmedicaldoctor";
+        private const string CreateMedicalRecordName = "createmedicalrecord";
+        private const string CreateUserName = "createuser";
+        private const string CreateVisitName = "createvisit";
 
         public override void Load()
         {
@@ -29,11 +32,15 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommandsFactory>().To<CommandsFactory>().InSingletonScope();
             this.Bind<IProcessor>().To<CommandProcessor>().InSingletonScope();
 
+            this.Bind<IServiceLocator>().To<ServiceLocator>();
+
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
 
-            //this.Bind<CreationalCommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
-            //this.Bind<ICommand>().To<CreateUserCommand>().Named(CreateUserName);
-            //this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
+            this.Bind<ICommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
+            this.Bind<ICommand>().To<CreateMedicalDoctor>().Named(CreateMedicalDoctorName);
+            this.Bind<ICommand>().To<CreateMedicalRecord>().Named(CreateMedicalRecordName);
+            this.Bind<ICommand>().To<CreateUserCommand>().Named(CreateUserName);
+            this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
 
         }
     }
