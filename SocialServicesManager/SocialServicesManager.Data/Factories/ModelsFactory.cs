@@ -28,12 +28,15 @@ namespace SocialServicesManager.Data.Factories
             return family;
         }
 
-        public User CreateUser(string name)
+        public User CreateUser(string username, string password, string firstName, string lastName)
         {
             var user = new User
             {
                 // TODO: Add the other properites
-                FirstName = name
+                UserName = username,
+                Password = password,
+                FirstName = firstName,
+                LastName = lastName
             };
 
             return user;

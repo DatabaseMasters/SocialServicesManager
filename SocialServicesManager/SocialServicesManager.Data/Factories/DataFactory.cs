@@ -1,6 +1,7 @@
-﻿using System.Linq;
-using SocialServicesManager.Data.Models;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Data.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace SocialServicesManager.Data.Factories
@@ -41,7 +42,7 @@ namespace SocialServicesManager.Data.Factories
 
         public void AddVisitType(VisitType visitType)
         {
-            this.PostgreDbContext.Visittypes.Add(visitType);
+            this.PostgreDbContext.VisitTypes.Add(visitType);
         }
 
         public void AddMedicalDoctor(MedicalDoctor doctor)
@@ -74,7 +75,7 @@ namespace SocialServicesManager.Data.Factories
         
         public VisitType GetVisitType(string type)
         {
-            var typeFound = this.PostgreDbContext.Visittypes
+            var typeFound = this.PostgreDbContext.VisitTypes
                 .Where(v => v.Name == type)
                 .FirstOrDefault();
 
@@ -107,5 +108,11 @@ namespace SocialServicesManager.Data.Factories
         }
 
         // DELETING
+    }
+
+        public ICollection<Visit> GetUserVisits(User user)
+        {
+            return this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
+        }
     }
 }

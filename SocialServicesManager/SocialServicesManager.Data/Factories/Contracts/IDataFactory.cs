@@ -1,4 +1,4 @@
-﻿using SocialServicesManager.Data.Models;
+using SocialServicesManager.Data.Models;
 using System.Collections.Generic;
 
 namespace SocialServicesManager.Data.Factories.Contracts
@@ -22,6 +22,10 @@ namespace SocialServicesManager.Data.Factories.Contracts
         MedicalDoctor GetMedicalDoctor(int id);
 
         VisitType GetVisitType(string type);
+
+        User GetUser(int id);
+
+        ICollection<Visit> GetUserVisits(User user);
 
         Family FindFamily(int id);
 

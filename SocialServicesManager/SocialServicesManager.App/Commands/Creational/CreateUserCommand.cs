@@ -14,7 +14,12 @@ namespace SocialServicesManager.App.Commands.Creational
         public override string Execute(IList<string> parameters)
         {
             // TODO Fix passed parameters to factory
-            var user = this.ModelFactory.CreateUser(parameters[0]);
+            var username = parameters[0];
+            var password = parameters[1];
+            var firstName = parameters[2];
+            var lastName = parameters[3];
+
+            var user = this.ModelFactory.CreateUser(username,password,firstName,lastName);
 
             this.DataFactory.AddUser(user);
             this.DataFactory.SaveAllChanges();

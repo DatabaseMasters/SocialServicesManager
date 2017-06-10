@@ -2,6 +2,7 @@
 using SocialServicesManager.App;
 using SocialServicesManager.App.Commands;
 using SocialServicesManager.App.Commands.Creational;
+using SocialServicesManager.App.Commands.Export;
 using SocialServicesManager.ConsoleUI.Providers;
 using SocialServicesManager.Data;
 using SocialServicesManager.Data.Factories;
@@ -21,6 +22,7 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string CreateMedicalRecordName = "createmedicalrecord";
         private const string CreateUserName = "createuser";
         private const string CreateVisitName = "createvisit";
+        private const string CreateUserReport = "exportuserreport";
         private const string ListFamiliesName = "listfamilies";
         private const string UpdateFamilyName = "updatefamily";
 
@@ -49,6 +51,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<CreateUserCommand>().Named(CreateUserName);
             this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
 
+            this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReport);
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
 
             this.Bind<ICommand>().To<UpdateFamilyCommand>().Named(UpdateFamilyName);

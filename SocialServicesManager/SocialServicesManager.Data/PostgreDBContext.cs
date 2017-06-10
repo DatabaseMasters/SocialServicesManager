@@ -1,6 +1,7 @@
 ﻿using SocialServicesManager.Data.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System;
+using System.Data.Entity.Infrastructure.Annotations;
 
 namespace SocialServicesManager.Data
 {
@@ -12,7 +13,7 @@ namespace SocialServicesManager.Data
 
         public DbSet<Visit> Visits { get; set; }
 
-        public DbSet<VisitType> Visittypes { get; set; }
+        public DbSet<VisitType> VisitTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,12 +30,38 @@ namespace SocialServicesManager.Data
             modelBuilder.Entity<VisitType>()
                 .Property(t => t.Name)
                 .IsRequired()
-                .HasColumnType("nvarchar");
+                .HasColumnType("varchar")
+                .HasColumnAnnotation("IX_VisitType", new IndexAnnotation(
+                                                                new IndexAttribute("IX_VisitType") { IsUnique = true }));
         }
 
         private void OnVisitModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new NotImplementedException();
+            modelBuilder.Entity<Visit>()
+                .HasKey(v => v.Id)
+                .HasRequired(t => t.VisitType);
+
+            modelBuilder.Entity<Visit>()
+                .Property(c => c.Date)
+                .IsRequired()
+                .HasColumnType("timestamp");
+
+            modelBuilder.Entity<Visit>()
+                .Property(v => v.Description)
+                .IsRequired()
+                .HasColumnType("text");
+
+            modelBuilder.Entity<Visit>()
+               .Property(v => v.UserId)
+               .IsRequired();
+
+            modelBuilder.Entity<Visit>()
+               .Property(v => v.FamilyId)
+               .IsRequired();
+
+            modelBuilder.Entity<Visit>()
+                .Property(c => c.Deleted)
+                .IsRequired();
         }
     }
 }
