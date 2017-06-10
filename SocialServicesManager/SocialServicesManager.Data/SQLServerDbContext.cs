@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System;
 using SocialServicesManager.Data.Models;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -40,7 +39,7 @@ namespace SocialServicesManager.Data
             this.OnMunicpalityModelCreating(modelBuilder);
             this.OnGenderModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
-        }
+    }
 
         private void OnMunicpalityModelCreating(DbModelBuilder modelBuilder)
         {

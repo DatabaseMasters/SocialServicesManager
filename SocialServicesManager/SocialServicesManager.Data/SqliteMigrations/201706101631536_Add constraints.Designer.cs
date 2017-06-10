@@ -7,13 +7,13 @@ namespace SocialServicesManager.Data.SqliteMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitializeSQLiteDB : IMigrationMetadata
+    public sealed partial class Addconstraints : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitializeSQLiteDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Addconstraints));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706091422122_Initialize SQLite DB"; }
+            get { return "201706101631536_Add constraints"; }
         }
         
         string IMigrationMetadata.Source

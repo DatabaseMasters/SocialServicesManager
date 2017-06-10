@@ -1,4 +1,5 @@
-﻿using SocialServicesManager.Interfaces;
+﻿using SocialServicesManager.App.Exceptions;
+using SocialServicesManager.Interfaces;
 //using System.Text;
 
 namespace SocialServicesManager.App
@@ -24,6 +25,12 @@ namespace SocialServicesManager.App
             {
                 string commandLine = this.reader.ReadLine();
 
+                if (commandLine.ToLower() == string.Empty)
+                {
+                    this.writer.WriteLine("Empty command. Please enter a valid command.");
+                    continue;
+                }
+
                 if (commandLine.ToLower() == "end")
                 {
                     //this.Writer.Write(builder.ToString());
@@ -37,11 +44,15 @@ namespace SocialServicesManager.App
                     //builder.AppendLine(commandResult);
                     this.writer.WriteLine(commandResult);
                 }
-                catch (System.Exception ex)
+                catch (EntryNotFoundException ex)
                 {
-                    //builder.AppendLine("An error appeared. " + ex.Message);
-                    this.writer.WriteLine("An error appeared. " + ex.Message);
+                    this.writer.WriteLine(ex.Message);
                 }
+                //catch (System.Exception ex)
+                //{
+                //    //builder.AppendLine("An error appeared. " + ex.Message);
+                //    this.writer.WriteLine("An error appeared. " + ex.Message);
+                //}
             }
         }
     }

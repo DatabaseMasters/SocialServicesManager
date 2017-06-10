@@ -25,7 +25,8 @@ namespace SocialServicesManager.App.Commands.Creational
             this.DataFactory.SaveAllChanges();
 
             // TODO Add the new properties of User
-            return $"User {user.FirstName} with {user.Id} created";
+
+            return $"User {user.FirstName} with {user.Id} created.";
         }
     }
 }

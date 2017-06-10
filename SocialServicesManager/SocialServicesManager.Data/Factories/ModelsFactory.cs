@@ -7,6 +7,17 @@ namespace SocialServicesManager.Data.Factories
 {
     public class ModelsFactory : IModelsFactory
     {
+        public Address CreateAddress(Town town, string name)
+        {
+            var address = new Address
+            {
+                Name = name,
+                Town = town
+            };
+
+            return address;
+        }
+
         public Family CreateFamily(string name)
         {
             var family = new Family
@@ -31,7 +42,7 @@ namespace SocialServicesManager.Data.Factories
             return user;
         }
 
-        public Visit CreateVisit(string date, string descirption, int userId, int familyId, VisitType visitType)
+        public Visit CreateVisit(string date, int userId, int familyId, VisitType visitType, string descirption)
         {
             var visit = new Visit
             {
@@ -59,20 +70,22 @@ namespace SocialServicesManager.Data.Factories
         {
             var doctor = new MedicalDoctor
             {
+                // TODO: Add all new properties of Medical Doctor
                 Id = 1,
-                Name = name
+                FirstName = name
             };
 
             return doctor;
         }
 
-        public MedicalRecord CreateMedicalRecord(string description, int childId, MedicalDoctor doctor)
+        public MedicalRecord CreateMedicalRecord(int childId, MedicalDoctor doctor, string description)
         {
             var medicalRecord = new MedicalRecord
             {
                 Description = description,
                 ChildId = childId,
-                MedicalDoctor = doctor
+                // TODO: Medicalrecord now has many doctors 
+                //MedicalDoctor = doctor
             };
 
             return medicalRecord;

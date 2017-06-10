@@ -18,6 +18,12 @@ namespace SocialServicesManager.Data.Factories
             this.SqliteDbContext = sqliteDbContext;
         }
 
+        // CREATING
+        public void AddAddress(Address address)
+        {
+            this.SqlDbContext.Addresses.Add(address);
+        }
+
         public void AddFamily(Family family)
         {
             this.SqlDbContext.Families.Add(family);
@@ -33,7 +39,6 @@ namespace SocialServicesManager.Data.Factories
             this.PostgreDbContext.Visits.Add(visit);
         }
 
-        // TODO Add CreateVisitTypeCommand
         public void AddVisitType(VisitType visitType)
         {
             this.PostgreDbContext.VisitTypes.Add(visitType);
@@ -59,13 +64,14 @@ namespace SocialServicesManager.Data.Factories
             this.SqliteDbContext.SaveChanges();
         }
 
+        // READING
         public MedicalDoctor GetMedicalDoctor(int id)
         {
             var doctorFound = this.SqliteDbContext.MedicalDoctors.Find(id);
 
             return doctorFound;
         }
-
+        
         public VisitType GetVisitType(string type)
         {
             var typeFound = this.PostgreDbContext.VisitTypes
@@ -74,15 +80,41 @@ namespace SocialServicesManager.Data.Factories
 
             return typeFound;
         }
+        
+        public Family FindFamily(int id)
+        {
+            var familyFound = this.SqlDbContext.Families.Find(id);
+
+            return familyFound;
+        }
+
+        public IEnumerable<Family> GetAllFamilies()
+        {
+            return this.SqlDbContext.Families.ToList();
+        }
+
+        public Town FindTown(int id)
+        {
+            var townFound = this.SqlDbContext.Towns.Find(id);
+
+            return townFound;
+        }
+
+        // UPDATING
+        public void UpdateFamily(Family family, IList<string> parameters)
+        {
+            family.Name = parameters[1];
+        }
+
+        // DELETING
+        public ICollection<Visit> GetUserVisits(User user)
+        {
+            return this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
+        }
 
         public User GetUser(int id)
         {
             return this.SqlDbContext.Users.Find(id);
-        }
-
-        public ICollection<Visit> GetUserVisits(User user)
-        {
-            return this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
         }
     }
 }

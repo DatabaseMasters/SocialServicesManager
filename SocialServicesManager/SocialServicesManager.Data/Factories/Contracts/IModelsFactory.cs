@@ -4,15 +4,17 @@ namespace SocialServicesManager.Data.Factories.Contracts
 {
     public interface IModelsFactory
     {
+        Address CreateAddress(Town town, string name);
+
         Family CreateFamily(string name);
 
         User CreateUser(string username, string password, string firstName, string lastName);
 
-        Visit CreateVisit(string date, string descirption, int userId, int familyId, VisitType type);
+        Visit CreateVisit(string date, int userId, int familyId, VisitType type, string descirption);
 
         VisitType CreateVisitType(string name);
-
-        MedicalRecord CreateMedicalRecord(string description, int childId, MedicalDoctor medicalDoctorId);
+          
+        MedicalRecord CreateMedicalRecord(int childId, MedicalDoctor medicalDoctorId, string description);
 
         MedicalDoctor CreateMedicalDoctor(string name);
     }

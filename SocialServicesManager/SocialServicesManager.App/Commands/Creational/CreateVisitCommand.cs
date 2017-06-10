@@ -1,5 +1,6 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
 
@@ -14,26 +15,25 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public override string Execute(IList<string> parameters)
         {
-            // TODO Fix passed parameters to factory
             var date = parameters[0];
-            var description = parameters[1];
-            int userId = int.Parse(parameters[2]);
-            int familyId = int.Parse(parameters[3]);
-            var visitType = parameters[4];
+            int userId = int.Parse(parameters[1]);
+            int familyId = int.Parse(parameters[2]);
+            var visitType = parameters[3];
+            var description = parameters[4];
 
             var typeFound = this.DataFactory.GetVisitType(visitType);
-
+            
             if (typeFound == null)
             {
-                // Custom exception;
+                throw new EntryNotFoundException($"Visit type {visitType} not found.");
             }
 
-            var visit = this.ModelFactory.CreateVisit(date, description, userId, familyId, typeFound);
+            var visit = this.ModelFactory.CreateVisit(date, userId, familyId, typeFound, description);
 
             this.DataFactory.AddVisit(visit);
             this.DataFactory.SaveAllChanges();
 
-            return $"Visit on {visit.Date} with id: {visit.Id} was created";
+            return $"Visit on {visit.Date} with id: {visit.Id} created.";
         }
     }
 }

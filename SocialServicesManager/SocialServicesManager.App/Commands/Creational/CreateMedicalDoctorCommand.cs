@@ -18,7 +18,8 @@ namespace SocialServicesManager.App.Commands.Creational
             this.DataFactory.AddMedicalDoctor(doctor);
             this.DataFactory.SaveAllChanges();
 
-            return $"Medical doctor {doctor.Name} with id {doctor.Id} created.";
+            // TODO add all new Medical doctor properties
+            return $"Medical doctor {doctor.FirstName} with id {doctor.Id} created.";
 
         }
     }

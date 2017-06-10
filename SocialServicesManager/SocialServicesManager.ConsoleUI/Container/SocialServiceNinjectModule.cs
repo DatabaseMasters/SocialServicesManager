@@ -9,17 +9,22 @@ using SocialServicesManager.Data.Factories;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System.Data.Entity;
+using SocialServicesManager.App.Commands.Listing;
+using SocialServicesManager.App.Commands.Updating;
 
 namespace SocialServicesManager.ConsoleUI.Container
 {
     public class SocialServiceNinjectModule : NinjectModule
     {
+        private const string CreateAddressName = "createaddress";
         private const string CreateFamilyName = "createfamily";
         private const string CreateMedicalDoctorName = "createmedicaldoctor";
         private const string CreateMedicalRecordName = "createmedicalrecord";
         private const string CreateUserName = "createuser";
         private const string CreateVisitName = "createvisit";
         private const string CreateUserReport = "exportuserreport";
+        private const string ListFamiliesName = "listfamilies";
+        private const string UpdateFamilyName = "updatefamily";
 
         public override void Load()
         {
@@ -39,6 +44,7 @@ namespace SocialServicesManager.ConsoleUI.Container
 
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
 
+            this.Bind<ICommand>().To<CreateAddressCommand>().Named(CreateAddressName);
             this.Bind<ICommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
             this.Bind<ICommand>().To<CreateMedicalDoctor>().Named(CreateMedicalDoctorName);
             this.Bind<ICommand>().To<CreateMedicalRecord>().Named(CreateMedicalRecordName);
@@ -46,6 +52,9 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
 
             this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReport);
+            this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
+
+            this.Bind<ICommand>().To<UpdateFamilyCommand>().Named(UpdateFamilyName);
 
         }
     }

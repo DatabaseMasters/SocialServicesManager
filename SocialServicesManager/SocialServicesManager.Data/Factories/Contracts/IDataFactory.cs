@@ -5,6 +5,8 @@ namespace SocialServicesManager.Data.Factories.Contracts
 {
     public interface IDataFactory
     {
+        void AddAddress(Address address);
+
         void AddFamily(Family family);
 
         void AddUser(User user);
@@ -24,5 +26,13 @@ namespace SocialServicesManager.Data.Factories.Contracts
         User GetUser(int id);
 
         ICollection<Visit> GetUserVisits(User user);
+
+        Family FindFamily(int id);
+
+        IEnumerable<Family> GetAllFamilies();
+
+        Town FindTown(int id);
+
+        void UpdateFamily(Family family, IList<string> parameters);
     }
 }
