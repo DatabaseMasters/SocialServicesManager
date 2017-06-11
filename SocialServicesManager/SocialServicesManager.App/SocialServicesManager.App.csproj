@@ -44,6 +44,7 @@
     <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
     <Compile Include="Commands\Creational\CreateUserCommand.cs" />
     <Compile Include="Commands\Creational\CreateVisitCommand.cs" />
+    <Compile Include="Commands\Export\ExportFamilyVisitsReport.cs" />
     <Compile Include="Commands\Export\ExportUserReport.cs" />
     <Compile Include="Commands\Listing\ListFamiliesCommand.cs" />
     <Compile Include="Commands\Updating\UpdateFamilyCommand.cs" />

@@ -22,7 +22,8 @@ namespace SocialServicesManager.Data.Models
 
         public virtual Address Address { get; set;  }
 
-        public virtual Family Family {get; set; }
+
+        public virtual Family Family { get; set; }
 
         public bool Deleted { get; set; }
     }

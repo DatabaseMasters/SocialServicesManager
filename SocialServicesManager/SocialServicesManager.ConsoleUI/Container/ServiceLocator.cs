@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Ninject;
 using SocialServicesManager.Interfaces;
-using Ninject;
 
 namespace SocialServicesManager.ConsoleUI.Container
 {

@@ -30,17 +30,20 @@ namespace SocialServicesManager.Data.PostgreMigrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 50,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "IX_VisitType",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { Name: IX_VisitType, IsUnique: True }")
-                                },
-                            }),
+                        Name = c.String(
+                                    nullable: false, 
+                                    maxLength: 50,
+                                    annotations: new Dictionary<string, AnnotationValues>
+                                    {
+                                        { 
+                                            "IX_VisitType",
+                                            new AnnotationValues(
+                                                oldValue: null, 
+                                                newValue: "IndexAnnotation: { Name: IX_VisitType, IsUnique: True }")
+                                        },
+                                    }),
                     })
                 .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()

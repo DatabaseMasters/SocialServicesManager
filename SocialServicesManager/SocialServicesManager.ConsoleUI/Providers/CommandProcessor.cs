@@ -6,6 +6,7 @@ namespace SocialServicesManager.ConsoleUI.Providers
     public class CommandProcessor : IProcessor
     {
         private readonly ICommandsFactory commandFactory;
+
         public CommandProcessor(ICommandsFactory factory)
         {
             this.commandFactory = factory;

@@ -7,15 +7,39 @@ namespace SocialServicesManager.Data.Factories
 {
     public class DataFactory : IDataFactory
     {
-        private readonly SQLServerDbContext SqlDbContext;
-        private readonly PostgreDbContext PostgreDbContext;
-        private readonly SqliteDbContext SqliteDbContext;
+        private readonly SQLServerDbContext sqlDbContext;
+        private readonly PostgreDbContext postgreDbContext;
+        private readonly SqliteDbContext sqliteDbContext;
 
         public DataFactory(SQLServerDbContext sqlDbContext, PostgreDbContext postgreDbContext, SqliteDbContext sqliteDbContext)
         {
-            this.SqlDbContext = sqlDbContext;
-            this.PostgreDbContext = postgreDbContext;
-            this.SqliteDbContext = sqliteDbContext;
+            this.sqlDbContext = sqlDbContext;
+            this.postgreDbContext = postgreDbContext;
+            this.sqliteDbContext = sqliteDbContext;
+        }
+
+        private SQLServerDbContext SqlDbContext
+        {
+            get
+            {
+                return this.sqlDbContext;
+            }
+        }
+
+        private PostgreDbContext PostgreDbContext
+        {
+            get
+            {
+                return this.postgreDbContext;
+            }
+        }
+
+        private SqliteDbContext SqliteDbContext
+        {
+            get
+            {
+                return this.sqliteDbContext;
+            }
         }
 
         // CREATING
@@ -42,14 +66,13 @@ namespace SocialServicesManager.Data.Factories
         public void AddMedicalDoctor(MedicalDoctor doctor)
         {
             this.SqliteDbContext.MedicalDoctors.Add(doctor);
-
         }        
 
         public void AddMedicalRecord(MedicalRecord record)
         {
             this.SqliteDbContext.MedicalRecords.Add(record);
         }
-
+        
         public void AddMunicipality(Municipality municipality)
         {
             this.SqlDbContext.Municipalities.Add(municipality);
@@ -74,8 +97,7 @@ namespace SocialServicesManager.Data.Factories
         {
             this.PostgreDbContext.VisitTypes.Add(visitType);
         }
-
-
+        
         // TODO Research if this creates issues
         public void SaveAllChanges()
         {
@@ -151,17 +173,21 @@ namespace SocialServicesManager.Data.Factories
         // DELETING
         public ICollection<Visit> GetUserVisits(User user)
         {
-            var userVisits =  this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
+            var userVisits = this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
 
             return userVisits;
         }
-
+        
+        public ICollection<Visit> GetFamilyVisits(Family family)
+        {
+            return this.PostgreDbContext.Visits.Where(v => v.FamilyId == family.Id).ToList();
+        }
+        
         public User FindUser(int id)
         {
             var userFound = this.SqlDbContext.Users.Find(id);
 
             return userFound;
         }
-
     }
 }

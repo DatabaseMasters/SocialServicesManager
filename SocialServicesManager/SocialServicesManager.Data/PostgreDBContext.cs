@@ -31,8 +31,13 @@ namespace SocialServicesManager.Data
                 .Property(t => t.Name)
                 .IsRequired()
                 .HasColumnType("varchar")
-                .HasColumnAnnotation("IX_VisitType", new IndexAnnotation(
-                                                                new IndexAttribute("IX_VisitType") { IsUnique = true }));
+                .HasColumnAnnotation(
+                    "IX_VisitType", 
+                    new IndexAnnotation(
+                        new IndexAttribute("IX_VisitType")
+                        {
+                            IsUnique = true
+                        }));
         }
 
         private void OnVisitModelCreating(DbModelBuilder modelBuilder)

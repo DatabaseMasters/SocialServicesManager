@@ -1,6 +1,6 @@
-﻿using System;
-using SocialServicesManager.Data.Models;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Data.Models;
+﻿using System;
 
 namespace SocialServicesManager.Data.Factories
 {

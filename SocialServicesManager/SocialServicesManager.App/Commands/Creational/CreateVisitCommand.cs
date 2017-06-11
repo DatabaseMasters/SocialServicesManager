@@ -1,11 +1,11 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
-using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.App.Exceptions;
-using SocialServicesManager.Interfaces;
-using System.Collections.Generic;
-using System;
-using System.Globalization;
 using SocialServicesManager.Data.DataValidation;
+using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace SocialServicesManager.App.Commands.Creational
 {
@@ -15,7 +15,6 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public CreateVisitCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
-
         }
 
         public override string Execute(IList<string> parameters)

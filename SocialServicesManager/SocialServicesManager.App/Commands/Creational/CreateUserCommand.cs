@@ -24,10 +24,11 @@ namespace SocialServicesManager.App.Commands.Creational
             var firstName = parameters[2];
             var lastName = parameters[3];
 
+
             base.ValidateName("First name", firstName);
             base.ValidateName("Last name", lastName);
 
-            var user = this.modelFactory.CreateUser(username,password,firstName,lastName);
+            var user = this.modelFactory.CreateUser(username, password, firstName, lastName);
 
             this.dataFactory.AddUser(user);
             this.dataFactory.SaveAllChanges();
@@ -51,6 +52,4 @@ namespace SocialServicesManager.App.Commands.Creational
             {
                 throw new ParameterValidationException(string.Format(ValidationText, "Password", ModelsConstraints.PasswordMinLength, ModelsConstraints.PasswordMaxLength));
             }
-        }
-    }
 }

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.App.Commands.Abstarcts;
-using SocialServicesManager.Interfaces;
-using System.Text;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
+using System.Collections.Generic;
+using System.Text;
 
 namespace SocialServicesManager.App.Commands.Listing
 {
@@ -19,14 +18,14 @@ namespace SocialServicesManager.App.Commands.Listing
             var builder = new StringBuilder();
             var families = this.dataFactory.GetAllFamilies();
 
-            builder.AppendLine("");
+            builder.AppendLine(string.Empty);
 
             foreach (var family in families)
             {
                 builder.AppendLine($"Id: {family.Id}; Name: {family.Name}");
             }
 
-            if (builder.ToString() == String.Empty)
+            if (builder.ToString() == string.Empty)
             {
                 return "There are no families in the database.";
             }

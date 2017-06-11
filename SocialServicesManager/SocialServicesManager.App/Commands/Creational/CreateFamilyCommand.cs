@@ -9,6 +9,7 @@ namespace SocialServicesManager.App.Commands.Creational
     public class CreateFamilyCommand : CreationalCommand, ICommand
     {
         private const int ParameterCount = 2;
+
         public CreateFamilyCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
