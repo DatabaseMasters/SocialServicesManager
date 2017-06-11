@@ -29,9 +29,17 @@ createmedicaldoctor Georgi M 0888123456 Peadiatric
 // short phoneNumber
 createmedicaldoctor Georgi Mirchev 08881234 Peadiatric
 
-// invalid phoneNumber
+// invalid phoneNumber (validation: start with zero, only digits)
 createmedicaldoctor Georgi Mirchev 0888ab!456 Peadiatric
 createmedicaldoctor Georgi Mirchev 8888123456 Peadiatric
+
+MEDICAL RECORD:
+// valid
+createmedicalrecord 12.05.2017 1 2 (Galia had the flu)
+
+// short descriptiopn
+createmedicalrecord 12.05.2017 1 2 (Galia h)
+
 
 USER:
 // valid

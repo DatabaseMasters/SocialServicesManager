@@ -1,5 +1,6 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.App.Exceptions;
+using SocialServicesManager.Data.DataValidation;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System;
@@ -9,7 +10,7 @@ namespace SocialServicesManager.App.Commands.Creational
 {
     public class CreateMedicalRecord : CreationalCommand, ICommand
     {
-        private const int ParameterCount = 3;
+        private const int ParameterCount = 4;
 
         public CreateMedicalRecord(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
@@ -18,12 +19,19 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public override string Execute(IList<string> parameters)
         {
+            this.ValidateParameters(parameters, ParameterCount);
+
             var date = parameters[0];
             int childId = int.Parse(parameters[1]);
             int doctorId = int.Parse(parameters[2]);
             var description = parameters[3];
 
             var parsedDate = DateTime.Parse(date);
+
+            if (parsedDate > DateTime.UtcNow.Date)
+            {
+                throw new ParameterValidationException("Record date must be in the past.");
+            }
 
             var childFound = this.dataFactory.FindChild(childId);
 
@@ -52,6 +60,13 @@ namespace SocialServicesManager.App.Commands.Creational
         protected override void ValidateParameters(IList<string> parameters, int paramterCount)
         {
             base.ValidateParameters(parameters, paramterCount);
+
+            var description = parameters[3];
+
+            if (description.Length < ModelsConstraints.DescriptionMinLength || description.Length > ModelsConstraints.DescriptionMaxLength)
+            {
+                throw new ParameterValidationException(string.Format(ValidationText, "Description", ModelsConstraints.DescriptionMinLength, ModelsConstraints.DescriptionMaxLength));
+            }
         }
     }
 }
