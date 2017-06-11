@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.App.Commands.Abstarcts;
-using SocialServicesManager.Interfaces;
-using System.Text;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
+using System.Collections.Generic;
+using System.Text;
 
 namespace SocialServicesManager.App.Commands.Listing
 {

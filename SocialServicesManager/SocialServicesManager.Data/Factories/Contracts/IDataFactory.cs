@@ -7,23 +7,35 @@ namespace SocialServicesManager.Data.Factories.Contracts
     {
         void AddAddress(Address address);
 
+        void AddChild(Child child);
+
         void AddFamily(Family family);
-
-        void AddUser(User user);
-
-        void AddVisit(Visit visit);
+        
+        void AddFamilyMember(FamilyMember familyMember);
 
         void AddMedicalDoctor(MedicalDoctor doctor);
 
         void AddMedicalRecord(MedicalRecord record);
 
+        void AddMunicipality(Municipality municipality);
+
+        void AddTown(Town town);
+
+        void AddUser(User user);
+
+        void AddVisit(Visit visit);
+
         void SaveAllChanges();
 
-        MedicalDoctor GetMedicalDoctor(int id);
+        Child FindChild(int id);
+
+        Gender GetGender(string gender);
+
+        MedicalDoctor FindMedicalDoctor(int id);
 
         VisitType GetVisitType(string type);
 
-        User GetUser(int id);
+        User FindUser(int id);
 
         ICollection<Visit> GetUserVisits(User user);
 

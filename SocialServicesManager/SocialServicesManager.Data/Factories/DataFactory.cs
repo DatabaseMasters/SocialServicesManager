@@ -48,9 +48,39 @@ namespace SocialServicesManager.Data.Factories
             this.SqlDbContext.Addresses.Add(address);
         }
 
+        public void AddChild(Child child)
+        {
+            this.SqlDbContext.Children.Add(child);
+        }
+
         public void AddFamily(Family family)
         {
             this.SqlDbContext.Families.Add(family);
+        }
+
+        public void AddFamilyMember(FamilyMember familyMember)
+        {
+            this.SqlDbContext.FamilyMembers.Add(familyMember);
+        }
+
+        public void AddMedicalDoctor(MedicalDoctor doctor)
+        {
+            this.SqliteDbContext.MedicalDoctors.Add(doctor);
+        }        
+
+        public void AddMedicalRecord(MedicalRecord record)
+        {
+            this.SqliteDbContext.MedicalRecords.Add(record);
+        }
+        
+        public void AddMunicipality(Municipality municipality)
+        {
+            this.SqlDbContext.Municipalities.Add(municipality);
+        }
+
+        public void AddTown(Town town)
+        {
+            this.SqlDbContext.Towns.Add(town);
         }
 
         public void AddUser(User user)
@@ -67,17 +97,7 @@ namespace SocialServicesManager.Data.Factories
         {
             this.PostgreDbContext.VisitTypes.Add(visitType);
         }
-
-        public void AddMedicalDoctor(MedicalDoctor doctor)
-        {
-            this.SqliteDbContext.MedicalDoctors.Add(doctor);
-        }        
-
-        public void AddMedicalRecord(MedicalRecord record)
-        {
-            this.SqliteDbContext.MedicalRecords.Add(record);
-        }
-
+        
         // TODO Research if this creates issues
         public void SaveAllChanges()
         {
@@ -87,7 +107,22 @@ namespace SocialServicesManager.Data.Factories
         }
 
         // READING
-        public MedicalDoctor GetMedicalDoctor(int id)
+        public Child FindChild(int id)
+        {
+            var childFound = this.SqlDbContext.Children.Find(id);
+
+            return childFound;
+        }
+
+        public Gender GetGender(string gender)
+        {
+            var genderFound = this.SqlDbContext.Genders
+                .FirstOrDefault(g => g.Name.ToLower() == gender.ToLower());
+
+            return genderFound;
+        }
+
+        public MedicalDoctor FindMedicalDoctor(int id)
         {
             var doctorFound = this.SqliteDbContext.MedicalDoctors.Find(id);
 
@@ -131,17 +166,21 @@ namespace SocialServicesManager.Data.Factories
         // DELETING
         public ICollection<Visit> GetUserVisits(User user)
         {
-            return this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
-        }
+            var userVisits = this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
 
+            return userVisits;
+        }
+        
         public ICollection<Visit> GetFamilyVisits(Family family)
         {
             return this.PostgreDbContext.Visits.Where(v => v.FamilyId == family.Id).ToList();
         }
-
-        public User GetUser(int id)
+        
+        public User FindUser(int id)
         {
-            return this.SqlDbContext.Users.Find(id);
+            var userFound = this.SqlDbContext.Users.Find(id);
+
+            return userFound;
         }
     }
 }

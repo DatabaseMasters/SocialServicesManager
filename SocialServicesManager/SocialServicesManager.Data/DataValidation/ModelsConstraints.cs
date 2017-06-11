@@ -20,5 +20,6 @@
 
         // TODO add regex for phone -> starts with zero
         public const int PhoneNumberLength = 10;
+        public const string PhoneNumberContents = @"^0+[0-9]+$";
     }
 }

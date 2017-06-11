@@ -3,20 +3,21 @@ using SocialServicesManager.App;
 using SocialServicesManager.App.Commands;
 using SocialServicesManager.App.Commands.Creational;
 using SocialServicesManager.App.Commands.Export;
+using SocialServicesManager.App.Commands.Listing;
+using SocialServicesManager.App.Commands.Updating;
 using SocialServicesManager.ConsoleUI.Providers;
 using SocialServicesManager.Data;
 using SocialServicesManager.Data.Factories;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System.Data.Entity;
-using SocialServicesManager.App.Commands.Listing;
-using SocialServicesManager.App.Commands.Updating;
 
 namespace SocialServicesManager.ConsoleUI.Container
 {
     public class SocialServiceNinjectModule : NinjectModule
     {
         private const string CreateAddressName = "createaddress";
+        private const string CreateChildName = "createchild";
         private const string CreateFamilyName = "createfamily";
         private const string CreateMedicalDoctorName = "createmedicaldoctor";
         private const string CreateMedicalRecordName = "createmedicalrecord";
@@ -46,6 +47,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
 
             this.Bind<ICommand>().To<CreateAddressCommand>().Named(CreateAddressName);
+            this.Bind<ICommand>().To<CreateChildCommand>().Named(CreateChildName);
             this.Bind<ICommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
             this.Bind<ICommand>().To<CreateMedicalDoctor>().Named(CreateMedicalDoctorName);
             this.Bind<ICommand>().To<CreateMedicalRecord>().Named(CreateMedicalRecordName);
