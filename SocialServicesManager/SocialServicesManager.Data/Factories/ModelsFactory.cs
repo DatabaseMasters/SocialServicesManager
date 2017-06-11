@@ -18,6 +18,20 @@ namespace SocialServicesManager.Data.Factories
             return address;
         }
 
+        public Child CreateChild(string firstName, string lastName, Gender gender, DateTime? birthdDate, Family family)
+        {
+            var child = new Child
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Gender = gender,
+                BirthDate = birthdDate,
+                Family = family
+            };
+
+            return child;
+        }
+
         public Family CreateFamily(string name, User assignedStaff)
         {
             var family = new Family
@@ -27,6 +41,72 @@ namespace SocialServicesManager.Data.Factories
             };
 
             return family;
+        }
+
+        public FamilyMember CreateFamilyMember(string firstName, string lastName, Gender gender, Address address, Family family)
+        {
+            var familyMember = new FamilyMember
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Gender = gender,
+                Address = address,
+                Family = family
+            };
+
+            return familyMember;
+        }
+
+        public MedicalDoctor CreateMedicalDoctor(string firstName, string lastName, string phoneNumber, string specialty)
+        {
+            var doctor = new MedicalDoctor
+            {
+                // TODO: Add all new properties of Medical Doctor
+                Id = 1,
+                FirstName = firstName,
+                LastName = lastName,
+                PhoneNumber = phoneNumber,
+                Specialty = specialty
+            };
+
+            return doctor;
+        }
+
+        public MedicalRecord CreateMedicalRecord(DateTime date, int childId, MedicalDoctor doctor, string description)
+        {
+            var medicalRecord = new MedicalRecord
+            {
+                Description = description,
+                ChildId = childId,
+                // TODO: Medicalrecord now has many doctors 
+                //MedicalDoctor = doctor
+                
+            };
+
+            medicalRecord.MedicalDoctors.Add(doctor);
+
+            return medicalRecord;
+        }
+
+        public Municipality CreateMunicipality(string name)
+        {
+            var municipality = new Municipality
+            {
+                Name = name
+            };
+
+            return municipality;
+        }
+
+        public Town CreateTown(string name, Municipality municipality)
+        {
+            var town = new Town
+            {
+                Name = name,
+                Municipality = municipality
+            };
+
+            return town;
         }
 
         public User CreateUser(string username, string password, string firstName, string lastName)
@@ -65,34 +145,6 @@ namespace SocialServicesManager.Data.Factories
             };
 
             return visitType;
-        }
-
-        public MedicalDoctor CreateMedicalDoctor(string firstName, string lastName, string phoneNumber, string specialty)
-        {
-            var doctor = new MedicalDoctor
-            {
-                // TODO: Add all new properties of Medical Doctor
-                Id = 1,
-                FirstName = firstName,
-                LastName = lastName,
-                PhoneNumber = phoneNumber,
-                Specialty = specialty
-            };
-
-            return doctor;
-        }
-
-        public MedicalRecord CreateMedicalRecord(int childId, MedicalDoctor doctor, string description)
-        {
-            var medicalRecord = new MedicalRecord
-            {
-                Description = description,
-                ChildId = childId,
-                // TODO: Medicalrecord now has many doctors 
-                //MedicalDoctor = doctor
-            };
-
-            return medicalRecord;
         }
     }
 }

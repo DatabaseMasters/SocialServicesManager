@@ -15,8 +15,8 @@
         public const int PasswordMaxLength = 50;
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 4000;
-
-        //TODO add regex for phone -> starts with zero
+        
         public const int PhoneNumberLength = 10;
+        public const string PhoneNumberContents = @"^0+[0-9]+$";
     }
 }

@@ -17,12 +17,12 @@ namespace SocialServicesManager.App.Commands.Creational
         public override string Execute(IList<string> parameters)
         {
             this.ValidateParameters(parameters, ParameterCount);
-
-            // TODO Fix passed parameters to factory
+            
             var name = parameters[0];
             var userId = int.Parse(parameters[1]);
 
-            var foundStaff = this.dataFactory.GetUser(userId);
+            // TODO Implement logging functionality and assign new family to currently logged user
+            var foundStaff = this.dataFactory.FindUser(userId);
 
             if (foundStaff == null)
             {

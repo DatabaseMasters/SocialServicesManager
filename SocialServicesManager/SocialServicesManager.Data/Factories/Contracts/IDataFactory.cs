@@ -19,11 +19,13 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         void SaveAllChanges();
 
-        MedicalDoctor GetMedicalDoctor(int id);
+        Child FindChild(int id);
+
+        MedicalDoctor FindMedicalDoctor(int id);
 
         VisitType GetVisitType(string type);
 
-        User GetUser(int id);
+        User FindUser(int id);
 
         ICollection<Visit> GetUserVisits(User user);
 

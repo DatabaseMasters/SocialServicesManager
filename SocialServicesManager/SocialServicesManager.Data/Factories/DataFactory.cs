@@ -65,7 +65,14 @@ namespace SocialServicesManager.Data.Factories
         }
 
         // READING
-        public MedicalDoctor GetMedicalDoctor(int id)
+        public Child FindChild(int id)
+        {
+            var childFound = this.SqlDbContext.Children.Find(id);
+
+            return childFound;
+        }
+
+        public MedicalDoctor FindMedicalDoctor(int id)
         {
             var doctorFound = this.SqliteDbContext.MedicalDoctors.Find(id);
 
@@ -109,12 +116,16 @@ namespace SocialServicesManager.Data.Factories
         // DELETING
         public ICollection<Visit> GetUserVisits(User user)
         {
-            return this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
+            var userVisits =  this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
+
+            return userVisits;
         }
 
-        public User GetUser(int id)
+        public User FindUser(int id)
         {
-            return this.SqlDbContext.Users.Find(id);
+            var userFound = this.SqlDbContext.Users.Find(id);
+
+            return userFound;
         }
 
     }

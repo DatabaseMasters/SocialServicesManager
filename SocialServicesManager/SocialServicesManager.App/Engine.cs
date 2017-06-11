@@ -52,11 +52,8 @@ namespace SocialServicesManager.App
                 {
                     this.writer.WriteLine(ex.Message);
                 }
-                //catch (System.Exception ex)
-                //{
-                //    //builder.AppendLine("An error appeared. " + ex.Message);
-                //    this.writer.WriteLine("An error appeared. " + ex.Message);
-                //}
+
+                // TODO catch Ninject.ActivationException when passed command is not bound
             }
         }
     }
