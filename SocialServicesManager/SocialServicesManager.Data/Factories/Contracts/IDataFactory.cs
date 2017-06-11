@@ -53,10 +53,12 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         Town FindTown(int id);
 
+        void UpdateChild(Child oldChild, Child newChild);
 
+        void UpdateFamilyName(Family family, string newName);
 
-        void UpdateFamily(Family family, IList<string> parameters);
-
+        void UpdateFamilyStaff(Family family, User newStaff);
+        
         void DeleteChild(Child child);
 
         void DeleteFamily(Family family);

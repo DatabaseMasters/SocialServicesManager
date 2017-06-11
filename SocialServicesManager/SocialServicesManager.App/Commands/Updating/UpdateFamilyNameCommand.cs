@@ -6,24 +6,28 @@ using System.Collections.Generic;
 
 namespace SocialServicesManager.App.Commands.Updating
 {
-    public class UpdateFamilyCommand : UpdatingCommand, ICommand
+    public class UpdateFamilyNameCommand : Command, ICommand
     {
-        public UpdateFamilyCommand(IDataFactory dataFactory) : base(dataFactory)
+        private const int ParameterCount = 2;
+        public UpdateFamilyNameCommand(IDataFactory dataFactory) : base(dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
+            this.ValidateParameters(parameters, ParameterCount);
+
             var familyId = int.Parse(parameters[0]);
+            var newFamilyName = parameters[1];
 
             var familyFound = this.dataFactory.FindFamily(familyId);
 
             if (familyFound == null)
             {
                 throw new EntryNotFoundException($"Family id {familyId} not found.");
-            }
-
-            this.dataFactory.UpdateFamily(familyFound, parameters);
+            }            
+            
+            this.dataFactory.UpdateFamilyName(familyFound, newFamilyName);
             this.dataFactory.SaveAllChanges();
 
             return $"Family {familyFound.Id} name changed to {parameters[1]}";

@@ -9,12 +9,15 @@ namespace SocialServicesManager.App.Commands.Deleting
 {
     public class DeleteFamilyCommand : Command, ICommand
     {
+        private const int ParameterCount = 1;
         public DeleteFamilyCommand(IDataFactory dataFactory) : base(dataFactory)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
+            this.ValidateParameters(parameters, ParameterCount);
+
             var familyId = int.Parse(parameters[0]);
 
             var familyFound = this.dataFactory.FindFamily(familyId);

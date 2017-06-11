@@ -60,7 +60,6 @@ namespace SocialServicesManager.Data.Factories
         {
             var doctor = new MedicalDoctor
             {
-                // TODO: Add all new properties of Medical Doctor
                 Id = 1,
                 FirstName = firstName,
                 LastName = lastName,

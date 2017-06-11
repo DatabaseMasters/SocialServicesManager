@@ -223,9 +223,24 @@ namespace SocialServicesManager.Data.Factories
 
 
         // UPDATING
-        public void UpdateFamily(Family family, IList<string> parameters)
+
+        public void UpdateChild(Child oldChild, Child newChild)
         {
-            family.Name = parameters[1];
+            oldChild.FirstName = newChild.FirstName ?? oldChild.FirstName;
+            oldChild.LastName = newChild.LastName ?? oldChild.LastName;
+            oldChild.Gender = newChild.Gender ?? oldChild.Gender;
+            oldChild.BirthDate = newChild.BirthDate ?? oldChild.BirthDate;
+            oldChild.Family = newChild.Family ?? oldChild.Family;
+        }
+        
+        public void UpdateFamilyName(Family family, string newName)
+        {
+            family.Name = newName;
+        }
+
+        public void UpdateFamilyStaff(Family family, User newStaff)
+        {
+            family.AssignedStaffMember = newStaff;
         }
 
         // DELETING
