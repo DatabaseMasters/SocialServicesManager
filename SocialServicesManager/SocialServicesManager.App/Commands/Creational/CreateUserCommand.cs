@@ -24,7 +24,10 @@ namespace SocialServicesManager.App.Commands.Creational
             var firstName = parameters[2];
             var lastName = parameters[3];
 
-            var user = this.ModelFactory.CreateUser(username,password,firstName,lastName);
+            base.ValidateName("First name", firstName);
+            base.ValidateName("Last name", lastName);
+
+            var user = this.modelFactory.CreateUser(username,password,firstName,lastName);
 
             this.dataFactory.AddUser(user);
             this.dataFactory.SaveAllChanges();
@@ -38,8 +41,6 @@ namespace SocialServicesManager.App.Commands.Creational
 
             var username = parameters[0];
             var password = parameters[1];
-            var firstName = parameters[2];
-            var lastName = parameters[3];
 
             if (username.Length < ModelsConstraints.UsernameMinLength || username.Length > ModelsConstraints.UsernameMaxLength)
             {
@@ -49,16 +50,6 @@ namespace SocialServicesManager.App.Commands.Creational
             if (password.Length < ModelsConstraints.PasswordMinLength || password.Length > ModelsConstraints.PasswordMaxLength)
             {
                 throw new ParameterValidationException(string.Format(ValidationText, "Password", ModelsConstraints.PasswordMinLength, ModelsConstraints.PasswordMaxLength));
-            }
-
-            if (firstName.Length < ModelsConstraints.NameMinLenght || firstName.Length > ModelsConstraints.NameMaxLenght)
-            {
-                throw new ParameterValidationException(string.Format(ValidationText, "First name", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
-            }
-
-            if (lastName.Length < ModelsConstraints.NameMinLenght || lastName.Length > ModelsConstraints.NameMaxLenght)
-            {
-                throw new ParameterValidationException(string.Format(ValidationText, "Last name", ModelsConstraints.NameMinLenght,ModelsConstraints.NameMaxLenght));
             }
         }
     }

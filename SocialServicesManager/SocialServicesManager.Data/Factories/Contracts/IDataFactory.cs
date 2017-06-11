@@ -27,6 +27,8 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         void SaveAllChanges();
 
+        Address FindAddress(int id);
+
         Child FindChild(int id);
 
         Gender GetGender(string gender);

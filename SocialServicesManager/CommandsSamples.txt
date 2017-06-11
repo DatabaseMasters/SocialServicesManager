@@ -35,6 +35,24 @@ createfamily G 1
 // long name
 createfamily GeorgievisGeorgievisGeorgievisGeorgievisGeorgievisGeorgievis 1
 
+FAMILY MEMBER:
+// valid
+createfamilymember Lina Orlova female 1 1
+createfamilymember Yovko Radev male 1 1
+createfamilymember Dinko Botev male 1 2
+
+// short firstName
+createfamilymember L Orlova female 1 1
+
+// short lastName
+createfamilymember Lina O female 1 1
+
+// nonexistent addressId
+createfamilymember Lina Orlova female 99 1
+
+// nonexistent familyId
+createfamilymember Lina Orlova female 1 99
+
 MEDICAL DOCTOR:
 // valid
 createmedicaldoctor Ivan Petrov 0888999222 GeneralPractitioner
@@ -101,3 +119,8 @@ TODO new commands:
 Validation for parsable values - foreign key ids and (possibly) dates
 Validation for wrong/unparsable dates
 Implement command AddDoctorToRecord or AddRecordToDoctor for adding more than one doctor to records
+
+TODO other:
+Medical record to hold Child instead of childId?
+Change name of DataFactory to DataService
+Implement logging functionality and assign new family to currently logged user

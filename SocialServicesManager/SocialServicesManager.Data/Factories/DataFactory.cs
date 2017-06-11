@@ -85,6 +85,13 @@ namespace SocialServicesManager.Data.Factories
         }
 
         // READING
+        public Address FindAddress(int id)
+        {
+            var addressFound = this.SqlDbContext.Addresses.Find(id);
+
+            return addressFound;
+        }
+
         public Child FindChild(int id)
         {
             var childFound = this.SqlDbContext.Children.Find(id);

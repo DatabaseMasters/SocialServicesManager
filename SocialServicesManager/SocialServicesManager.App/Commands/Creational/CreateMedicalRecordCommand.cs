@@ -48,7 +48,7 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new EntryNotFoundException($"Medical doctor id {doctorId} not found.");
             }
 
-            var record = this.ModelFactory.CreateMedicalRecord(parsedDate, childId, doctorFound, description);
+            var record = this.modelFactory.CreateMedicalRecord(parsedDate, childId, doctorFound, description);
 
             this.dataFactory.AddMedicalRecord(record);
             this.dataFactory.SaveAllChanges();

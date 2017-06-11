@@ -19,6 +19,7 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string CreateAddressName = "createaddress";
         private const string CreateChildName = "createchild";
         private const string CreateFamilyName = "createfamily";
+        private const string CreateFamilyMemberName = "createfamilymember";
         private const string CreateMedicalDoctorName = "createmedicaldoctor";
         private const string CreateMedicalRecordName = "createmedicalrecord";
         private const string CreateUserName = "createuser";
@@ -48,6 +49,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<CreateAddressCommand>().Named(CreateAddressName);
             this.Bind<ICommand>().To<CreateChildCommand>().Named(CreateChildName);
             this.Bind<ICommand>().To<CreateFamilyCommand>().Named(CreateFamilyName);
+            this.Bind<ICommand>().To<CreateFamilyMemberCommand>().Named(CreateFamilyMemberName);
             this.Bind<ICommand>().To<CreateMedicalDoctor>().Named(CreateMedicalDoctorName);
             this.Bind<ICommand>().To<CreateMedicalRecord>().Named(CreateMedicalRecordName);
             this.Bind<ICommand>().To<CreateUserCommand>().Named(CreateUserName);

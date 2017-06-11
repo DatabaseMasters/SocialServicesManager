@@ -42,7 +42,7 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new EntryNotFoundException($"Visit type {visitType} not found.");
             }
 
-            var visit = this.ModelFactory.CreateVisit(parsedDate, userId, familyId, typeFound, description);
+            var visit = this.modelFactory.CreateVisit(parsedDate, userId, familyId, typeFound, description);
 
             this.dataFactory.AddVisit(visit);
             this.dataFactory.SaveAllChanges();

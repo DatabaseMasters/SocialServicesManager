@@ -25,7 +25,11 @@ namespace SocialServicesManager.App.Commands.Creational
             var phoneNumber = parameters[2];
             var specialty = parameters[3];
 
-            var doctor = this.ModelFactory.CreateMedicalDoctor(firstName, lastName, phoneNumber, specialty);
+            base.ValidateName("First name", firstName);
+            base.ValidateName("Last name", lastName);
+            base.ValidateName("Specialty", specialty);
+
+            var doctor = this.modelFactory.CreateMedicalDoctor(firstName, lastName, phoneNumber, specialty);
 
             this.dataFactory.AddMedicalDoctor(doctor);
             this.dataFactory.SaveAllChanges();
@@ -36,21 +40,8 @@ namespace SocialServicesManager.App.Commands.Creational
         protected override void ValidateParameters(IList<string> parameters, int paramterCount)
         {
             base.ValidateParameters(parameters, paramterCount);
-
-            var firstName = parameters[0];
-            var lastName = parameters[1];
+            
             var phoneNumber = parameters[2];
-            var specialty = parameters[3];
-
-            if (firstName.Length < ModelsConstraints.NameMinLenght || firstName.Length > ModelsConstraints.NameMaxLenght)
-            {
-                throw new ParameterValidationException(string.Format(ValidationText, "First name", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
-            }
-
-            if (lastName.Length < ModelsConstraints.NameMinLenght || lastName.Length > ModelsConstraints.NameMaxLenght)
-            {
-                throw new ParameterValidationException(string.Format(ValidationText, "Last name", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
-            }
             
             if (phoneNumber.Length != ModelsConstraints.PhoneNumberLength)
             {
@@ -60,12 +51,7 @@ namespace SocialServicesManager.App.Commands.Creational
             if (!new Regex(ModelsConstraints.PhoneNumberContents).IsMatch(phoneNumber))
             {
                 throw new ParameterValidationException("Phone number should start with zero and contain only digits (eg. 0888123456).");
-            }
-
-            if (specialty.Length < ModelsConstraints.NameMinLenght || specialty.Length > ModelsConstraints.NameMaxLenght)
-            {
-                throw new ParameterValidationException(string.Format(ValidationText, "Speciality", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
-            }
+            }            
         }
     }
 }

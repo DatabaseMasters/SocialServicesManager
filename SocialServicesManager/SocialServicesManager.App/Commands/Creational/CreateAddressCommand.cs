@@ -29,7 +29,7 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new EntryNotFoundException($"Town id {townId} not found.");
             }
 
-            var address = this.ModelFactory.CreateAddress(townFound, name);
+            var address = this.modelFactory.CreateAddress(townFound, name);
 
             this.dataFactory.AddAddress(address);
             this.dataFactory.SaveAllChanges();

@@ -39,6 +39,7 @@
     <Compile Include="Commands\Creational\CreateAddressCommand.cs" />
     <Compile Include="Commands\Creational\CreateChildCommand.cs" />
     <Compile Include="Commands\Creational\CreateFamilyCommand.cs" />
+    <Compile Include="Commands\Creational\CreateFamilyMemberCommand.cs" />
     <Compile Include="Commands\Creational\CreateMedicalDoctorCommand.cs" />
     <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
     <Compile Include="Commands\Creational\CreateUserCommand.cs" />

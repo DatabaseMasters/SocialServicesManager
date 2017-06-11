@@ -4,14 +4,14 @@ using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using SocialServicesManager.App.Exceptions;
-using System.Globalization;
 
 namespace SocialServicesManager.App.Commands.Creational
 {
-    public class CreateChildCommand : CreationalCommand, ICommand
+    public class CreateFamilyMemberCommand : CreationalCommand, ICommand
     {
         private const int ParameterCount = 5;
-        public CreateChildCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
+
+        public CreateFamilyMemberCommand(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
         }
 
@@ -22,7 +22,7 @@ namespace SocialServicesManager.App.Commands.Creational
             var firstName = parameters[0];
             var lastName = parameters[1];
             var gender = parameters[2];
-            var birthDate = parameters[3];
+            int addressId;
             int familyId;
 
             base.ValidateName("First name", firstName);
@@ -35,17 +35,18 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new EntryNotFoundException($"Gender '{gender}' not found. Use 'undefined' if gender is unknown.");
             }
 
-            DateTime? parsedBirthday;
+            if (!int.TryParse(parameters[3], out addressId))
+            {
+                throw new ParameterValidationException("Address id should be a number.");
+            }
 
-            if (birthDate == "null")
+            var addressFound = this.dataFactory.FindAddress(addressId);
+
+            if (addressFound == null)
             {
-                parsedBirthday = null;
+                throw new EntryNotFoundException($"Address id {addressId} not found.");
             }
-            else
-            {
-                parsedBirthday = DateTime.ParseExact(birthDate, "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            }
-            
+
             if (!int.TryParse(parameters[4], out familyId))
             {
                 throw new ParameterValidationException("Family id should be a number.");
@@ -58,12 +59,12 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new EntryNotFoundException($"Family id {familyId} not found.");
             }
 
-            var child = this.modelFactory.CreateChild(firstName, lastName, parsedGender, parsedBirthday, familyFound);
+            var familyMember = this.modelFactory.CreateFamilyMember(firstName, lastName, parsedGender, addressFound, familyFound);
 
-            this.dataFactory.AddChild(child);
+            this.dataFactory.AddFamilyMember(familyMember);
             this.dataFactory.SaveAllChanges();
 
-            return $"Child {child.FirstName} created with id {child.Id} in family {child.Family.Name}.";
-        }
+            return $"Family member {familyMember.FirstName} {familyMember.LastName} created with id {familyMember.Id}.";
+        }        
     }
 }
