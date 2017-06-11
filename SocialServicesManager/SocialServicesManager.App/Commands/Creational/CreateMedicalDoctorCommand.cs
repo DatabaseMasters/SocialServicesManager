@@ -27,7 +27,6 @@ namespace SocialServicesManager.App.Commands.Creational
 
             // TODO add all new Medical doctor properties
             return $"Medical doctor {doctor.FirstName} with id {doctor.Id} created.";
-
         }
     }
 }

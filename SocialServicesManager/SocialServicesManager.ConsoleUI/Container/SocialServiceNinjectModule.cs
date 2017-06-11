@@ -57,7 +57,6 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
 
             this.Bind<ICommand>().To<UpdateFamilyCommand>().Named(UpdateFamilyName);
-
         }
     }
 }

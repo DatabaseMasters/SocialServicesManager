@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using SocialServicesManager.Interfaces;
-using SocialServicesManager.App.Commands.Abstarcts;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
+using System.Collections.Generic;
 
 namespace SocialServicesManager.App.Commands.Creational
 {

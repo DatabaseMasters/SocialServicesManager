@@ -19,14 +19,14 @@ namespace SocialServicesManager.App.Commands.Listing
             var builder = new StringBuilder();
             var families = this.dataFactory.GetAllFamilies();
 
-            builder.AppendLine("");
+            builder.AppendLine(string.Empty);
 
             foreach (var family in families)
             {
                 builder.AppendLine($"Id: {family.Id}; Name: {family.Name}");
             }
 
-            if (builder.ToString() == String.Empty)
+            if (builder.ToString() == string.Empty)
             {
                 return "There are no families in the database.";
             }

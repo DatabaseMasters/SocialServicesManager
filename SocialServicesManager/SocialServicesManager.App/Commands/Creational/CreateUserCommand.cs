@@ -23,8 +23,7 @@ namespace SocialServicesManager.App.Commands.Creational
             var password = parameters[1];
             var firstName = parameters[2];
             var lastName = parameters[3];
-
-            var user = this.ModelFactory.CreateUser(username,password,firstName,lastName);
+            var user = this.ModelFactory.CreateUser(username, password, firstName, lastName);
 
             this.dataFactory.AddUser(user);
             this.dataFactory.SaveAllChanges();
@@ -58,7 +57,7 @@ namespace SocialServicesManager.App.Commands.Creational
 
             if (lastName.Length < ModelsConstraints.NameMinLenght || lastName.Length > ModelsConstraints.NameMaxLenght)
             {
-                throw new ParameterValidationException(string.Format(ValidationText, "Last name", ModelsConstraints.NameMinLenght,ModelsConstraints.NameMaxLenght));
+                throw new ParameterValidationException(string.Format(ValidationText, "Last name", ModelsConstraints.NameMinLenght, ModelsConstraints.NameMaxLenght));
             }
         }
     }

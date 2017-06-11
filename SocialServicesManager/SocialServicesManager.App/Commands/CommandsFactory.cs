@@ -15,6 +15,5 @@ namespace SocialServicesManager.App.Commands
         {
             return this.serviceLocator.GetCommand(commandName);
         }
-       
     }
 }

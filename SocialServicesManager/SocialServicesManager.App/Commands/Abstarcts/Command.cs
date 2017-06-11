@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.Interfaces;
-using SocialServicesManager.App.Exceptions;
-using System.Linq;
+﻿using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SocialServicesManager.App.Commands.Abstarcts
 {
@@ -11,6 +10,7 @@ namespace SocialServicesManager.App.Commands.Abstarcts
     {
         protected const string ValidationText = "{0} should be between {1} and {2} characters long.";
         protected readonly IDataFactory dataFactory;
+
         public Command(IDataFactory dataFactory)
         {
             this.dataFactory = dataFactory;

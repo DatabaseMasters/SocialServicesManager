@@ -12,7 +12,6 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public CreateMedicalRecord(IModelsFactory modelFactory, IDataFactory dataFactory) : base(modelFactory, dataFactory)
         {
-
         }
 
         public override string Execute(IList<string> parameters)

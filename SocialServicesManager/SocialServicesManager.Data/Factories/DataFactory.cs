@@ -7,15 +7,39 @@ namespace SocialServicesManager.Data.Factories
 {
     public class DataFactory : IDataFactory
     {
-        private readonly SQLServerDbContext SqlDbContext;
-        private readonly PostgreDbContext PostgreDbContext;
-        private readonly SqliteDbContext SqliteDbContext;
+        private readonly SQLServerDbContext sqlDbContext;
+        private readonly PostgreDbContext postgreDbContext;
+        private readonly SqliteDbContext sqliteDbContext;
 
         public DataFactory(SQLServerDbContext sqlDbContext, PostgreDbContext postgreDbContext, SqliteDbContext sqliteDbContext)
         {
-            this.SqlDbContext = sqlDbContext;
-            this.PostgreDbContext = postgreDbContext;
-            this.SqliteDbContext = sqliteDbContext;
+            this.sqlDbContext = sqlDbContext;
+            this.postgreDbContext = postgreDbContext;
+            this.sqliteDbContext = sqliteDbContext;
+        }
+
+        private SQLServerDbContext SqlDbContext
+        {
+            get
+            {
+                return this.sqlDbContext;
+            }
+        }
+
+        private PostgreDbContext PostgreDbContext
+        {
+            get
+            {
+                return this.postgreDbContext;
+            }
+        }
+
+        private SqliteDbContext SqliteDbContext
+        {
+            get
+            {
+                return this.sqliteDbContext;
+            }
         }
 
         // CREATING
@@ -47,14 +71,12 @@ namespace SocialServicesManager.Data.Factories
         public void AddMedicalDoctor(MedicalDoctor doctor)
         {
             this.SqliteDbContext.MedicalDoctors.Add(doctor);
-
         }        
 
         public void AddMedicalRecord(MedicalRecord record)
         {
             this.SqliteDbContext.MedicalRecords.Add(record);
         }
-
 
         // TODO Research if this creates issues
         public void SaveAllChanges()
@@ -121,6 +143,5 @@ namespace SocialServicesManager.Data.Factories
         {
             return this.SqlDbContext.Users.Find(id);
         }
-
     }
 }

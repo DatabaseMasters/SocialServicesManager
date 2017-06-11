@@ -19,10 +19,17 @@ namespace SocialServicesManager.Data.Services.PdfPageElements
             return doc;
         }
 
-        public static PdfPTable CreateTable(int numberOfColumns, string[] headerCellsText,
-            int spacingBefore, string heading = null)
+        public static PdfPTable CreateTable(
+                                    int numberOfColumns, 
+                                    string[] headerCellsText,
+                                    int spacingBefore, 
+                                    string heading = null)
         {
-            PdfPTable table = new PdfPTable(numberOfColumns){HorizontalAlignment = 1, SpacingBefore = spacingBefore};
+            PdfPTable table = new PdfPTable(numberOfColumns)
+            {
+                HorizontalAlignment = 1,
+                SpacingBefore = spacingBefore
+            };
 
             if (heading != null)
             {
@@ -52,7 +59,11 @@ namespace SocialServicesManager.Data.Services.PdfPageElements
         {
             foreach (var text in data)
             {
-                table.AddCell(new PdfPCell(new Phrase(text)) {HorizontalAlignment = cellAlignment, MinimumHeight = 20});
+                table.AddCell(new PdfPCell(new Phrase(text))
+                {
+                    HorizontalAlignment = cellAlignment,
+                    MinimumHeight = 20
+                });
             }
         }
     }

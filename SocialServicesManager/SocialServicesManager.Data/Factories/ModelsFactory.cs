@@ -1,7 +1,7 @@
-﻿using System;
-using System.Globalization;
+﻿using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Data.Models;
-using SocialServicesManager.Data.Factories.Contracts;
+using System;
+using System.Globalization;
 
 namespace SocialServicesManager.Data.Factories
 {
@@ -88,8 +88,9 @@ namespace SocialServicesManager.Data.Factories
             {
                 Description = description,
                 ChildId = childId,
+
                 // TODO: Medicalrecord now has many doctors 
-                //MedicalDoctor = doctor
+                // MedicalDoctor = doctor
             };
 
             return medicalRecord;

@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
-using SocialServicesManager.Data.Models;
-using System.Data.Entity.Infrastructure.Annotations;
+﻿using SocialServicesManager.Data.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Annotations;
 
 namespace SocialServicesManager.Data
 {
@@ -9,7 +9,6 @@ namespace SocialServicesManager.Data
     {
         public SQLServerDbContext() : base("SQLConnection")
         {
-
         }
 
         public DbSet<User> Users { get; set; }
@@ -177,8 +176,10 @@ namespace SocialServicesManager.Data
                 .Property(u => u.UserName)
                 .IsRequired()
                 .HasColumnType("nvarchar")
-                .HasColumnAnnotation("IX_UserName", new IndexAnnotation(
-                                                                new IndexAttribute("IX_UserName") { IsUnique = true }));
+                .HasColumnAnnotation(
+                        "IX_UserName", 
+                        new IndexAnnotation(
+                                new IndexAttribute("IX_UserName") { IsUnique = true }));
 
             modelBuilder.Entity<User>()
                .Property(u => u.Password)
@@ -209,9 +210,10 @@ namespace SocialServicesManager.Data
                 .Property(g => g.Name)
                 .IsRequired()
                 .HasColumnType("nvarchar")
-                .HasColumnAnnotation("IX_Gender", new IndexAnnotation(
-                                                                new IndexAttribute("IX_Gender") { IsUnique = true }));
+                .HasColumnAnnotation(
+                    "IX_Gender", 
+                    new IndexAnnotation(
+                                      new IndexAttribute("IX_Gender") { IsUnique = true }));
         }
-
     }
 }

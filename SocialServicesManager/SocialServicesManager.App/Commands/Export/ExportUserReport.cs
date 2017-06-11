@@ -16,6 +16,7 @@ namespace SocialServicesManager.App.Commands.Export
         public override string Execute(IList<string> parameters)
         {
             var userId = int.Parse(parameters[0]);
+
             // TODO remove comment to work normally
             var user = this.dataFactory.GetUser(userId);
             var userVisits = this.dataFactory.GetUserVisits(user);
