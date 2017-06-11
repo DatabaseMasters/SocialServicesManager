@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using SocialServicesManager.Data.Models;
 using SocialServicesManager.Data.Factories.Contracts;
 
@@ -123,11 +122,11 @@ namespace SocialServicesManager.Data.Factories
             return user;
         }
 
-        public Visit CreateVisit(string date, int userId, int familyId, VisitType visitType, string descirption)
+        public Visit CreateVisit(DateTime date, int userId, int familyId, VisitType visitType, string descirption)
         {
             var visit = new Visit
             {
-                Date = DateTime.ParseExact(date, "dd.MM.yyyy", CultureInfo.InvariantCulture),
+                Date = date,
                 Description = descirption,
                 UserId = userId,
                 FamilyId = familyId,

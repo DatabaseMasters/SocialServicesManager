@@ -37,6 +37,9 @@ MEDICAL RECORD:
 // valid
 createmedicalrecord 12.05.2017 1 2 (Galia had the flu)
 
+// future date
+createmedicalrecord 12.12.2017 1 2 (Galia had the flu)
+
 // short descriptiopn
 createmedicalrecord 12.05.2017 1 2 (Galia h)
 
@@ -66,3 +69,6 @@ createvisit
 exportuserreport
 listfamilies
 updatefamily
+
+TODO 
+Implement command AddDoctorToRecord or AddRecordToDoctor for adding more than one doctor to records

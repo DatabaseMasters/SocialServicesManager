@@ -23,7 +23,7 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         User CreateUser(string username, string password, string firstName, string lastName);
 
-        Visit CreateVisit(string date, int userId, int familyId, VisitType type, string descirption);
+        Visit CreateVisit(DateTime date, int userId, int familyId, VisitType type, string descirption);
 
         VisitType CreateVisitType(string name);
     }

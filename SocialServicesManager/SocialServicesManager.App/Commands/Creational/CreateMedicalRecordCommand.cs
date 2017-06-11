@@ -5,6 +5,7 @@ using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace SocialServicesManager.App.Commands.Creational
 {
@@ -26,7 +27,7 @@ namespace SocialServicesManager.App.Commands.Creational
             int doctorId = int.Parse(parameters[2]);
             var description = parameters[3];
 
-            var parsedDate = DateTime.Parse(date);
+            var parsedDate = DateTime.ParseExact(date, "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
             if (parsedDate > DateTime.UtcNow.Date)
             {
