@@ -15,30 +15,30 @@ namespace SocialServicesManager.Data.Services
         {
             FileStream fs = new FileStream("UserReport.pdf", FileMode.Create);
 
-            var doc = PdfProvider.GetPage(fs);
+            PdfHeaderFooter headerFooter = new PdfHeaderFooter();
 
-            var userTable = new PdfPTable(3);
-            
-            userTable.AddCell("First Name");
-            userTable.AddCell("Last Name");
-            userTable.AddCell("Username");
+            var doc = PdfProvider.GetPage(fs, headerFooter);
 
-            userTable.AddCell($"{user.FirstName}");
-            userTable.AddCell($"{user.LastName}");
-            userTable.AddCell($"{user.UserName}");
+            string[] userTableCells = {"First Name", "Last Name", "Username",
+                $"{user.FirstName}" , $"{user.LastName}", $"{user.UserName}" };
 
-            var userVisits = new PdfPTable(4);
+            var userTable = PdfProvider.CreateTable(3, userTableCells, 20);
+
+            string[] userVisitsCells = { "Date", "Description", "Visit type", "Family name" };
+
+            var userVisits = PdfProvider.CreateTable(4, userVisitsCells, 50, "User visits table");
 
             foreach (Visit visit in visits)
             {
-                Console.WriteLine(visit);
-                userVisits.AddCell(visit.Date.ToShortDateString());
-                userVisits.AddCell(visit.Description);
-                userVisits.AddCell(visit.VisitType.Name);
                 var familyName = dataFactory.FindFamily(visit.FamilyId);
-                userVisits.AddCell(familyName.Name);
-            }
+                string[] information = { visit.Date.ToShortDateString(), visit.Description, visit.VisitType.Name, familyName.Name };
+                PdfProvider.FillTable(userVisits, information);
 
+                //userVisits.AddCell(visit.Date.ToShortDateString());
+                //userVisits.AddCell(visit.Description);
+                //userVisits.AddCell(visit.VisitType.Name);
+                //userVisits.AddCell(familyName.Name);
+            }
 
             doc.Open();
 
@@ -50,5 +50,6 @@ namespace SocialServicesManager.Data.Services
 
             fs.Close();
         }
+        
     }
 }

@@ -1,6 +1,5 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
 
 namespace SocialServicesManager.Data.Services.PdfPageElements
 {
