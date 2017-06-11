@@ -25,6 +25,7 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string CreateUserReport = "exportuserreport";
         private const string ListFamiliesName = "listfamilies";
         private const string UpdateFamilyName = "updatefamily";
+        private const string ExportFamilyVisitsReport = "exportfamilyvisitsreport";
 
         public override void Load()
         {
@@ -52,6 +53,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
 
             this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReport);
+            this.Bind<ICommand>().To<ExportFamilyVisitsReport>().Named(ExportFamilyVisitsReport);
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
 
             this.Bind<ICommand>().To<UpdateFamilyCommand>().Named(UpdateFamilyName);

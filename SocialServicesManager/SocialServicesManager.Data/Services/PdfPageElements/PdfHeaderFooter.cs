@@ -16,7 +16,7 @@ namespace SocialServicesManager.Data.Services.PdfPageElements
 
             table.SetTotalWidth(width);
 
-            var img = Image.GetInstance("./social_services.jpg");
+            var img = Image.GetInstance(ReportCreator.GetDestinationFolder("social_services.jpg"));
 
             img.ScaleAbsolute(150, 97);
 

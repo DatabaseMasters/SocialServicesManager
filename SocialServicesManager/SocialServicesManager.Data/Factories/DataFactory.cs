@@ -112,6 +112,11 @@ namespace SocialServicesManager.Data.Factories
             return this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
         }
 
+        public ICollection<Visit> GetFamilyVisits(Family family)
+        {
+            return this.PostgreDbContext.Visits.Where(v => v.FamilyId == family.Id).ToList();
+        }
+
         public User GetUser(int id)
         {
             return this.SqlDbContext.Users.Find(id);

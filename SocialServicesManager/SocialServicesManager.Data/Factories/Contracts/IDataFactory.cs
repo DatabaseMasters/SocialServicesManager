@@ -31,6 +31,8 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         IEnumerable<Family> GetAllFamilies();
 
+        ICollection<Visit> GetFamilyVisits(Family family);
+
         Town FindTown(int id);
 
         void UpdateFamily(Family family, IList<string> parameters);
