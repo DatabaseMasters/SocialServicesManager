@@ -18,7 +18,7 @@ namespace SocialServicesManager.App.Commands.Creational
         public override string Execute(IList<string> parameters)
         {
             this.ValidateParameters(parameters, ParameterCount);
-            
+
             var username = parameters[0];
             var password = parameters[1];
             var firstName = parameters[2];
@@ -32,7 +32,7 @@ namespace SocialServicesManager.App.Commands.Creational
 
             this.dataFactory.AddUser(user);
             this.dataFactory.SaveAllChanges();
-            
+
             return $"User {user.FirstName} with {user.Id} created.";
         }
 
@@ -46,10 +46,12 @@ namespace SocialServicesManager.App.Commands.Creational
             if (username.Length < ModelsConstraints.UsernameMinLength || username.Length > ModelsConstraints.UsernameMaxLength)
             {
                 throw new ParameterValidationException(string.Format(ValidationText, "Username", ModelsConstraints.UsernameMinLength, ModelsConstraints.UsernameMaxLength));
-            }           
+            }
 
             if (password.Length < ModelsConstraints.PasswordMinLength || password.Length > ModelsConstraints.PasswordMaxLength)
             {
                 throw new ParameterValidationException(string.Format(ValidationText, "Password", ModelsConstraints.PasswordMinLength, ModelsConstraints.PasswordMaxLength));
             }
+        }
+    }
 }

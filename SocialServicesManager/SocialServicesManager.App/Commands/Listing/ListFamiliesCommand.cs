@@ -21,8 +21,8 @@ namespace SocialServicesManager.App.Commands.Listing
             builder.AppendLine(string.Empty);
 
             foreach (var family in families)
-            {
-                builder.AppendLine($"Id: {family.Id}; Name: {family.Name}");
+            {                
+                builder.AppendLine($"Id: {family.Id,+3} | Name: {family.Name,-10}");
             }
 
             if (builder.ToString() == string.Empty)
