@@ -1,6 +1,5 @@
 ﻿using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
-// using System.Text;
 
 namespace SocialServicesManager.App
 {
@@ -19,8 +18,6 @@ namespace SocialServicesManager.App
 
         public void Start()
         {
-            // var builder = new StringBuilder();
-
             while (true)
             {
                 string commandLine = this.reader.ReadLine();
@@ -33,7 +30,6 @@ namespace SocialServicesManager.App
 
                 if (commandLine.ToLower() == "end")
                 {
-                    // this.Writer.Write(builder.ToString());
                     this.writer.WriteLine("Closing");
                     break;
                 }
@@ -41,7 +37,6 @@ namespace SocialServicesManager.App
                 try
                 {
                     var commandResult = this.processor.ProcessCommand(commandLine);
-                    // builder.AppendLine(commandResult);
                     this.writer.WriteLine(commandResult);
                 }
                 catch (EntryNotFoundException ex)
@@ -52,12 +47,10 @@ namespace SocialServicesManager.App
                 {
                     this.writer.WriteLine(ex.Message);
                 }
-                // catch (System.Exception ex)
-                // {
-                //     //builder.AppendLine("An error appeared. " + ex.Message);
-                //     this.writer.WriteLine("An error appeared. " + ex.Message);
-                // }
-                // TODO catch Ninject.ActivationException when passed command is not bound
+                catch(System.FormatException ex)
+                {
+                    this.writer.WriteLine("! Parse error: " + ex.Message);
+                }
             }
         }
     }

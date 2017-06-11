@@ -1,7 +1,7 @@
 # Commands #
 
 Create
-1. [createaddress](#address)
+1. [CreateAddress](#address)
 1. [CreateChild](#child)
 1. [CreateFamily](#family)
 1. [CreateFamilyMember](#family-member)
@@ -10,16 +10,18 @@ Create
 1. [CreateUser](#user)
 1. [CreateVisit](#visit)
 
-Export
+[Export](#export)
 
-1. [Export](#export)
-1. [Other](#other)
+[List](#list)
+
+[Other](#other)
+
 
 ## Creational ##
 
 1. ### ADDRESS
 
-    valid
+    valid format: **CreateAddress [TownId] ([Address location allows spaces])**
         
         createaddress 1 (1 Sheynovo str.)
         
@@ -28,13 +30,14 @@ Export
         createaddress 1 (none)
         
 
-2. ### CHILD
+1. ### CHILD
 
-    valid: **createchild [FirstName] [LastName] [Gender] [BirthDate] [Family]**
+    valid format: **createchild [FirstName] [LastName] [Gender] [BirthDate] [FamilyId]**
 
     ```
     createchild Georgi Evtimov male 15.07.2005 1
     createchild Hristo Nikolov male 23.09.2003 2
+    createchild Vania Dimitrova female 01.03.2000 3
     ```
 
     valid unborn child (pregnancy)
@@ -64,7 +67,7 @@ Export
 
 1. ### FAMILY
 
-    valid
+    valid format: **CreateFamily [FamilyName] [StaffMemberId]**
     ```
     createfamily Georgievis 1
     ```
@@ -81,7 +84,7 @@ Export
 
 1. ### FAMILY MEMBER
 
-    valid
+    valid format: CreateFamilyMember **[FirstName] [LastName] [Gender] [AddressId] [FamilyId]**
     ```
     createfamilymember Lina Orlova female 1 1
     createfamilymember Yovko Radev male 1 1
@@ -111,7 +114,7 @@ Export
 
 1. ### MEDICAL DOCTOR
 
-    valid
+    valid format: **CreateMedicalDoctor [FirstName] [LastName] [PhoneNumber] [Specialty]**
     ```
     createmedicaldoctor Ivan Petrov 0888999222 GeneralPractitioner
     createmedicaldoctor Georgi Mirchev 0888123456 Peadiatric
@@ -140,7 +143,7 @@ Export
 
 1. ### MEDICAL RECORD
     
-    valid
+    valid format: **CreateMedicalRecord [Date] [ChildId] [DoctorId] ([Description allows spaces])**
     ```
     createmedicalrecord 12.05.2017 1 2 (Galia had the flu)
     ```
@@ -157,7 +160,7 @@ Export
 
 1. ### USER
     
-    valid
+    valid format: **CreateUser [Username] [Password] [FirstName] [LastName]**
     ```
     createuser nedipet nedi1234 Nedialka Petkova 
     createuser mimidot mimi1234 Maria Dotkova 
@@ -184,7 +187,8 @@ Export
     ```
 
 1. ### VISIT
-    valid 
+    
+    valid format: **CreateVisit [Date] [StaffId] [FamilyId] [VisitType] ([Description allows spaces])**
     ```
     createvisit 12.05.2017 1 2 HomeVisit (Galia was playing ball)
     createvisit 12.04.2017 1 2 HomeVisit (Galia was at a birthday)
@@ -200,20 +204,31 @@ Export
 
 ## EXPORT
 
-valid
+valid format: 
+
+**ExportUserReport [StaffId]**
+
+**ExportFamilyVistsReport [FamilyId]**
 
     ```
     exportuserreport 1
     exportfamilyvisitsreport 1
     ```
 
+## LIST
+
+valid format:
+
+**ListChildren**
+
+**ListFamilies**
+
 ### OTHER
 
 - TODO validations (if needed) for existing commands:
 
-    - exportuserreport
-    - listfamilies
     - updatefamily
+    - deletefamily
 
 - TODO new commands:
 
@@ -224,6 +239,7 @@ valid
 - TODO other:
 
     - Medical record to hold Child instead of childId?
+    - DataFactory to throw when Family not found? Otherwise throwing repeats in many commands
     - Rename DataFactory to DataService
     - Rename DataValidation folder to Validation
     - Move DataParser to Services folder

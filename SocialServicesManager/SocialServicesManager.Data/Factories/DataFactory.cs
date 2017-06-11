@@ -116,14 +116,20 @@ namespace SocialServicesManager.Data.Factories
 
         public Child FindChild(int id)
         {
-            var childFound = this.SqlDbContext.Children.Find(id);
+            var childFound = this.SqlDbContext.Children
+                .Where(c => c.Id == id)
+                .Where(c => c.Deleted == false)
+                .FirstOrDefault();
 
             return childFound;
         }
         
         public Family FindFamily(int id)
         {
-            var familyFound = this.SqlDbContext.Families.Find(id);
+            var familyFound = this.SqlDbContext.Families
+                .Where(f => f.Id == id)
+                .Where(f => f.Deleted == false)
+                .FirstOrDefault();
 
             return familyFound;
         }
@@ -138,7 +144,10 @@ namespace SocialServicesManager.Data.Factories
 
         public MedicalDoctor FindMedicalDoctor(int id)
         {
-            var doctorFound = this.SqliteDbContext.MedicalDoctors.Find(id);
+            var doctorFound = this.SqliteDbContext.MedicalDoctors
+                .Where(d => d.Id == id)
+                .Where(d => d.Deleted == false)
+                .FirstOrDefault();
 
             return doctorFound;
         }
@@ -152,7 +161,10 @@ namespace SocialServicesManager.Data.Factories
         
         public User FindUser(int id)
         {
-            var userFound = this.SqlDbContext.Users.Find(id);
+            var userFound = this.SqlDbContext.Users
+                .Where(u => u.Id == id)
+                .Where(u => u.Deleted == false)
+                .FirstOrDefault();
 
             return userFound;
         }
@@ -168,24 +180,34 @@ namespace SocialServicesManager.Data.Factories
 
         public IEnumerable<Child> GetAllChildren()
         {
-            return this.SqlDbContext.Children.ToList();
+            return this.SqlDbContext.Children
+                .Where(c => c.Deleted == false)
+                .ToList();
         }
 
         public IEnumerable<Family> GetAllFamilies()
         {
-            return this.SqlDbContext.Families.ToList();
+            return this.SqlDbContext.Families
+                .Where(f => f.Deleted == false)
+                .ToList();
         }
 
         public ICollection<Visit> GetUserVisits(User user)
         {
-            var userVisits = this.PostgreDbContext.Visits.Where(v => v.UserId == user.Id).ToList();
+            var userVisits = this.PostgreDbContext.Visits
+                .Where(v => v.UserId == user.Id)
+                .Where(v => v.Deleted == false)
+                .ToList();
 
             return userVisits;
         }
         
         public ICollection<Visit> GetFamilyVisits(Family family)
         {
-            return this.PostgreDbContext.Visits.Where(v => v.FamilyId == family.Id).ToList();
+            return this.PostgreDbContext.Visits
+                .Where(v => v.FamilyId == family.Id)
+                .Where(v => v.Deleted == false)
+                .ToList();
         }
 
 
@@ -196,5 +218,15 @@ namespace SocialServicesManager.Data.Factories
         }
 
         // DELETING
+
+        public void DeleteChild(Child child)
+        {
+            child.Deleted = true;
+        }
+
+        public void DeleteFamily(Family family)
+        {
+            family.Deleted = true;
+        }
     }
 }

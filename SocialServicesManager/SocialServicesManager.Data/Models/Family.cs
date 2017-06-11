@@ -17,13 +17,13 @@ namespace SocialServicesManager.Data.Models
 
         [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
         public string Name { get; set; }
-
-        public bool Deleted { get; set; }
-
+        
         public virtual User AssignedStaffMember { get; set; }
 
         public virtual ICollection<FamilyMember> FamilyMembers { get; set; }
 
         public virtual ICollection<Child> Children { get; set; }
+
+        public bool Deleted { get; set; }
     }
 }

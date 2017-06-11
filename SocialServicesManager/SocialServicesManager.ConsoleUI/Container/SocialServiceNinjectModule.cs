@@ -2,6 +2,7 @@
 using SocialServicesManager.App;
 using SocialServicesManager.App.Commands;
 using SocialServicesManager.App.Commands.Creational;
+using SocialServicesManager.App.Commands.Deleting;
 using SocialServicesManager.App.Commands.Export;
 using SocialServicesManager.App.Commands.Listing;
 using SocialServicesManager.App.Commands.Updating;
@@ -24,10 +25,14 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string CreateMedicalRecordName = "createmedicalrecord";
         private const string CreateUserName = "createuser";
         private const string CreateVisitName = "createvisit";
-        private const string CreateUserReport = "exportuserreport";
+
         private const string ListChildrenName = "listchildren";
         private const string ListFamiliesName = "listfamilies";
+
         private const string UpdateFamilyName = "updatefamily";
+        private const string DeleteFamilyName = "deletefamily";
+
+        private const string CreateUserReport = "exportuserreport";
         private const string ExportFamilyVisitsReport = "exportfamilyvisitsreport";
 
         public override void Load()
@@ -64,6 +69,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
 
             this.Bind<ICommand>().To<UpdateFamilyCommand>().Named(UpdateFamilyName);
+            this.Bind<ICommand>().To<DeleteFamilyCommand>().Named(DeleteFamilyName);
         }
     }
 }

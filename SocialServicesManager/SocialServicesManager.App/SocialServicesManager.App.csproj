@@ -43,6 +43,8 @@
     <Compile Include="Commands\Creational\CreateMedicalRecordCommand.cs" />
     <Compile Include="Commands\Creational\CreateUserCommand.cs" />
     <Compile Include="Commands\Creational\CreateVisitCommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteChildCommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteFamilyCommand.cs" />
     <Compile Include="Commands\Export\ExportFamilyVisitsReport.cs" />
     <Compile Include="Commands\Export\ExportUserReport.cs" />
     <Compile Include="Commands\Listing\ListChildrenCommand.cs" />
@@ -53,9 +55,7 @@
     <Compile Include="Exceptions\ParameterValidationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\Deleting\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>

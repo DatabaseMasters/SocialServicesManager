@@ -35,7 +35,7 @@ namespace SocialServicesManager.App.Commands.Listing
                 return "There are no families in the database.";
             }
 
-            return builder.ToString().TrimEnd();
+            return builder.ToString();
 
         }
     }
