@@ -1,6 +1,7 @@
 ﻿using SocialServicesManager.Data.DataValidation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SocialServicesManager.Data.Models
 {
@@ -15,6 +16,7 @@ namespace SocialServicesManager.Data.Models
         public int Id { get; set; }
 
         [MaxLength(ModelsConstraints.UsernameMaxLength), MinLength(ModelsConstraints.UsernameMinLength)]
+        [Index("IX_UserNameUnique", IsUnique = true)]
         public string UserName { get; set; }
 
         [MaxLength(ModelsConstraints.PasswordMaxLength), MinLength(ModelsConstraints.PasswordMinLength)]

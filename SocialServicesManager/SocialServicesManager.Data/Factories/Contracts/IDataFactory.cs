@@ -34,11 +34,13 @@ namespace SocialServicesManager.Data.Factories.Contracts
         Gender GetGender(string gender);
 
         MedicalDoctor FindMedicalDoctor(int id);
-
-        VisitType GetVisitType(string type);
-
+        
         User FindUser(int id);
 
+        string GetUserByUsername(string username);
+
+        VisitType GetVisitType(string type);
+        
         ICollection<Visit> GetUserVisits(User user);
 
         Family FindFamily(int id);
@@ -50,6 +52,8 @@ namespace SocialServicesManager.Data.Factories.Contracts
         ICollection<Visit> GetFamilyVisits(Family family);
 
         Town FindTown(int id);
+
+
 
         void UpdateFamily(Family family, IList<string> parameters);
 

@@ -66,13 +66,13 @@ namespace SocialServicesManager.Data.Factories
         public void AddMedicalDoctor(MedicalDoctor doctor)
         {
             this.SqliteDbContext.MedicalDoctors.Add(doctor);
-        }        
+        }
 
         public void AddMedicalRecord(MedicalRecord record)
         {
             this.SqliteDbContext.MedicalRecords.Add(record);
         }
-        
+
         public void AddMunicipality(Municipality municipality)
         {
             this.SqlDbContext.Municipalities.Add(municipality);
@@ -97,7 +97,7 @@ namespace SocialServicesManager.Data.Factories
         {
             this.PostgreDbContext.VisitTypes.Add(visitType);
         }
-        
+
         // TODO Research if this creates issues
         public void SaveAllChanges()
         {
@@ -123,7 +123,7 @@ namespace SocialServicesManager.Data.Factories
 
             return childFound;
         }
-        
+
         public Family FindFamily(int id)
         {
             var familyFound = this.SqlDbContext.Families
@@ -158,7 +158,7 @@ namespace SocialServicesManager.Data.Factories
 
             return townFound;
         }
-        
+
         public User FindUser(int id)
         {
             var userFound = this.SqlDbContext.Users
@@ -169,6 +169,17 @@ namespace SocialServicesManager.Data.Factories
             return userFound;
         }
         
+        public string GetUserByUsername(string username)
+        {
+            var usernameFound = this.sqlDbContext.Users
+                .Where(u => u.UserName == username)
+                .Where(u => u.Deleted == false)
+                .Select(u => u.UserName)
+                .FirstOrDefault();
+
+            return usernameFound;
+        }
+
         public VisitType GetVisitType(string type)
         {
             var typeFound = this.PostgreDbContext.VisitTypes

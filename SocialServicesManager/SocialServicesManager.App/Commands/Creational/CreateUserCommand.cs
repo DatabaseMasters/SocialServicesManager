@@ -23,10 +23,16 @@ namespace SocialServicesManager.App.Commands.Creational
             var password = parameters[1];
             var firstName = parameters[2];
             var lastName = parameters[3];
-
-
+            
             base.ValidateName("First name", firstName);
             base.ValidateName("Last name", lastName);
+
+            var usernameFound = this.dataFactory.GetUserByUsername(username);
+
+            if (usernameFound != null)
+            {
+                throw new ParameterValidationException("Username already exists.");
+            }
 
             var user = this.modelFactory.CreateUser(username, password, firstName, lastName);
 

@@ -125,6 +125,10 @@
     <Compile Include="SQLServerMigrations\201706101539075_Initialize SQLServer DB.Designer.cs">
       <DependentUpon>201706101539075_Initialize SQLServer DB.cs</DependentUpon>
     </Compile>
+    <Compile Include="SQLServerMigrations\201706112000161_Unique username gender.cs" />
+    <Compile Include="SQLServerMigrations\201706112000161_Unique username gender.Designer.cs">
+      <DependentUpon>201706112000161_Unique username gender.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLServerMigrations\SQLServerConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SQLServerMigrations\201706101539075_Initialize SQLServer DB.resx">
       <DependentUpon>201706101539075_Initialize SQLServer DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLServerMigrations\201706112000161_Unique username gender.resx">
+      <DependentUpon>201706112000161_Unique username gender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

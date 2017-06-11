@@ -175,11 +175,7 @@ namespace SocialServicesManager.Data
             modelBuilder.Entity<User>()
                 .Property(u => u.UserName)
                 .IsRequired()
-                .HasColumnType("nvarchar")
-                .HasColumnAnnotation(
-                        "IX_UserName", 
-                        new IndexAnnotation(
-                                new IndexAttribute("IX_UserName") { IsUnique = true }));
+                .HasColumnType("nvarchar");
 
             modelBuilder.Entity<User>()
                .Property(u => u.Password)
@@ -209,11 +205,7 @@ namespace SocialServicesManager.Data
             modelBuilder.Entity<Gender>()
                 .Property(g => g.Name)
                 .IsRequired()
-                .HasColumnType("nvarchar")
-                .HasColumnAnnotation(
-                    "IX_Gender", 
-                    new IndexAnnotation(
-                                      new IndexAttribute("IX_Gender") { IsUnique = true }));
+                .HasColumnType("nvarchar");
         }
     }
 }

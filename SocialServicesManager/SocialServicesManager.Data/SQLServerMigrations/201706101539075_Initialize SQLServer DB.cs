@@ -1,10 +1,7 @@
 namespace SocialServicesManager.Data.SQLServerMigrations
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
-    
+
     public partial class InitializeSQLServerDB : DbMigration
     {
         public override void Up()
@@ -59,14 +56,7 @@ namespace SocialServicesManager.Data.SQLServerMigrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserName = c.String(nullable: false, maxLength: 50,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "IX_UserName",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { Name: IX_UserName, IsUnique: True }")
-                                },
-                            }),
+                        UserName = c.String(nullable: false, maxLength: 50),
                         Password = c.String(nullable: false, maxLength: 50),
                         FirstName = c.String(nullable: false, maxLength: 50),
                         LastName = c.String(nullable: false, maxLength: 50),
@@ -97,14 +87,7 @@ namespace SocialServicesManager.Data.SQLServerMigrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 50,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "IX_Gender",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { Name: IX_Gender, IsUnique: True }")
-                                },
-                            }),
+                        Name = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -151,29 +134,9 @@ namespace SocialServicesManager.Data.SQLServerMigrations
             DropIndex("dbo.Addresses", new[] { "Town_Id" });
             DropTable("dbo.Municipalities");
             DropTable("dbo.Towns");
-            DropTable("dbo.Genders",
-                removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
-                {
-                    {
-                        "Name",
-                        new Dictionary<string, object>
-                        {
-                            { "IX_Gender", "IndexAnnotation: { Name: IX_Gender, IsUnique: True }" },
-                        }
-                    },
-                });
+            DropTable("dbo.Genders");
             DropTable("dbo.Children");
-            DropTable("dbo.Users",
-                removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
-                {
-                    {
-                        "UserName",
-                        new Dictionary<string, object>
-                        {
-                            { "IX_UserName", "IndexAnnotation: { Name: IX_UserName, IsUnique: True }" },
-                        }
-                    },
-                });
+            DropTable("dbo.Users");
             DropTable("dbo.Families");
             DropTable("dbo.FamilyMembers");
             DropTable("dbo.Addresses");
