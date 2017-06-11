@@ -5,6 +5,26 @@ createaddress 1 (1 Sheynovo str.)
 // short name
 createaddress 1 (none)
 
+CHILD:
+// valid
+createchild Georgi Evtimov male 15.07.2005 1
+createchild Hristo Nikolov male 23.09.2003 2
+
+// valid unborn child (pregnancy)
+createchild null null undefined null 1
+
+// short firstName
+createchild H Nikolov male 23.09.2003 2
+
+// short lastName
+createchild Hristo N male 23.09.2003 2
+
+// gener not found
+createchild Hristo Nikolov cat 23.09.2003 2
+
+// familyId not a number
+createchild Hristo Nikolov male 23.09.2003 df
+
 FAMILY:
 // valid
 createfamily Georgievis 1
@@ -61,14 +81,23 @@ createuser nedipet nedi1234 N Petkova
 // short lastName
 createuser nedipet nedi1234 Nedialka P
 
+VISIT:
+// valid 
+createvisit 12.05.2017 1 2 HomeVisit (Galia was playing ball)
+createvisit 12.04.2017 1 2 HomeVisit (Galia was at a birthday)
+createvisit 12.02.2017 1 2 HomeVisit (Galia had broken a cup)
+
+// short descriptiopn
+createvisit 12.02.2017 1 2 HomeVisit (Galia)
 
 
-TODO validations:
-createmedicalrecord
-createvisit
+
+TODO validations for existing commands:
 exportuserreport
 listfamilies
 updatefamily
 
-TODO 
+TODO new commands:
+Validation for parsable values - foreign key ids and (possibly) dates
+Validation for wrong/unparsable dates
 Implement command AddDoctorToRecord or AddRecordToDoctor for adding more than one doctor to records

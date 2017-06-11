@@ -92,6 +92,14 @@ namespace SocialServicesManager.Data.Factories
             return childFound;
         }
 
+        public Gender GetGender(string gender)
+        {
+            var genderFound = this.SqlDbContext.Genders
+                .FirstOrDefault(g => g.Name.ToLower() == gender.ToLower());
+
+            return genderFound;
+        }
+
         public MedicalDoctor FindMedicalDoctor(int id)
         {
             var doctorFound = this.SqliteDbContext.MedicalDoctors.Find(id);

@@ -29,6 +29,8 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         Child FindChild(int id);
 
+        Gender GetGender(string gender);
+
         MedicalDoctor FindMedicalDoctor(int id);
 
         VisitType GetVisitType(string type);
