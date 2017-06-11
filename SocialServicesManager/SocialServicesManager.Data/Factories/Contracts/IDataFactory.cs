@@ -7,15 +7,23 @@ namespace SocialServicesManager.Data.Factories.Contracts
     {
         void AddAddress(Address address);
 
+        void AddChild(Child child);
+
         void AddFamily(Family family);
-
-        void AddUser(User user);
-
-        void AddVisit(Visit visit);
+        
+        void AddFamilyMember(FamilyMember familyMember);
 
         void AddMedicalDoctor(MedicalDoctor doctor);
 
         void AddMedicalRecord(MedicalRecord record);
+
+        void AddMunicipality(Municipality municipality);
+
+        void AddTown(Town town);
+
+        void AddUser(User user);
+
+        void AddVisit(Visit visit);
 
         void SaveAllChanges();
 

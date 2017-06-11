@@ -24,9 +24,40 @@ namespace SocialServicesManager.Data.Factories
             this.SqlDbContext.Addresses.Add(address);
         }
 
+        public void AddChild(Child child)
+        {
+            this.SqlDbContext.Children.Add(child);
+        }
+
         public void AddFamily(Family family)
         {
             this.SqlDbContext.Families.Add(family);
+        }
+
+        public void AddFamilyMember(FamilyMember familyMember)
+        {
+            this.SqlDbContext.FamilyMembers.Add(familyMember);
+        }
+
+        public void AddMedicalDoctor(MedicalDoctor doctor)
+        {
+            this.SqliteDbContext.MedicalDoctors.Add(doctor);
+
+        }        
+
+        public void AddMedicalRecord(MedicalRecord record)
+        {
+            this.SqliteDbContext.MedicalRecords.Add(record);
+        }
+
+        public void AddMunicipality(Municipality municipality)
+        {
+            this.SqlDbContext.Municipalities.Add(municipality);
+        }
+
+        public void AddTown(Town town)
+        {
+            this.SqlDbContext.Towns.Add(town);
         }
 
         public void AddUser(User user)
@@ -42,17 +73,6 @@ namespace SocialServicesManager.Data.Factories
         public void AddVisitType(VisitType visitType)
         {
             this.PostgreDbContext.VisitTypes.Add(visitType);
-        }
-
-        public void AddMedicalDoctor(MedicalDoctor doctor)
-        {
-            this.SqliteDbContext.MedicalDoctors.Add(doctor);
-
-        }        
-
-        public void AddMedicalRecord(MedicalRecord record)
-        {
-            this.SqliteDbContext.MedicalRecords.Add(record);
         }
 
 
