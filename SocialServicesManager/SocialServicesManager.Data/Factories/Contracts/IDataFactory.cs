@@ -43,6 +43,8 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         Family FindFamily(int id);
 
+        IEnumerable<Child> GetAllChildren();
+
         IEnumerable<Family> GetAllFamilies();
 
         ICollection<Visit> GetFamilyVisits(Family family);

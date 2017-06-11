@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SocialServicesManager.App.Commands.Listing
 {
-    public class ListFamiliesCommand : ListingCommand, ICommand
+    public class ListFamiliesCommand : Command, ICommand
     {
         public ListFamiliesCommand(IDataFactory dataFactory) : base(dataFactory)
         {
@@ -14,15 +14,18 @@ namespace SocialServicesManager.App.Commands.Listing
 
         // TODO Add validation logic
         public override string Execute(IList<string> parameters)
-        {
+        {            
             var builder = new StringBuilder();
             var families = this.dataFactory.GetAllFamilies();
 
             builder.AppendLine(string.Empty);
 
+            builder.AppendLine(string.Format($"| {"Id", +3} | {"Name", -10} |"));
+            builder.AppendLine("-------------------");
+
             foreach (var family in families)
-            {                
-                builder.AppendLine($"Id: {family.Id,+3} | Name: {family.Name,-10}");
+            {
+                builder.AppendLine($"| {family.Id,+3} | {family.Name,-10} |");
             }
 
             if (builder.ToString() == string.Empty)

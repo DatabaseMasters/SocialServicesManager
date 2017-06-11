@@ -25,6 +25,7 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string CreateUserName = "createuser";
         private const string CreateVisitName = "createvisit";
         private const string CreateUserReport = "exportuserreport";
+        private const string ListChildrenName = "listchildren";
         private const string ListFamiliesName = "listfamilies";
         private const string UpdateFamilyName = "updatefamily";
         private const string ExportFamilyVisitsReport = "exportfamilyvisitsreport";
@@ -58,6 +59,8 @@ namespace SocialServicesManager.ConsoleUI.Container
 
             this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReport);
             this.Bind<ICommand>().To<ExportFamilyVisitsReport>().Named(ExportFamilyVisitsReport);
+
+            this.Bind<ICommand>().To<ListChildrenCommand>().Named(ListChildrenName);
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
 
             this.Bind<ICommand>().To<UpdateFamilyCommand>().Named(UpdateFamilyName);
