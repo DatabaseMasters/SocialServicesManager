@@ -156,10 +156,10 @@ valid format:
 
 **ExportFamilyVistsReport [FamilyId]**
 
-    ```
-    exportuserreport 1
-    exportfamilyvisitsreport 1
-    ```
+```
+exportuserreport 1
+exportfamilyvisitsreport 1
+```
 
 ## LIST
 
@@ -175,9 +175,9 @@ valid format:
 
 **ListVisitTypes**
 
-    ```
-    listuservisits 1
-    ```
+```
+listuservisits 1
+```
 
 ## UPDATE
 
