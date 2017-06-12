@@ -1,7 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-namespace SocialServicesManager.Data.Services.PdfPageElements
+namespace SocialServicesManager.Data.Services.PdfReport.PdfPageElements
 {
     public class PdfHeaderFooter : PdfPageEventHelper
     {

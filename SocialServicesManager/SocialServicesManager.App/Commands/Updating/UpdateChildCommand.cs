@@ -29,7 +29,7 @@ namespace SocialServicesManager.App.Commands.Updating
             var birthDate = parameters[4];
             var familyId  = parameters[5];
 
-            var oldChild = this.dataFactory.FindChild(childId);
+            var oldChild = this.DataFactory.FindChild(childId);
 
             if (oldChild == null)
             {
@@ -58,7 +58,7 @@ namespace SocialServicesManager.App.Commands.Updating
 
             if (gender != "null")
             {
-               parsedGender = this.dataFactory.GetGender(gender);
+               parsedGender = this.DataFactory.GetGender(gender);
             }
                       
             DateTime? parsedBirthday = null;
@@ -72,13 +72,13 @@ namespace SocialServicesManager.App.Commands.Updating
 
             if (familyId != "null")
             {
-                familyFound = this.dataFactory.FindFamily(int.Parse(familyId));
+                familyFound = this.DataFactory.FindFamily(int.Parse(familyId));
             }
 
             var newChild = this.ModelFactory.CreateChild(firstName, lastName, parsedGender, parsedBirthday, familyFound);
 
-            this.dataFactory.UpdateChild(oldChild, newChild);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.UpdateChild(oldChild, newChild);
+            this.DataFactory.SaveAllChanges();
 
             return $"Child with id {oldChild.Id} updated.";
         }

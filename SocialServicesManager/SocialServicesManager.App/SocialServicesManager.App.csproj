@@ -48,6 +48,7 @@
     <Compile Include="Commands\Deleting\DeleteFamilyCommand.cs" />
     <Compile Include="Commands\Export\ExportFamilyVisitsReport.cs" />
     <Compile Include="Commands\Export\ExportUserReport.cs" />
+    <Compile Include="Commands\Import\ImportDataCommand.cs" />
     <Compile Include="Commands\Listing\ListChildrenCommand.cs" />
     <Compile Include="Commands\Listing\ListFamiliesCommand.cs" />
     <Compile Include="Commands\Listing\ListUsersCommand.cs" />

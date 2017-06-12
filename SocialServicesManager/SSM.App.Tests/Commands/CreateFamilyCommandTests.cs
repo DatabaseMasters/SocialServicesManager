@@ -1,11 +1,11 @@
-﻿using Moq;
+﻿using System;
+using System.Collections.Generic;
+using Moq;
 using NUnit.Framework;
 using SocialServicesManager.App.Commands.Creational;
 using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Data.Models;
-using System;
-using System.Collections.Generic;
 
 namespace SSM.App.Tests.Commands
 {

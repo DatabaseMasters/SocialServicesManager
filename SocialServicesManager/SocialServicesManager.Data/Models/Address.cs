@@ -13,7 +13,7 @@ namespace SocialServicesManager.Data.Models
 
         public int Id { get; set; }
 
-        [MaxLength(ModelsConstraints.DescriptionMaxLength), MinLength(ModelsConstraints.DescriptionMinLength)]
+        [MaxLength(ModelsConstraints.AddressNameMaxLenght), MinLength(ModelsConstraints.AddressNameMinLenght)]
         public string Name { get; set; }
 
         public virtual Town Town { get; set; }

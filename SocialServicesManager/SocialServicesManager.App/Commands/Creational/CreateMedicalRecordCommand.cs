@@ -33,27 +33,26 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new ParameterValidationException("Record date must be in the past.");
             }
 
-            var childFound = this.dataFactory.FindChild(childId);
+            var childFound = this.DataFactory.FindChild(childId);
 
             if (childFound == null)
             {
                 throw new EntryNotFoundException($"Child id {childId} not found.");
             }
 
-            var doctorFound = this.dataFactory.FindMedicalDoctor(doctorId);
+            var doctorFound = this.DataFactory.FindMedicalDoctor(doctorId);
 
             if (doctorFound == null)
             {
                 throw new EntryNotFoundException($"Medical doctor id {doctorId} not found.");
             }
 
-            var record = this.modelFactory.CreateMedicalRecord(parsedDate, childId, doctorFound, description);
+            var record = this.ModelFactory.CreateMedicalRecord(parsedDate, childId, doctorFound, description);
 
-            this.dataFactory.AddMedicalRecord(record);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.AddMedicalRecord(record);
+            this.DataFactory.SaveAllChanges();
 
             // TODO Implement command AddDoctorToRecord for adding other doctors
-
             return $"Medical record with id {record.Id} created.";
         }
 

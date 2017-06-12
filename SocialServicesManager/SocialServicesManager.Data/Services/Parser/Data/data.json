@@ -1,0 +1,295 @@
+﻿[
+  {
+    "Name": "Ivanovi",
+    "Deleted": false,
+    "AssignedStaffMember": {
+      "UserName": "irina.petrova",
+      "Password": "irina.petrova.1234",
+      "FirstName": "Irina",
+      "LastName": "Petrova",
+      "Deleted": false
+    },
+    "FamilyMemebers": [
+      {
+        "FirstName": "Ivan",
+        "LastName": "Ivanov",
+        "Deleted": false,
+        "Gender": "Male",
+        "Address": {
+          "Name": "Lime Str. 45",
+          "Town": {
+            "Name": "London",
+            "Municipality": "London Municipality"
+          }
+        }
+      },
+      {
+        "FirstName": "Ivanka",
+        "LastName": "Ivanova",
+        "Deleted": false,
+        "Gender": "Female",
+        "Address": {
+          "Name": "Joseph Str. 45",
+          "Town": {
+            "Name": "Manchester",
+            "Municipality": "Manchester Municipality"
+
+          }
+        }
+      },
+      {
+        "FirstName": "Baba",
+        "LastName": "Ginche",
+        "Deleted": false,
+        "Gender": "Female",
+        "Address": {
+          "Name": "ul 32, kv. Levski",
+          "Town": {
+            "Name": "Sofia",
+            "Municipality": "Stolichna Obstina"
+          }
+        }
+      }
+    ],
+    "Children": [
+      {
+        "FirstName": "Ivancho",
+        "LastName": "Ivanov",
+        "Deleted": false,
+        "Gender": "Male",
+        "BirthDate": "10.10.2001",
+        "MedicalRecords": [
+          {
+            "Date": "10.06.2017",
+            "Description": "Still alive",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Radka",
+                "LastName": "Radeva",
+                "Deleted": false,
+                "PhoneNumber": "0988812001",
+                "Specialty": "GP"
+              },
+              {
+                "FirstName": "Vasilka",
+                "LastName": "Vasileva",
+                "Deleted": false,
+                "PhoneNumber": "0988812451",
+                "Specialty": "Cardiology"
+              }
+            ]
+          },
+          {
+            "Date": "01.06.2015",
+            "Description": "Almost dead",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Penka",
+                "LastName": "Penkova",
+                "Deleted": false,
+                "PhoneNumber": "0988812001",
+                "Specialty": "GP"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "FirstName": "Mariika",
+        "LastName": "Ivanov",
+        "Deleted": false,
+        "Gender": "Female",
+        "BirthDate": "10.10.1992",
+        "MedicalRecords": [
+          {
+            "Date": "10.06.2011",
+            "Description": "Broken arm",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Dragan",
+                "LastName": "Draganov",
+                "Deleted": false,
+                "PhoneNumber": "0777712001",
+                "Specialty": "Hematology"
+              },
+              {
+                "FirstName": "Petkan",
+                "LastName": "Petkanov",
+                "Deleted": false,
+                "PhoneNumber": "0558812451",
+                "Specialty": "Urology"
+              }
+            ]
+          },
+          {
+            "Date": "01.06.2015",
+            "Description": "Quite good",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Ilarion",
+                "LastName": "Ilarionov",
+                "Deleted": false,
+                "PhoneNumber": "0584512001",
+                "Specialty": "GP"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Visits": [
+      {
+        "Date": "20.01.2011",
+        "Description": "Hospital visit and other stuff",
+        "Deleted": false,
+        "VisitType": "HospitalVisit"
+      },
+      {
+        "Date": "20.01.2008",
+        "Description": "Home visit and other stuff",
+        "Deleted": false,
+        "VisitType": "HomeVisit"
+      }
+    ]
+  },
+  {
+    "Name": "Petrovi",
+    "Deleted": false,
+    "AssignedStaffMember": {
+      "UserName": "cecka.cacheva",
+      "Password": "cecka.cacheva.40",
+      "FirstName": "Cecka",
+      "LastName": "Cacheva",
+      "Deleted": false
+    },
+    "FamilyMemebers": [
+      {
+        "FirstName": "Petar",
+        "LastName": "Petrov",
+        "Deleted": false,
+        "Gender": "Male",
+        "Address": {
+          "Name": "Vitosh 14, vh A, et 3, ap 10",
+          "Town": {
+            "Name": "Sofia",
+            "Municipality": "Triadica"
+          }
+        }
+      },
+      {
+        "FirstName": "Petranka",
+        "LastName": "Petrova",
+        "Deleted": false,
+        "Gender": "Female",
+        "Address": {
+          "Name": "Glavnata 20, bl. 3, et 4",
+          "Town": {
+            "Name": "Plovdiv",
+            "Municipality": "Plovdiv Municipality"
+          }
+        }
+      }
+    ],
+    "Children": [
+      {
+        "FirstName": "Petko",
+        "LastName": "Petrov",
+        "Deleted": false,
+        "Gender": "Male",
+        "BirthDate": "01.02.1989",
+        "MedicalRecords": [
+          {
+            "Date": "10.06.2000",
+            "Description": "Not moving",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Doktor",
+                "LastName": "Radeva",
+                "Deleted": false,
+                "PhoneNumber": "0911111111",
+                "Specialty": "GP"
+              }
+            ]
+          },
+          {
+            "Date": "01.06.2014",
+            "Description": "Still alive",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Jorjano",
+                "LastName": "Jorjanov",
+                "Deleted": false,
+                "PhoneNumber": "0789546648",
+                "Specialty": "Dentist"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "FirstName": "Petranka",
+        "LastName": "Petrova",
+        "Deleted": false,
+        "Gender": "Female",
+        "BirthDate": "10.10.2010",
+        "MedicalRecords": [
+          {
+            "Date": "22.06.2011",
+            "Description": "Broken leg",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Mitko",
+                "LastName": "Kalaijiev",
+                "Deleted": false,
+                "PhoneNumber": "0678644684",
+                "Specialty": "GP"
+              },
+              {
+                "FirstName": "Ceca",
+                "LastName": "Velichkovich",
+                "Deleted": false,
+                "PhoneNumber": "0843421251",
+                "Specialty": "Brain Sergion"
+              }
+            ]
+          },
+          {
+            "Date": "01.06.2016",
+            "Description": "Doing good",
+            "Deleted": false,
+            "MedicalDoctors": [
+              {
+                "FirstName": "Metodi",
+                "LastName": "Metodiev",
+                "Deleted": false,
+                "PhoneNumber": "0885312001",
+                "Specialty": "GP"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Visits": [
+      {
+        "Date": "20.01.2011",
+        "Description": "Drinking coffee in the garden",
+        "Deleted": false,
+        "VisitType": "HomeVisit"
+      },
+      {
+        "Date": "20.01.2008",
+        "Description": "Office consultation",
+        "Deleted": false,
+        "VisitType": "OfficeVisit"
+      }
+    ]
+  }
+]

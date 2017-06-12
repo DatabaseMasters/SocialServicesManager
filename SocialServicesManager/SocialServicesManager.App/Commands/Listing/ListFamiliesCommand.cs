@@ -15,15 +15,14 @@ namespace SocialServicesManager.App.Commands.Listing
         public override string Execute(IList<string> parameters)
         {            
             var builder = new StringBuilder();
-            var families = this.dataFactory.GetAllFamilies();
+            var families = this.DataFactory.GetAllFamilies();
 
             if (families.Count == 0)
             {
                 return "There are no families in this database.";
             }
 
-            builder.AppendLine(string.Empty);
-
+            builder.AppendLine();
             builder.AppendLine(string.Format($"| {"Id", +3} | {"Name", -10} |"));
             builder.AppendLine("-------------------");
 

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.App.Commands.Abstarcts;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
-using SocialServicesManager.App.Exceptions;
+using System.Collections.Generic;
 
 namespace SocialServicesManager.App.Commands.Creational
 {
@@ -17,7 +16,7 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public override string Execute(IList<string> parameters)
         {
-            base.ValidateParameters(parameters, ParameterCount);
+            this.ValidateParameters(parameters, ParameterCount);
 
             var firstName = parameters[0];
             var lastName = parameters[1];
@@ -25,10 +24,10 @@ namespace SocialServicesManager.App.Commands.Creational
             int addressId;
             int familyId;
 
-            base.ValidateName("First name", firstName);
-            base.ValidateName("Last name", lastName);
+            this.ValidateName("First name", firstName);
+            this.ValidateName("Last name", lastName);
 
-            var parsedGender = this.dataFactory.GetGender(gender);
+            var parsedGender = this.DataFactory.GetGender(gender);
 
             if (parsedGender == null)
             {
@@ -40,7 +39,7 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new ParameterValidationException("Address id should be a number.");
             }
 
-            var addressFound = this.dataFactory.FindAddress(addressId);
+            var addressFound = this.DataFactory.FindAddress(addressId);
 
             if (addressFound == null)
             {
@@ -52,17 +51,17 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new ParameterValidationException("Family id should be a number.");
             }
 
-            var familyFound = this.dataFactory.FindFamily(familyId);
+            var familyFound = this.DataFactory.FindFamily(familyId);
 
             if (familyFound == null)
             {
                 throw new EntryNotFoundException($"Family id {familyId} not found.");
             }
 
-            var familyMember = this.modelFactory.CreateFamilyMember(firstName, lastName, parsedGender, addressFound, familyFound);
+            var familyMember = this.ModelFactory.CreateFamilyMember(firstName, lastName, parsedGender, addressFound, familyFound);
 
-            this.dataFactory.AddFamilyMember(familyMember);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.AddFamilyMember(familyMember);
+            this.DataFactory.SaveAllChanges();
 
             return $"Family member {familyMember.FirstName} {familyMember.LastName} created with id {familyMember.Id}.";
         }        

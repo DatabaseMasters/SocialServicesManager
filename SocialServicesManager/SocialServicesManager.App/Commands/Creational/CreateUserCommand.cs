@@ -24,20 +24,20 @@ namespace SocialServicesManager.App.Commands.Creational
             var firstName = parameters[2];
             var lastName = parameters[3];
             
-            base.ValidateName("First name", firstName);
-            base.ValidateName("Last name", lastName);
+            this.ValidateName("First name", firstName);
+            this.ValidateName("Last name", lastName);
 
-            var usernameFound = this.dataFactory.GetUserByUsername(username);
+            var usernameFound = this.DataFactory.GetUserByUsername(username);
 
             if (usernameFound != null)
             {
                 throw new ParameterValidationException("Username already exists.");
             }
 
-            var user = this.modelFactory.CreateUser(username, password, firstName, lastName);
+            var user = this.ModelFactory.CreateUser(username, password, firstName, lastName);
 
-            this.dataFactory.AddUser(user);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.AddUser(user);
+            this.DataFactory.SaveAllChanges();
 
             return $"User {user.FirstName} with {user.Id} created.";
         }

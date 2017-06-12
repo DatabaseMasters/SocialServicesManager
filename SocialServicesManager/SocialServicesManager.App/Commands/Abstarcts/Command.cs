@@ -9,11 +9,11 @@ namespace SocialServicesManager.App.Commands.Abstarcts
     public abstract class Command : ICommand
     {
         protected const string ValidationText = "{0} should be between {1} and {2} characters long.";
-        protected readonly IDataFactory dataFactory;
+        protected readonly IDataFactory DataFactory;
 
         public Command(IDataFactory dataFactory)
         {
-            this.dataFactory = dataFactory;
+            this.DataFactory = dataFactory;
         }
 
         public abstract string Execute(IList<string> parameters);

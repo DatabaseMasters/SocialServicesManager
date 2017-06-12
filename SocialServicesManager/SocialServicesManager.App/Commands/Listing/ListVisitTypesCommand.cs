@@ -17,7 +17,7 @@ namespace SocialServicesManager.App.Commands.Listing
         {
             var builder = new StringBuilder();
 
-            var visitTypes = this.dataFactory.GetAllVisitTypes();
+            var visitTypes = this.DataFactory.GetAllVisitTypes();
 
             if (visitTypes.Count == 0)
             {

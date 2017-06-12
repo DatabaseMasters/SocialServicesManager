@@ -18,7 +18,7 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public override string Execute(IList<string> parameters)
         {
-            base.ValidateParameters(parameters, ParameterCount);
+            this.ValidateParameters(parameters, ParameterCount);
 
             var firstName = parameters[0];
             var lastName = parameters[1];
@@ -26,10 +26,10 @@ namespace SocialServicesManager.App.Commands.Creational
             var birthDate = parameters[3];
             int familyId;
 
-            base.ValidateName("First name", firstName);
-            base.ValidateName("Last name", lastName);
+            this.ValidateName("First name", firstName);
+            this.ValidateName("Last name", lastName);
 
-            var parsedGender = this.dataFactory.GetGender(gender);
+            var parsedGender = this.DataFactory.GetGender(gender);
 
             if (parsedGender == null)
             {
@@ -46,23 +46,23 @@ namespace SocialServicesManager.App.Commands.Creational
             {
                 parsedBirthday = DateTime.ParseExact(birthDate, "dd.MM.yyyy", CultureInfo.InvariantCulture);
             }
-            
+
             if (!int.TryParse(parameters[4], out familyId))
             {
                 throw new ParameterValidationException("Family id should be a number.");
             }
 
-            var familyFound = this.dataFactory.FindFamily(familyId);
+            var familyFound = this.DataFactory.FindFamily(familyId);
 
             if (familyFound == null)
             {
                 throw new EntryNotFoundException($"Family id {familyId} not found.");
             }
 
-            var child = this.modelFactory.CreateChild(firstName, lastName, parsedGender, parsedBirthday, familyFound);
+            var child = this.ModelFactory.CreateChild(firstName, lastName, parsedGender, parsedBirthday, familyFound);
 
-            this.dataFactory.AddChild(child);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.AddChild(child);
+            this.DataFactory.SaveAllChanges();
 
             return $"Child {child.FirstName} created with id {child.Id} in family {child.Family.Name}.";
         }

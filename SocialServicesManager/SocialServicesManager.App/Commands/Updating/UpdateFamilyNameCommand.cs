@@ -9,6 +9,7 @@ namespace SocialServicesManager.App.Commands.Updating
     public class UpdateFamilyNameCommand : Command, ICommand
     {
         private const int ParameterCount = 2;
+
         public UpdateFamilyNameCommand(IDataFactory dataFactory) : base(dataFactory)
         {
         }
@@ -20,15 +21,15 @@ namespace SocialServicesManager.App.Commands.Updating
             var familyId = int.Parse(parameters[0]);
             var newFamilyName = parameters[1];
 
-            var familyFound = this.dataFactory.FindFamily(familyId);
+            var familyFound = this.DataFactory.FindFamily(familyId);
 
             if (familyFound == null)
             {
                 throw new EntryNotFoundException($"Family id {familyId} not found.");
             }            
             
-            this.dataFactory.UpdateFamilyName(familyFound, newFamilyName);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.UpdateFamilyName(familyFound, newFamilyName);
+            this.DataFactory.SaveAllChanges();
 
             return $"Family {familyFound.Id} name changed to {parameters[1]}";
         }

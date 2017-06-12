@@ -16,25 +16,23 @@ namespace SocialServicesManager.App.Commands.Creational
 
         public override string Execute(IList<string> parameters)
         {
-            base.ValidateParameters(parameters, ParameterCount);
+            this.ValidateParameters(parameters, ParameterCount);
 
             var name = parameters[0];
             var userId = int.Parse(parameters[1]);
 
-            base.ValidateName("Name", name);
+            this.ValidateName("Name", name);
 
             // TODO Implement logging functionality and assign new family to currently logged user
-            var foundStaff = this.dataFactory.FindUser(userId);
-
+            var foundStaff = this.DataFactory.FindUser(userId);
             if (foundStaff == null)
             {
                 throw new EntryNotFoundException($"User id {userId} not found.");
             }
 
-            var family = this.modelFactory.CreateFamily(name, foundStaff);
-
-            this.dataFactory.AddFamily(family);
-            this.dataFactory.SaveAllChanges();
+            var family = this.ModelFactory.CreateFamily(name, foundStaff);
+            this.DataFactory.AddFamily(family);
+            this.DataFactory.SaveAllChanges();
 
             return $"Family {family.Name} created with id {family.Id}.";
         }        

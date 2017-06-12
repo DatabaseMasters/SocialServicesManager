@@ -48,11 +48,11 @@ namespace SocialServicesManager.App
                 {
                     this.writer.WriteLine(ex.Message);
                 }
-                catch(System.FormatException ex)
+                catch (System.FormatException ex)
                 {
                     this.writer.WriteLine("! Parse error: " + ex.Message);
                 }
-                catch(System.NullReferenceException)
+                catch (System.NullReferenceException)
                 {
                     this.writer.WriteLine("! Command error: Command not found.");
                 }

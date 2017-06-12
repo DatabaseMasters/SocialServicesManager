@@ -25,24 +25,24 @@ namespace SocialServicesManager.App.Commands.Creational
             var phoneNumber = parameters[2];
             var specialty = parameters[3];
 
-            base.ValidateName("First name", firstName);
-            base.ValidateName("Last name", lastName);
-            base.ValidateName("Specialty", specialty);
+            this.ValidateName("First name", firstName);
+            this.ValidateName("Last name", lastName);
+            this.ValidateName("Specialty", specialty);
 
-            var doctor = this.modelFactory.CreateMedicalDoctor(firstName, lastName, phoneNumber, specialty);
+            var doctor = this.ModelFactory.CreateMedicalDoctor(firstName, lastName, phoneNumber, specialty);
 
-            this.dataFactory.AddMedicalDoctor(doctor);
-            this.dataFactory.SaveAllChanges();
-            
+            this.DataFactory.AddMedicalDoctor(doctor);
+            this.DataFactory.SaveAllChanges();
+
             return $"Medical doctor {doctor.FirstName} with id {doctor.Id} created.";
         }
 
         protected override void ValidateParameters(IList<string> parameters, int paramterCount)
         {
             base.ValidateParameters(parameters, paramterCount);
-            
+
             var phoneNumber = parameters[2];
-            
+
             if (phoneNumber.Length != ModelsConstraints.PhoneNumberLength)
             {
                 throw new ParameterValidationException($"Phone number should be {ModelsConstraints.PhoneNumberLength} digits long.");
@@ -51,7 +51,7 @@ namespace SocialServicesManager.App.Commands.Creational
             if (!new Regex(ModelsConstraints.PhoneNumberContents).IsMatch(phoneNumber))
             {
                 throw new ParameterValidationException("Phone number should start with zero and contain only digits (eg. 0888123456).");
-            }            
+            }
         }
     }
 }

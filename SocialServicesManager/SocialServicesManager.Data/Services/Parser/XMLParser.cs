@@ -1,18 +1,10 @@
-﻿using Newtonsoft.Json;
-using System.IO;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
 
-namespace ProcessJSON.Core
+namespace SocialServicesManager.Data.Services.Parser
 {
-    public static class DataParser
+    public static class XMLParser
     {
-        public static T ParseJson<T>(string filePath)
-        {
-            string text = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<T>(text);
-        }
-
         public static T ParseXML<T>(string filePath, string root)
         {
             XmlRootAttribute xmlRoot = new XmlRootAttribute();

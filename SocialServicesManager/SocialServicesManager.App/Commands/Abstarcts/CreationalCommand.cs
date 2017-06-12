@@ -1,18 +1,18 @@
-﻿using SocialServicesManager.Data.Factories.Contracts;
-using SocialServicesManager.Interfaces;
+﻿using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.DataValidation;
-using SocialServicesManager.App.Exceptions;
+using SocialServicesManager.Data.Factories.Contracts;
+using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.App.Commands.Abstarcts
 {
     public abstract class CreationalCommand : Command, ICommand
     {
-        protected readonly IModelsFactory modelFactory;
+        protected readonly IModelsFactory ModelFactory;
 
         public CreationalCommand(IModelsFactory modelFactory, IDataFactory dataFactory) 
             : base(dataFactory)
         {
-            this.modelFactory = modelFactory;
+            this.ModelFactory = modelFactory;
         }
 
         protected void ValidateName(string nameType, string firstName)

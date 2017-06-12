@@ -44,18 +44,17 @@ namespace SocialServicesManager.Data.SqliteMigrations
                 .ForeignKey("dbo.MedicalDoctors", t => t.MedicalDoctor_Id, cascadeDelete: true)
                 .Index(t => t.MedicalRecord_Id)
                 .Index(t => t.MedicalDoctor_Id);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.MedicalRecordMedicalDoctors", "MedicalDoctor_Id", "dbo.MedicalDoctors");
-            DropForeignKey("dbo.MedicalRecordMedicalDoctors", "MedicalRecord_Id", "dbo.MedicalRecords");
-            DropIndex("dbo.MedicalRecordMedicalDoctors", new[] { "MedicalDoctor_Id" });
-            DropIndex("dbo.MedicalRecordMedicalDoctors", new[] { "MedicalRecord_Id" });
-            DropTable("dbo.MedicalRecordMedicalDoctors");
-            DropTable("dbo.MedicalRecords");
-            DropTable("dbo.MedicalDoctors");
+           this.DropForeignKey("dbo.MedicalRecordMedicalDoctors", "MedicalDoctor_Id", "dbo.MedicalDoctors");
+           this.DropForeignKey("dbo.MedicalRecordMedicalDoctors", "MedicalRecord_Id", "dbo.MedicalRecords");
+           this.DropIndex("dbo.MedicalRecordMedicalDoctors", new[] { "MedicalDoctor_Id" });
+           this.DropIndex("dbo.MedicalRecordMedicalDoctors", new[] { "MedicalRecord_Id" });
+           this.DropTable("dbo.MedicalRecordMedicalDoctors");
+           this.DropTable("dbo.MedicalRecords");
+           this.DropTable("dbo.MedicalDoctors");
         }
     }
 }

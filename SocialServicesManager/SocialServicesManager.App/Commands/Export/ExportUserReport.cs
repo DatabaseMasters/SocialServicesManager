@@ -1,6 +1,6 @@
 ﻿using SocialServicesManager.App.Commands.Abstarcts;
 using SocialServicesManager.Data.Factories.Contracts;
-using SocialServicesManager.Data.Services;
+using SocialServicesManager.Data.Services.PdfReport;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
 
@@ -18,10 +18,10 @@ namespace SocialServicesManager.App.Commands.Export
             var userId = int.Parse(parameters[0]);
 
             // TODO remove comment to work normally
-            var user = this.dataFactory.FindUser(userId);
-            var userVisits = this.dataFactory.GetUserVisits(user.Id);
+            var user = this.DataFactory.FindUser(userId);
+            var userVisits = this.DataFactory.GetUserVisits(user.Id);
 
-            ReportCreator.CreateUserReport(user, userVisits, this.dataFactory);
+            ReportCreator.CreateUserReport(user, userVisits, this.DataFactory);
 
             return "Done";
         }
