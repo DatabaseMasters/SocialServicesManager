@@ -18,10 +18,8 @@ namespace SocialServicesManager.ConsoleUI
             // createuser Nedialka
             // createvisit date userId familyId visitType (description allows spaces)
             // createvisit 01.01.1999 1 1 HomeVisit (Description with spaces, not tabs)
- 
             // listfamilies
             // updatefamily 1 Petrovi | updatefamily id newName
-
             engine.Start();
         }
     }

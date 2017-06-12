@@ -1,14 +1,12 @@
 ﻿using System;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Data.Models;
-using SocialServicesManager.Data.Services.PdfPageElements;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using SocialServicesManager.Data.Services.PdfReport.PdfPageElements;
 
-namespace SocialServicesManager.Data.Services
+namespace SocialServicesManager.Data.Services.PdfReport
 {
     public static class ReportCreator
     {

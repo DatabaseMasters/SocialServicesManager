@@ -16,7 +16,7 @@ namespace SocialServicesManager.App.Commands.Listing
         public override string Execute(IList<string> parameters)
         {            
             var builder = new StringBuilder();
-            var families = this.dataFactory.GetAllFamilies();
+            var families = this.DataFactory.GetAllFamilies();
 
             if (families.Count == 0)
             {

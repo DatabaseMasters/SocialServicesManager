@@ -111,35 +111,34 @@ namespace SocialServicesManager.Data.SQLServerMigrations
                         Name = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Towns", "Municipality_Id", "dbo.Municipalities");
-            DropForeignKey("dbo.Addresses", "Town_Id", "dbo.Towns");
-            DropForeignKey("dbo.FamilyMembers", "Address_Id", "dbo.Addresses");
-            DropForeignKey("dbo.FamilyMembers", "Gender_Id", "dbo.Genders");
-            DropForeignKey("dbo.FamilyMembers", "Family_Id", "dbo.Families");
-            DropForeignKey("dbo.Children", "Family_Id", "dbo.Families");
-            DropForeignKey("dbo.Children", "Gender_Id", "dbo.Genders");
-            DropForeignKey("dbo.Families", "AssignedStaffMember_Id", "dbo.Users");
-            DropIndex("dbo.Towns", new[] { "Municipality_Id" });
-            DropIndex("dbo.Children", new[] { "Family_Id" });
-            DropIndex("dbo.Children", new[] { "Gender_Id" });
-            DropIndex("dbo.Families", new[] { "AssignedStaffMember_Id" });
-            DropIndex("dbo.FamilyMembers", new[] { "Address_Id" });
-            DropIndex("dbo.FamilyMembers", new[] { "Gender_Id" });
-            DropIndex("dbo.FamilyMembers", new[] { "Family_Id" });
-            DropIndex("dbo.Addresses", new[] { "Town_Id" });
-            DropTable("dbo.Municipalities");
-            DropTable("dbo.Towns");
-            DropTable("dbo.Genders");
-            DropTable("dbo.Children");
-            DropTable("dbo.Users");
-            DropTable("dbo.Families");
-            DropTable("dbo.FamilyMembers");
-            DropTable("dbo.Addresses");
+            this.DropForeignKey("dbo.Towns", "Municipality_Id", "dbo.Municipalities");
+            this.DropForeignKey("dbo.Addresses", "Town_Id", "dbo.Towns");
+            this.DropForeignKey("dbo.FamilyMembers", "Address_Id", "dbo.Addresses");
+            this.DropForeignKey("dbo.FamilyMembers", "Gender_Id", "dbo.Genders");
+            this.DropForeignKey("dbo.FamilyMembers", "Family_Id", "dbo.Families");
+            this.DropForeignKey("dbo.Children", "Family_Id", "dbo.Families");
+            this.DropForeignKey("dbo.Children", "Gender_Id", "dbo.Genders");
+            this.DropForeignKey("dbo.Families", "AssignedStaffMember_Id", "dbo.Users");
+            this.DropIndex("dbo.Towns", new[] { "Municipality_Id" });
+            this.DropIndex("dbo.Children", new[] { "Family_Id" });
+            this.DropIndex("dbo.Children", new[] { "Gender_Id" });
+            this.DropIndex("dbo.Families", new[] { "AssignedStaffMember_Id" });
+            this.DropIndex("dbo.FamilyMembers", new[] { "Address_Id" });
+            this.DropIndex("dbo.FamilyMembers", new[] { "Gender_Id" });
+            this.DropIndex("dbo.FamilyMembers", new[] { "Family_Id" });
+            this.DropIndex("dbo.Addresses", new[] { "Town_Id" });
+            this.DropTable("dbo.Municipalities");
+            this.DropTable("dbo.Towns");
+            this.DropTable("dbo.Genders");
+            this.DropTable("dbo.Children");
+            this.DropTable("dbo.Users");
+            this.DropTable("dbo.Families");
+            this.DropTable("dbo.FamilyMembers");
+            this.DropTable("dbo.Addresses");
         }
     }
 }

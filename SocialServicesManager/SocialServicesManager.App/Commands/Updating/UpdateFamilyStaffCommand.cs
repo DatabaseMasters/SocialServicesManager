@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.App.Commands.Abstarcts;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
-using SocialServicesManager.App.Exceptions;
+using System.Collections.Generic;
 
 namespace SocialServicesManager.App.Commands.Updating
 {
@@ -22,21 +21,21 @@ namespace SocialServicesManager.App.Commands.Updating
             var familyId = int.Parse(parameters[0]);
             var newStaffId = int.Parse(parameters[1]);
 
-            var familyFound = this.dataFactory.FindFamily(familyId);
+            var familyFound = this.DataFactory.FindFamily(familyId);
 
             if (familyFound == null)
             {
                 throw new EntryNotFoundException($"Family id {familyId} not found.");
             }
 
-            var staffFound = this.dataFactory.FindUser(newStaffId);
+            var staffFound = this.DataFactory.FindUser(newStaffId);
 
             if (staffFound == null)
             {
                 throw new EntryNotFoundException($"Staff id {newStaffId} not found.");
             }
 
-            this.dataFactory.UpdateFamilyStaff(familyFound, staffFound);
+            this.DataFactory.UpdateFamilyStaff(familyFound, staffFound);
 
             return $"Family {familyFound.Name} with id {familyFound.Id} staff member updated to {staffFound.FirstName} with id {staffFound.Id}";
         }

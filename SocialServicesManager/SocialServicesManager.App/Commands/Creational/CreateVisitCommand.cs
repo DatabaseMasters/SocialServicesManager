@@ -34,17 +34,17 @@ namespace SocialServicesManager.App.Commands.Creational
                 throw new ParameterValidationException("Visit date must be in the past.");
             }
 
-            var typeFound = this.dataFactory.GetVisitType(visitType);
+            var typeFound = this.DataFactory.GetVisitType(visitType);
             
             if (typeFound == null)
             {
                 throw new EntryNotFoundException($"Visit type {visitType} not found.");
             }
 
-            var visit = this.modelFactory.CreateVisit(parsedDate, userId, familyId, typeFound, description);
+            var visit = this.ModelFactory.CreateVisit(parsedDate, userId, familyId, typeFound, description);
 
-            this.dataFactory.AddVisit(visit);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.AddVisit(visit);
+            this.DataFactory.SaveAllChanges();
 
             return $"Visit on {visit.Date.ToShortDateString()} with id: {visit.Id} created.";
         }

@@ -1,22 +1,20 @@
 namespace SocialServicesManager.Data.PostgreMigrations
 {
     using Models;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class PostgreConfiguration : DbMigrationsConfiguration<SocialServicesManager.Data.PostgreDbContext>
     {
         public PostgreConfiguration()
         {
-            AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"PostgreMigrations";
+            this.AutomaticMigrationsEnabled = false;
+            this.MigrationsDirectory = @"PostgreMigrations";
         }
 
-        protected override void Seed(SocialServicesManager.Data.PostgreDbContext context)
+        protected override void Seed(PostgreDbContext context)
         {
-            context.VisitTypes.AddOrUpdate(v => v.Name,
+            context.VisitTypes.AddOrUpdate(
+                v => v.Name,
                 new VisitType { Name = "HomeVisit" },
                 new VisitType { Name = "OfficeVisit" },
                 new VisitType { Name = "HospitalVisit" });

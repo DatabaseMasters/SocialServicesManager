@@ -22,17 +22,17 @@ namespace SocialServicesManager.App.Commands.Creational
             var townId = int.Parse(parameters[0]);
             var name = parameters[1];
 
-            var townFound = this.dataFactory.FindTown(townId);
+            var townFound = this.DataFactory.FindTown(townId);
 
             if (townFound == null)
             {
                 throw new EntryNotFoundException($"Town id {townId} not found.");
             }
 
-            var address = this.modelFactory.CreateAddress(townFound, name);
+            var address = this.ModelFactory.CreateAddress(townFound, name);
 
-            this.dataFactory.AddAddress(address);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.AddAddress(address);
+            this.DataFactory.SaveAllChanges();
 
             return $"Address {address.Name}, {address.Town.Name} with id {address.Id} created.";
         }

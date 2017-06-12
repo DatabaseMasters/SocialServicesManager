@@ -4,6 +4,7 @@ using SocialServicesManager.App.Commands;
 using SocialServicesManager.App.Commands.Creational;
 using SocialServicesManager.App.Commands.Deleting;
 using SocialServicesManager.App.Commands.Export;
+using SocialServicesManager.App.Commands.Import;
 using SocialServicesManager.App.Commands.Listing;
 using SocialServicesManager.App.Commands.Updating;
 using SocialServicesManager.ConsoleUI.Providers;
@@ -39,14 +40,16 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string UpdateVisitName = "updatevisit";
         private const string DeleteFamilyName = "deletefamily";
 
-        private const string CreateUserReport = "exportuserreport";
-        private const string ExportFamilyVisitsReport = "exportfamilyvisitsreport";
+        private const string CreateUserReportName = "exportuserreport";
+        private const string ExportFamilyVisitsReportName = "exportfamilyvisitsreport";
+
+        private const string ImportDataName = "importdata";
 
         public override void Load()
         {
             this.Bind<IReader>().To<ConsoleReader>().InSingletonScope();
             this.Bind<IWriter>().To<ConsoleWriter>().InSingletonScope();
-            
+
             this.Kernel.Bind<DbContext>().To<SQLServerDbContext>().WithConstructorArgument("sqlDbContext");
             this.Kernel.Bind<DbContext>().To<PostgreDbContext>().WithConstructorArgument("postgreDbContext");
             this.Kernel.Bind<DbContext>().To<SqliteDbContext>().WithConstructorArgument("sqliteDbContext");
@@ -70,8 +73,10 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
             this.Bind<ICommand>().To<CreateVisitTypeCommand>().Named(CreateVisitTypeName);
 
-            this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReport);
-            this.Bind<ICommand>().To<ExportFamilyVisitsReport>().Named(ExportFamilyVisitsReport);
+            this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReportName);
+            this.Bind<ICommand>().To<ExportFamilyVisitsReport>().Named(ExportFamilyVisitsReportName);
+
+            this.Bind<ICommand>().To<ImportDataCommand>().Named(ImportDataName);
 
             this.Bind<ICommand>().To<ListChildrenCommand>().Named(ListChildrenName);
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);

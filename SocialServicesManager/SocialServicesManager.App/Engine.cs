@@ -47,7 +47,7 @@ namespace SocialServicesManager.App
                 {
                     this.writer.WriteLine(ex.Message);
                 }
-                catch(System.FormatException ex)
+                catch (System.FormatException ex)
                 {
                     this.writer.WriteLine("! Parse error: " + ex.Message);
                 }

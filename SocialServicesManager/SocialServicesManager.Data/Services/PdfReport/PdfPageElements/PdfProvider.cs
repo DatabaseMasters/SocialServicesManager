@@ -2,7 +2,7 @@
 using iTextSharp.text.pdf;
 using System.IO;
 
-namespace SocialServicesManager.Data.Services.PdfPageElements
+namespace SocialServicesManager.Data.Services.PdfReport.PdfPageElements
 {
     public class PdfProvider
     {

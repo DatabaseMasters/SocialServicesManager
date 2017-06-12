@@ -9,14 +9,14 @@ namespace SocialServicesManager.Data.SQLServerMigrations
     {
         public override void Up()
         {            
-            CreateIndex("dbo.Users", "UserName", unique: true, name: "IX_UserNameUnique");
-            CreateIndex("dbo.Genders", "Name", unique: true, name: "IX_GenderUnique");
+            this.CreateIndex("dbo.Users", "UserName", unique: true, name: "IX_UserNameUnique");
+            this.CreateIndex("dbo.Genders", "Name", unique: true, name: "IX_GenderUnique");
         }
         
         public override void Down()
         {
-            DropIndex("dbo.Genders", "IX_GenderUnique");
-            DropIndex("dbo.Users", "IX_UserNameUnique");
+            this.DropIndex("dbo.Genders", "IX_GenderUnique");
+            this.DropIndex("dbo.Users", "IX_UserNameUnique");
         }
     }
 }

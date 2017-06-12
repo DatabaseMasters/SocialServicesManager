@@ -6,11 +6,11 @@ namespace SocialServicesManager.App.Commands.Abstarcts
 {
     public abstract class ExporterCommand : ICommand
     {
-        protected readonly IDataFactory dataFactory;
+        protected readonly IDataFactory DataFactory;
 
         public ExporterCommand(IDataFactory dataFactory)
         {
-            this.dataFactory = dataFactory;
+            this.DataFactory = dataFactory;
         }
 
         public abstract string Execute(IList<string> parameters);

@@ -20,15 +20,15 @@ namespace SocialServicesManager.App.Commands.Deleting
 
             var childId = int.Parse(parameters[0]);
 
-            var childFound = this.dataFactory.FindChild(childId);
+            var childFound = this.DataFactory.FindChild(childId);
 
             if (childFound == null)
             {
                 throw new EntryPointNotFoundException($"Child with id {childId} not found.");
             }
 
-            this.dataFactory.DeleteChild(childFound);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.DeleteChild(childFound);
+            this.DataFactory.SaveAllChanges();
 
             return $"Child {childFound.FirstName} with id {childFound.Id} deleted.";
         }

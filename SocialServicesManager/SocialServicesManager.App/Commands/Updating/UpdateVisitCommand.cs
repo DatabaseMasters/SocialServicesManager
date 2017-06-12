@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialServicesManager.App.Commands.Abstarcts;
+﻿using SocialServicesManager.App.Commands.Abstarcts;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
-using SocialServicesManager.App.Exceptions;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace SocialServicesManager.App.Commands.Updating
@@ -27,7 +27,7 @@ namespace SocialServicesManager.App.Commands.Updating
             var visitType = parameters[4];
             var description = parameters[5];
 
-            var oldVisit = this.dataFactory.FindVisit(visitId);
+            var oldVisit = this.DataFactory.FindVisit(visitId);
 
             if (oldVisit == null)
             {
@@ -59,7 +59,7 @@ namespace SocialServicesManager.App.Commands.Updating
 
             if (visitType != "null")
             {
-                typeFound = this.dataFactory.GetVisitType(visitType);
+                typeFound = this.DataFactory.GetVisitType(visitType);
             }
 
             if (typeFound == null)
@@ -68,7 +68,7 @@ namespace SocialServicesManager.App.Commands.Updating
             }
 
             var newDescription = oldVisit.Description;
-            var test = (description == "null");
+            var test = description == "null";
 
             if (description != "null")
             {
@@ -77,8 +77,8 @@ namespace SocialServicesManager.App.Commands.Updating
 
             var newVisit = this.ModelFactory.CreateVisit(parsedDate, parsedUserId, parsedFamilyId, typeFound, newDescription);
 
-            this.dataFactory.UpdateVisit(oldVisit, newVisit);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.UpdateVisit(oldVisit, newVisit);
+            this.DataFactory.SaveAllChanges();
 
             return $"Visit with id {oldVisit.Id} updated.";
         }

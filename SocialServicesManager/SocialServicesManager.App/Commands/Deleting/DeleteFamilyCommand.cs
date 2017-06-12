@@ -10,6 +10,7 @@ namespace SocialServicesManager.App.Commands.Deleting
     public class DeleteFamilyCommand : Command, ICommand
     {
         private const int ParameterCount = 1;
+
         public DeleteFamilyCommand(IDataFactory dataFactory) : base(dataFactory)
         {
         }
@@ -20,15 +21,15 @@ namespace SocialServicesManager.App.Commands.Deleting
 
             var familyId = int.Parse(parameters[0]);
 
-            var familyFound = this.dataFactory.FindFamily(familyId);
-            
+            var familyFound = this.DataFactory.FindFamily(familyId);
+
             if (familyFound == null)
             {
                 throw new EntryNotFoundException($"Family with id {familyId} not found.");
             }
 
-            this.dataFactory.DeleteFamily(familyFound);
-            this.dataFactory.SaveAllChanges();
+            this.DataFactory.DeleteFamily(familyFound);
+            this.DataFactory.SaveAllChanges();
 
             return $"Family {familyFound.Name} with id {familyFound.Id} deleted.";
         }
