@@ -38,6 +38,7 @@ namespace SocialServicesManager.App
                 {
                     var commandResult = this.processor.ProcessCommand(commandLine);
                     this.writer.WriteLine(commandResult);
+                    this.writer.WriteLine("---");
                 }
                 catch (EntryNotFoundException ex)
                 {
@@ -50,6 +51,10 @@ namespace SocialServicesManager.App
                 catch (System.FormatException ex)
                 {
                     this.writer.WriteLine("! Parse error: " + ex.Message);
+                }
+                catch(System.NullReferenceException)
+                {
+                    this.writer.WriteLine("! Command error: Command not found.");
                 }
             }
         }

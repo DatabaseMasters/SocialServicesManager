@@ -6,7 +6,7 @@
 Management tool for monitoring and organizing social service visits for families with young children. 
 
 The database is organised in tables in SQL Server, PostgreSQL and SQLite.
-Accessed is through a console application.
+Data create, read, update, delete is implemented through a console application.
 Data can be inported from XML and JSON and eported to PDF.
 
 ### Data Relations
@@ -21,11 +21,11 @@ Data can be inported from XML and JSON and eported to PDF.
 
 ## Team Members
 
-| Names               | Email                      | Username            | Tasks      |
-| ------------------- | -------------------------- | ------------------- | ---------- |
-| Nadezhda Hristova   | epohster@gmail.com         | nhristova           | Commands   |
-| Aleksandar Ikonomov | aleksandar.ikonomov@abv.bg | a.ikonomov          | PDF export |
-| Milena Sapunova     | @                          | milena.aleksandrova | Import     |
+| Names               | Email                      | Username            | Tasks                                   |
+| ------------------- | -------------------------- | ------------------- | --------------------------------------- |
+| Aleksandar Ikonomov | aleksandar.ikonomov@abv.bg | a.ikonomov          | SQLite, PDF export, StyleCop            |
+| Milena Sapunova     | milena.sapunova@gmail.com  | milena.aleksandrova | PostgreSQL, Import, Models, Constraints |
+| Nadezhda Hristova   | epohster@gmail.com         | nhristova           | Structure, CRUD Commands, Validation    |
 
 ## Links
 
