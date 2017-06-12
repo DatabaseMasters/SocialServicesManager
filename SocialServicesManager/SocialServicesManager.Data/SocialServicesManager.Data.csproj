@@ -141,6 +141,10 @@
     <Compile Include="SQLServerMigrations\201706112000161_Unique username gender.Designer.cs">
       <DependentUpon>201706112000161_Unique username gender.cs</DependentUpon>
     </Compile>
+    <Compile Include="SQLServerMigrations\201706121604454_Fix Address constraints.cs" />
+    <Compile Include="SQLServerMigrations\201706121604454_Fix Address constraints.Designer.cs">
+      <DependentUpon>201706121604454_Fix Address constraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLServerMigrations\SQLServerConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SQLServerMigrations\201706112000161_Unique username gender.resx">
       <DependentUpon>201706112000161_Unique username gender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLServerMigrations\201706121604454_Fix Address constraints.resx">
+      <DependentUpon>201706121604454_Fix Address constraints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
