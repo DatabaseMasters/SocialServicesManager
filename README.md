@@ -25,11 +25,11 @@ Data can be inported from XML and JSON and eported to PDF.
 | ------------------- | -------------------------- | ------------------- | --------------------------------------- |
 | Aleksandar Ikonomov | aleksandar.ikonomov@abv.bg | a.ikonomov          | SQLite, PDF export, StyleCop            |
 | Milena Sapunova     | milena.sapunova@gmail.com  | milena.aleksandrova | PostgreSQL, Import, Models, Constraints |
-| Nadezhda Hristova   | epohster@gmail.com         | nhristova           | Structure, CRUD Commands, Validation    |
+| Nadezhda Hristova   | epohster@gmail.com         | nhristova           | CRUD Commands, Validation, Unit tests   |
 
 ## Links
 
-|   [GitHub](https://github.com/DatabaseMasters)    |   [Showcase](#)   |   [YouTube](#)    |
+|   [GitHub](https://github.com/DatabaseMasters)    | 
 
 ## General Requirements Covered
 + Code First approach
@@ -52,8 +52,7 @@ Data can be inported from XML and JSON and eported to PDF.
 
 ## Optional Requirements 
 + Pure Entity Framework and DbContext
-
-- @!TODO! **Unit Tests**
++ **Unit Tests**
 
 ## Database Diagram
 

@@ -10,15 +10,13 @@ Create
 1. [CreateUser](#user)
 1. [CreateVisit](#visit)
 
-[Export](#export)
-
-[List](#list)
+[Read](#read)
 
 [Update](#update)
 
 [Delete](#delete)
 
-[TODO](#todo)
+[Export](#export)
 
 ## DEMO COMMAND SET ##
 
@@ -193,20 +191,9 @@ updatechild 1 null null null null 5
 
 
 
-## EXPORT
 
-valid format: 
 
-**ExportUserReport [StaffId]**
-
-**ExportFamilyVistsReport [FamilyId]**
-
-```
-exportuserreport 1
-exportfamilyvisitsreport 1
-```
-
-## LIST
+## READ
 
 valid format:
 
@@ -256,6 +243,22 @@ valid format:
 ```
 deletechild 5
 deletefamily 5
+```
+
+## IMPORT
+...
+
+## EXPORT
+
+valid format: 
+
+**ExportUserReport [StaffId]**
+
+**ExportFamilyVistsReport [FamilyId]**
+
+```
+exportuserreport 1
+exportfamilyvisitsreport 1
 ```
 
 ### TODO
