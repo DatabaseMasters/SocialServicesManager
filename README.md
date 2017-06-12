@@ -45,10 +45,9 @@ Data can be inported from XML and JSON and eported to PDF.
 + PDF reports 
 
 ## Additional Requirements Covered
-+ **iTextSharp** library used for PDF export
-+ **Newtonsoft.JSON** used for JSON serializations
-
-- @?The XML files read through the standard .NET parsers
++ **iTextSharp** library used for PDF export 
++ **Newtonsoft.JSON** used for JSON deserializations of imported data
++ **.NET XmlSerializer** used for XML deserializations of imported data
 
 ## Optional Requirements 
 + Pure Entity Framework and DbContext
