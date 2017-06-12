@@ -38,7 +38,7 @@ namespace SocialServicesManager.App.Commands.Import
                 families = DataParser.ParseFamiliesXMLData(filePath, this.DataFactory);
             }
 
-            return $"{families} successfully families imported from {filePath}";
+            return $"{families} successfully families imported from {Path.GetFullPath(filePath)}";
         }
 
         protected override void ValidateParameters(IList<string> parameters, int paramterCount)
@@ -50,7 +50,7 @@ namespace SocialServicesManager.App.Commands.Import
 
             if (!File.Exists(filePath))
             {
-                throw new ParameterValidationException($"File {filePath} does not exist.");
+                throw new ParameterValidationException($"File {Path.GetFullPath(filePath)} does not exist.");
             }
 
             if (Array.IndexOf(this.dataFormats, dataFormat) == -1)

@@ -1,9 +1,9 @@
-﻿using Moq;
+﻿using System;
+using Moq;
 using NUnit.Framework;
 using SocialServicesManager.App;
 using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
-using System;
 
 namespace SSM.App.Tests
 {

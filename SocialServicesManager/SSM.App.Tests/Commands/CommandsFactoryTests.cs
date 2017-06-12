@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using SocialServicesManager.App.Commands;
 using SocialServicesManager.Interfaces;
-using System;
 
 namespace SSM.App.Tests.Commands
 {
