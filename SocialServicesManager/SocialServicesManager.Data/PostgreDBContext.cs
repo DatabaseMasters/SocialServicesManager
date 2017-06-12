@@ -1,7 +1,5 @@
 ﻿using SocialServicesManager.Data.Models;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure.Annotations;
 
 namespace SocialServicesManager.Data
 {
@@ -30,14 +28,7 @@ namespace SocialServicesManager.Data
             modelBuilder.Entity<VisitType>()
                 .Property(t => t.Name)
                 .IsRequired()
-                .HasColumnType("varchar")
-                .HasColumnAnnotation(
-                    "IX_VisitType", 
-                    new IndexAnnotation(
-                        new IndexAttribute("IX_VisitType")
-                        {
-                            IsUnique = true
-                        }));
+                .HasColumnType("varchar");
         }
 
         private void OnVisitModelCreating(DbModelBuilder modelBuilder)
