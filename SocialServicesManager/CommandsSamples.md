@@ -169,6 +169,16 @@ valid format:
 
 **ListFamilies**
 
+**ListUsers**
+
+**ListUserVisits [UserId]**
+
+**ListVisitTypes**
+
+    ```
+    listuservisits 1
+    ```
+
 ## UPDATE
 
 valid format: 
@@ -179,12 +189,15 @@ valid format:
 
 **UpdateFamilyStaff [FamilyId] [NewStaffId]**
 
+**UpdateVisit [VisitId] [NewDate] [NewUserId] [NewFamilyId] [NewVisitType] ([NewDescription])** -- use null for unchaged values
+
 ```
 updatechild 1 Galin Georgiev female null null
 updatechild 1 null null female null null
 updatechild 1 null null male 15.03.2001 3
 updatefamilyname 1 Marinovi
 updatefamilystaff 1 4
+updatevisit 2 null null 6 null (null)
 ```
 
 ## DELETE
@@ -203,11 +216,14 @@ valid format:
 
 - Other:
 
-    - Medical record to hold Child instead of childId?
+    - Medical record to hold Child instead of childId? - problem with different databases?
+    - Visit to hold User instead of UserId? - problem with different databases?
     - DataFactory to throw when Family not found instead of throwing in command? Otherwise throwing repeats in many commands
     - Rename DataFactory to DataService, move to services folder
     - Rename DataValidation folder to Validation
     - Move DataParser to Services folder
     - Implement logging functionality and assign new family to currently logged user
     - Extract validations from commands - how?
+    - ReportCreator should not reference datafactory?
     - Review Task list
+    - Run profiler

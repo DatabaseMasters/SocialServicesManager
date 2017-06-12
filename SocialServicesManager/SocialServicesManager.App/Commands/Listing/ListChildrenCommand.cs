@@ -18,6 +18,11 @@ namespace SocialServicesManager.App.Commands.Listing
             var builder = new StringBuilder();
             var children = this.dataFactory.GetAllChildren();
 
+            if (children.Count == 0)
+            {
+                return "There are no children in this database.";
+            }
+
             builder.AppendLine(string.Empty);
 
             builder.AppendLine(string.Format($"| {"Id",+2} | {"First Name",-10} | {"Last Name", -10} | {"Birthday", -10} | {"Gender", -10} | {"Family", -10} |"));
@@ -29,12 +34,7 @@ namespace SocialServicesManager.App.Commands.Listing
 
                 builder.AppendLine($"| {child.Id, +2} | {child.FirstName, -10} | {child.LastName, -10} | {birthday, -10} | {child.Gender.Name, -10} | {child.Family.Name, -10} |");
             }
-
-            if (builder.ToString() == string.Empty)
-            {
-                return "There are no families in the database.";
-            }
-
+            
             return builder.ToString();
 
         }

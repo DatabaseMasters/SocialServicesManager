@@ -25,13 +25,18 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string CreateMedicalRecordName = "createmedicalrecord";
         private const string CreateUserName = "createuser";
         private const string CreateVisitName = "createvisit";
+        private const string CreateVisitTypeName = "createvisittype";
 
         private const string ListChildrenName = "listchildren";
         private const string ListFamiliesName = "listfamilies";
+        private const string ListUsersName = "listusers";
+        private const string ListUserVisitsName = "listuservisits";
+        private const string ListVisitTypesName = "listvisittypes";
 
         private const string UpdateChildName = "updatechild";
         private const string UpdateFamilyNameName = "updatefamilyname";
         private const string UpdateFamilyStaffName = "updatefamilystaff";
+        private const string UpdateVisitName = "updatevisit";
         private const string DeleteFamilyName = "deletefamily";
 
         private const string CreateUserReport = "exportuserreport";
@@ -63,16 +68,21 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<CreateMedicalRecord>().Named(CreateMedicalRecordName);
             this.Bind<ICommand>().To<CreateUserCommand>().Named(CreateUserName);
             this.Bind<ICommand>().To<CreateVisitCommand>().Named(CreateVisitName);
+            this.Bind<ICommand>().To<CreateVisitTypeCommand>().Named(CreateVisitTypeName);
 
             this.Bind<ICommand>().To<ExportUserReport>().Named(CreateUserReport);
             this.Bind<ICommand>().To<ExportFamilyVisitsReport>().Named(ExportFamilyVisitsReport);
 
             this.Bind<ICommand>().To<ListChildrenCommand>().Named(ListChildrenName);
             this.Bind<ICommand>().To<ListFamiliesCommand>().Named(ListFamiliesName);
+            this.Bind<ICommand>().To<ListUsersCommand>().Named(ListUsersName);
+            this.Bind<ICommand>().To<ListUserVisitsCommand>().Named(ListUserVisitsName);
+            this.Bind<ICommand>().To<ListVisitTypesCommand>().Named(ListVisitTypesName);
 
             this.Bind<ICommand>().To<UpdateChildCommand>().Named(UpdateChildName);
             this.Bind<ICommand>().To<UpdateFamilyNameCommand>().Named(UpdateFamilyNameName);
             this.Bind<ICommand>().To<UpdateFamilyStaffCommand>().Named(UpdateFamilyStaffName);
+            this.Bind<ICommand>().To<UpdateVisitCommand>().Named(UpdateVisitName);
             this.Bind<ICommand>().To<DeleteFamilyCommand>().Named(DeleteFamilyName);
         }
     }

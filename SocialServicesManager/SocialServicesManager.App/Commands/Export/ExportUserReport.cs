@@ -19,7 +19,7 @@ namespace SocialServicesManager.App.Commands.Export
 
             // TODO remove comment to work normally
             var user = this.dataFactory.FindUser(userId);
-            var userVisits = this.dataFactory.GetUserVisits(user);
+            var userVisits = this.dataFactory.GetUserVisits(user.Id);
 
             ReportCreator.CreateUserReport(user, userVisits, this.dataFactory);
 

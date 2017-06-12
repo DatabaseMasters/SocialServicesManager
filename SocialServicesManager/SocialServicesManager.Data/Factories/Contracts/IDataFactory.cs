@@ -5,6 +5,7 @@ namespace SocialServicesManager.Data.Factories.Contracts
 {
     public interface IDataFactory
     {
+        // CREATING
         void AddAddress(Address address);
 
         void AddChild(Child child);
@@ -25,40 +26,55 @@ namespace SocialServicesManager.Data.Factories.Contracts
 
         void AddVisit(Visit visit);
 
+        void AddVisitType(VisitType visitType);
+
         void SaveAllChanges();
 
+        // READING
         Address FindAddress(int id);
 
         Child FindChild(int id);
 
+        Family FindFamily(int id);
+
+        string GetFamilyName(int id);
+
         Gender GetGender(string gender);
 
         MedicalDoctor FindMedicalDoctor(int id);
-        
+
+        Town FindTown(int id);
+
         User FindUser(int id);
 
         string GetUserByUsername(string username);
 
         VisitType GetVisitType(string type);
-        
-        ICollection<Visit> GetUserVisits(User user);
 
-        Family FindFamily(int id);
+        Visit FindVisit(int id);
 
-        IEnumerable<Child> GetAllChildren();
+        ICollection<Visit> GetUserVisits(int userId);
 
-        IEnumerable<Family> GetAllFamilies();
+        ICollection<Child> GetAllChildren();
+
+        ICollection<Family> GetAllFamilies();
+
+        ICollection<User> GetAllUsers();
 
         ICollection<Visit> GetFamilyVisits(Family family);
 
-        Town FindTown(int id);
+        ICollection<VisitType> GetAllVisitTypes();
 
+        // UPDATING
         void UpdateChild(Child oldChild, Child newChild);
 
         void UpdateFamilyName(Family family, string newName);
 
         void UpdateFamilyStaff(Family family, User newStaff);
+
+        void UpdateVisit(Visit oldVisit, Visit newVisit);
         
+        // DELETING
         void DeleteChild(Child child);
 
         void DeleteFamily(Family family);

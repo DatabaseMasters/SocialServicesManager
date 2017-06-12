@@ -134,6 +134,17 @@ namespace SocialServicesManager.Data.Factories
             return familyFound;
         }
 
+        public string GetFamilyName(int id)
+        {
+            var nameFound = this.sqlDbContext.Families
+                .Where(f => f.Id == id)
+                .Where(f => f.Deleted == false)
+                .Select(f => f.Name)
+                .FirstOrDefault();
+
+            return nameFound;
+        }
+
         public Gender GetGender(string gender)
         {
             var genderFound = this.SqlDbContext.Genders
@@ -189,24 +200,36 @@ namespace SocialServicesManager.Data.Factories
             return typeFound;
         }
 
-        public IEnumerable<Child> GetAllChildren()
+        public Visit FindVisit(int id)
+        {
+            return this.postgreDbContext.Visits.Find(id);
+        }
+
+        public ICollection<Child> GetAllChildren()
         {
             return this.SqlDbContext.Children
                 .Where(c => c.Deleted == false)
                 .ToList();
         }
 
-        public IEnumerable<Family> GetAllFamilies()
+        public ICollection<Family> GetAllFamilies()
         {
             return this.SqlDbContext.Families
                 .Where(f => f.Deleted == false)
                 .ToList();
         }
 
-        public ICollection<Visit> GetUserVisits(User user)
+        public ICollection<User> GetAllUsers()
+        {
+            return this.SqlDbContext.Users
+                .Where(u => u.Deleted == false)
+                .ToList();
+        }
+
+        public ICollection<Visit> GetUserVisits(int userId)
         {
             var userVisits = this.PostgreDbContext.Visits
-                .Where(v => v.UserId == user.Id)
+                .Where(v => v.UserId == userId)
                 .Where(v => v.Deleted == false)
                 .ToList();
 
@@ -221,9 +244,13 @@ namespace SocialServicesManager.Data.Factories
                 .ToList();
         }
 
-
+        public ICollection<VisitType> GetAllVisitTypes()
+        {
+            return this.postgreDbContext.VisitTypes
+                .ToList();
+        }
+        
         // UPDATING
-
         public void UpdateChild(Child oldChild, Child newChild)
         {
             oldChild.FirstName = newChild.FirstName ?? oldChild.FirstName;
@@ -243,8 +270,16 @@ namespace SocialServicesManager.Data.Factories
             family.AssignedStaffMember = newStaff;
         }
 
-        // DELETING
+        public void UpdateVisit(Visit oldVisit, Visit newVisit)
+        {
+            oldVisit.Date = newVisit.Date;
+            oldVisit.UserId = newVisit.UserId;
+            oldVisit.FamilyId = newVisit.FamilyId;
+            oldVisit.VisitType = newVisit.VisitType;
+            oldVisit.Description = newVisit.Description;
+        }
 
+        // DELETING
         public void DeleteChild(Child child)
         {
             child.Deleted = true;
