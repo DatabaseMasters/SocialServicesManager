@@ -14,7 +14,7 @@ namespace SocialServicesManager.ConsoleUI.Container
 
         public ICommand GetCommand(string commandName)
         {
-            return this.kernel.Get<ICommand>(commandName);
+            return this.kernel.TryGet<ICommand>(commandName);            
         }
     }
 }

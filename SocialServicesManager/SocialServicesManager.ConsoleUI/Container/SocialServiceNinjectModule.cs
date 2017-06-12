@@ -38,6 +38,7 @@ namespace SocialServicesManager.ConsoleUI.Container
         private const string UpdateFamilyStaffName = "updatefamilystaff";
         private const string UpdateVisitName = "updatevisit";
         private const string DeleteFamilyName = "deletefamily";
+        private const string DeleteChildName = "deletechild";
 
         private const string CreateUserReport = "exportuserreport";
         private const string ExportFamilyVisitsReport = "exportfamilyvisitsreport";
@@ -84,6 +85,7 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<ICommand>().To<UpdateFamilyStaffCommand>().Named(UpdateFamilyStaffName);
             this.Bind<ICommand>().To<UpdateVisitCommand>().Named(UpdateVisitName);
             this.Bind<ICommand>().To<DeleteFamilyCommand>().Named(DeleteFamilyName);
+            this.Bind<ICommand>().To<DeleteChildCommand>().Named(DeleteChildName);
         }
     }
 }

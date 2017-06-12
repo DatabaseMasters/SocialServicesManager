@@ -20,6 +20,50 @@ Create
 
 [TODO](#todo)
 
+## DEMO COMMAND SET ##
+
+```
+createuser avgustgala avgu1234 Avgust Galabov
+createuser adaliapetr adali1234 Adalia Petrova
+createuser stoiugrade stoiu1234 Stoiu Gradev
+createuser ognenadimo ognena1234 Ognena Dimova
+createfamily Popovi 1
+createfamily Georgievi 2
+createfamily Simeonovi 4
+createfamily Hitrovi 3
+createfamily Atanasovi 1
+createfamily Mitevi 2
+createaddress 1 (3 Bistritsa str.)
+createaddress 2 (17 William Gladstone str.)
+createaddress 3 (105 Kniaz Boris I str.)
+createaddress 2 (31 Rakovski str.)
+createaddress 4 (56 Nikola Gabrovski str.)
+createaddress 5 (1 Osmi mart str.)
+createfamilymember Dinko Popov male 1 1
+createfamilymember Lina Simeonova female 2 3
+createfamilymember Yovko Mitev male 3 6
+createchild Georgi Popov male 15.07.2005 1
+createchild Marina Popova female 03.01.2008 1
+createchild Hristo Georgiev male 23.09.2003 2
+createchild Vania Simeonova female 01.03.2000 3
+createchild null null undefined null 4
+createmedicaldoctor Ivan Petrov 0888999222 GeneralPractitioner
+createmedicaldoctor Georgi Mirchev 0888123456 Peadiatric
+createmedicalrecord 25.04.2017 1 1 (Georgi had the flu)
+createmedicalrecord 12.05.2017 1 2 (Georgi stopped flu meds)
+createvisit 12.05.2017 1 1 HomeVisit (Georgi was sleeping)
+createvisit 12.05.2017 1 2 HomeVisit (Hristo was playing ball)
+createvisit 12.04.2017 1 2 HomeVisit (Hristo was at a birthday)
+createvisit 12.02.2017 1 2 HomeVisit (Hristo had broken a cup)
+ListChildren
+ListFamilies
+ListUsers
+ListUserVisits 1
+ListUserVisits 2
+ListVisitTypes
+updatechild 1 null null null null 5
+
+``` 
 
 ## Creational ##
 
@@ -193,7 +237,7 @@ valid format:
 
 ```
 updatechild 1 Galin Georgiev female null null
-updatechild 1 null null female null null
+updatechild 1 null null null null 5
 updatechild 1 null null male 15.03.2001 3
 updatefamilyname 1 Marinovi
 updatefamilystaff 1 4
@@ -207,6 +251,11 @@ valid format:
 **DeleteChild [ChildId]**
 
 **DeleteFamily [FamilyId]**
+
+```
+deletechild 5
+deletefamily 5
+```
 
 ### TODO
 
