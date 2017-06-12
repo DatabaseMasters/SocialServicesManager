@@ -11,8 +11,7 @@ namespace SocialServicesManager.App.Commands.Listing
         public ListFamiliesCommand(IDataFactory dataFactory) : base(dataFactory)
         {
         }
-
-        // TODO Add validation logic
+        
         public override string Execute(IList<string> parameters)
         {            
             var builder = new StringBuilder();

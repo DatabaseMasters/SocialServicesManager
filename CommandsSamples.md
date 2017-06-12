@@ -135,6 +135,7 @@ updatechild 1 null null null null 5
     ```
     createmedicaldoctor Ivan Petrov 0888999222 GeneralPractitioner
     createmedicaldoctor Georgi Mirchev 0888123456 Peadiatric
+    createmedicaldoctor Kona Sabeva 0555888444 Neurologist
     ```
     
     invalid 

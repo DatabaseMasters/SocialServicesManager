@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.App",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialServicesManager.Interfaces", "SocialServicesManager.Interfaces\SocialServicesManager.Interfaces.csproj", "{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSM.App.Tests", "SSM.App.Tests\SSM.App.Tests.csproj", "{A3C76204-B2A9-4095-923E-0FC0E27D523D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C903C4D-D8AF-418F-8C5B-5158F151A8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C76204-B2A9-4095-923E-0FC0E27D523D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C76204-B2A9-4095-923E-0FC0E27D523D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C76204-B2A9-4095-923E-0FC0E27D523D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C76204-B2A9-4095-923E-0FC0E27D523D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
