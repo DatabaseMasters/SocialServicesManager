@@ -1,4 +1,5 @@
-﻿using SocialServicesManager.Interfaces;
+﻿using Bytes2you.Validation;
+using SocialServicesManager.Interfaces;
 using System.Linq;
 
 namespace SocialServicesManager.ConsoleUI.Providers
@@ -9,6 +10,7 @@ namespace SocialServicesManager.ConsoleUI.Providers
 
         public CommandProcessor(ICommandsFactory factory)
         {
+            Guard.WhenArgument(factory, "factory").IsNull().Throw();
             this.commandFactory = factory;
         }
 

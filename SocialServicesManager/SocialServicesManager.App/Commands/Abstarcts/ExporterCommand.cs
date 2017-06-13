@@ -1,4 +1,5 @@
-﻿using SocialServicesManager.Data.Factories.Contracts;
+﻿using Bytes2you.Validation;
+using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
 using System.Collections.Generic;
 
@@ -10,6 +11,7 @@ namespace SocialServicesManager.App.Commands.Abstarcts
 
         public ExporterCommand(IDataFactory dataFactory)
         {
+            Guard.WhenArgument(dataFactory, "dataFactory").IsNull().Throw();
             this.DataFactory = dataFactory;
         }
 

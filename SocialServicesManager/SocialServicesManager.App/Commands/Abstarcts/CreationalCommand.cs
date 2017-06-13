@@ -1,4 +1,5 @@
-﻿using SocialServicesManager.App.Exceptions;
+﻿using Bytes2you.Validation;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Data.DataValidation;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Interfaces;
@@ -12,6 +13,7 @@ namespace SocialServicesManager.App.Commands.Abstarcts
         public CreationalCommand(IModelsFactory modelFactory, IDataFactory dataFactory) 
             : base(dataFactory)
         {
+            Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
             this.ModelFactory = modelFactory;
         }
 

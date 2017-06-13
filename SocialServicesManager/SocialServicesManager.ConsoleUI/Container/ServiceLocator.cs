@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using Bytes2you.Validation;
+using Ninject;
 using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.ConsoleUI.Container
@@ -9,6 +10,7 @@ namespace SocialServicesManager.ConsoleUI.Container
 
         public ServiceLocator(IKernel kernel)
         {
+            Guard.WhenArgument(kernel, "kernel").IsNull().Throw();
             this.kernel = kernel;
         }
 

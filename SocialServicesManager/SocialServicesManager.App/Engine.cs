@@ -1,4 +1,5 @@
-﻿using SocialServicesManager.App.Exceptions;
+﻿using Bytes2you.Validation;
+using SocialServicesManager.App.Exceptions;
 using SocialServicesManager.Interfaces;
 
 namespace SocialServicesManager.App
@@ -11,8 +12,13 @@ namespace SocialServicesManager.App
 
         public Engine(IReader reader, IWriter writer, IProcessor processor)
         {
+            Guard.WhenArgument(reader, "reader").IsNull().Throw();
             this.reader = reader;
+
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
             this.writer = writer;
+
+            Guard.WhenArgument(processor, "processor").IsNull().Throw();
             this.processor = processor;
         }
 

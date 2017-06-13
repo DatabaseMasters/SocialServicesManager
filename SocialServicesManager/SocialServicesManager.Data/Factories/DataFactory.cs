@@ -1,3 +1,4 @@
+using Bytes2you.Validation;
 using SocialServicesManager.Data.Factories.Contracts;
 using SocialServicesManager.Data.Models;
 using System.Collections.Generic;
@@ -13,8 +14,13 @@ namespace SocialServicesManager.Data.Factories
 
         public DataFactory(SQLServerDbContext sqlDbContext, PostgreDbContext postgreDbContext, SqliteDbContext sqliteDbContext)
         {
+            Guard.WhenArgument(sqlDbContext, "sqlDbContext").IsNull().Throw();
             this.sqlDbContext = sqlDbContext;
+
+            Guard.WhenArgument(postgreDbContext, "postgreDbContext").IsNull().Throw();
             this.postgreDbContext = postgreDbContext;
+
+            Guard.WhenArgument(sqliteDbContext, "sqliteDbContext").IsNull().Throw();
             this.sqliteDbContext = sqliteDbContext;
         }
 
