@@ -18,6 +18,8 @@ namespace SocialServicesManager.ConsoleUI.Container
 {
     public class SocialServiceNinjectModule : NinjectModule
     {
+        private const string ListCommandsName = "help";
+
         private const string CreateAddressName = "createaddress";
         private const string CreateChildName = "createchild";
         private const string CreateFamilyName = "createfamily";
@@ -63,6 +65,8 @@ namespace SocialServicesManager.ConsoleUI.Container
             this.Bind<IServiceLocator>().To<ServiceLocator>();
 
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
+
+            this.Bind<ICommand>().To<ListCommandsCommand>().Named(ListCommandsName);
 
             this.Bind<ICommand>().To<CreateAddressCommand>().Named(CreateAddressName);
             this.Bind<ICommand>().To<CreateChildCommand>().Named(CreateChildName);

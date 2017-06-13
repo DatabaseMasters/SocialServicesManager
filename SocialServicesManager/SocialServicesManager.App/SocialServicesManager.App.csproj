@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="Commands\Abstarcts\Command.cs" />
     <Compile Include="Commands\Abstarcts\CreationalCommand.cs" />
-    <Compile Include="Commands\Abstarcts\ExporterCommand.cs" />
     <Compile Include="Commands\Abstarcts\UpdatingCommand.cs" />
     <Compile Include="Commands\CommandsFactory.cs" />
     <Compile Include="Commands\Creational\CreateAddressCommand.cs" />
@@ -50,6 +49,7 @@
     <Compile Include="Commands\Export\ExportUserReport.cs" />
     <Compile Include="Commands\Import\ImportDataCommand.cs" />
     <Compile Include="Commands\Listing\ListChildrenCommand.cs" />
+    <Compile Include="Commands\Listing\ListCommandsCommand.cs" />
     <Compile Include="Commands\Listing\ListFamiliesCommand.cs" />
     <Compile Include="Commands\Listing\ListUsersCommand.cs" />
     <Compile Include="Commands\Listing\ListUserVisitsCommand.cs" />

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace SocialServicesManager.App.Commands.Export
 {
-    public class ExportUserReport : ExporterCommand, ICommand
+    public class ExportUserReport : Command, ICommand
     {
         public ExportUserReport(IDataFactory dataFactory) 
             : base(dataFactory)

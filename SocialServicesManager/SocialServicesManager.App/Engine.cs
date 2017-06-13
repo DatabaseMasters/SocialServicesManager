@@ -24,6 +24,8 @@ namespace SocialServicesManager.App
 
         public void Start()
         {
+            this.writer.WriteLine("Welcome to Social Services Manager! \n help lists available commands");
+
             while (true)
             {
                 string commandLine = this.reader.ReadLine();
