@@ -86,7 +86,7 @@ namespace SocialServicesManager.Data.Services.PdfReport
 
             string[] userVisitsCells = { "Date", "Description", "Visit type" };
 
-            var userVisits = PdfProvider.CreateTable(4, userVisitsCells, 50, "User visits table");
+            var userVisits = PdfProvider.CreateTable(3, userVisitsCells, 50, "User visits table");
 
             foreach (Visit visit in visits)
             {
