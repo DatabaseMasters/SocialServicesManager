@@ -38,7 +38,7 @@ namespace SocialServicesManager.App.Commands.Import
                 families = DataParser.ParseFamiliesXMLData(filePath, this.DataFactory);
             }
 
-            return $"{families} successfully families imported from {Path.GetFullPath(filePath)}";
+            return $"Successfully imported {families} families from {Path.GetFullPath(filePath)}";
         }
 
         protected override void ValidateParameters(IList<string> parameters, int paramterCount)
