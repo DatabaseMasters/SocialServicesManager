@@ -16,6 +16,8 @@ Create
 
 [Delete](#delete)
 
+[Import](#import)
+
 [Export](#export)
 
 ## DEMO COMMAND SET ##
@@ -110,7 +112,7 @@ updatechild 1 null null null null 5
 
 1. ### FAMILY MEMBER
 
-    valid format: CreateFamilyMember **[FirstName] [LastName] [Gender] [AddressId] [FamilyId]**
+    valid format: **CreateFamilyMember [FirstName] [LastName] [Gender] [AddressId] [FamilyId]**
     ```
     createfamilymember Lina Orlova female 1 1
     createfamilymember Yovko Radev male 1 1
@@ -246,7 +248,10 @@ deletefamily 5
 ```
 
 ## IMPORT
-...
+
+**ImportData [Format] [file path]**
+
+Supported formats: JSON, XML
 
 ## EXPORT
 
